@@ -36,17 +36,17 @@
     <header class="bg-gradient-to-r from-sky-400 via-teal-300 to-sky-400 text-white py-3 px-4 sticky top-0 z-40 shadow-md flex items-center justify-between">
         <div class="flex items-center space-x-2">
             <!-- Ocean & Sumikko Vibe Emoji -->
-            <span class="text-5xl">🏝️</span>
+            <span class="text-5xl">🌸</span>
             <div>
-                <h1 class="text-2xl font-black tracking-wider" style="text-shadow: -1px -1px 0 #5C4033, 1px -1px 0 #5C4033, -1px 1px 0 #5C4033, 1px 1px 0 #5C4033, 2px 2px 0 rgba(0,0,0,0.15);">沖繩自由行助手</h1>
-                <p class="text-xs opacity-90">Okinawa Travel Assistant 🐳</p>
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-white whitespace-nowrap" style="text-shadow: -1px -1px 0 #5c3a21, 1px -1px 0 #5c3a21, -1px 1px 0 #5c3a21, 1px 1px 0 #5c3a21;">沖繩自由行助手</h1>
+                <p class="text-xs font-semibold text-[#8b5a2b]">Okinawa Travel Assistant</p>
             </div>
         </div>
         <div>
-            <button onclick="showTab('itinerary')" id="nav-itinerary" class="nav-item flex items-center space-x-1 bg-white px-5 py-2 rounded-full text-base font-bold transition-all shadow-sm text-slate-400">
-                <span>📅</span>
-                <span>行程</span>
-            </button>
+	    <button onclick="showTab('itinerary')" id="nav-itinerary" class="nav-item flex items-center space-x-1.5 bg-white px-4 py-2 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-extrabold transition-all shadow-md text-sky-600 whitespace-nowrap border border-sky-100">
+    		<span class="text-base sm:text-base">📅</span>
+    		<span>行程</span>
+	    </button>
         </div>
     </header>
 
@@ -63,6 +63,20 @@
                 <button onclick="switchDay(4)" id="btn-day4" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D4 (7/14)</button>
                 <button onclick="switchDay(5)" id="btn-day5" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D5 (7/15)</button>
                 <button onclick="switchDay(6)" id="btn-day6" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D6 (7/16)</button>
+            </div>
+
+            <!-- 那霸即時天氣看板 -->
+            <div id="naha-weather-board" class="bg-white rounded-2xl p-4 shadow-md border border-sky-100 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <span id="naha-weather-emoji" class="text-3xl">🎏</span>
+                    <div>
+                        <h4 class="text-sm font-bold text-sky-600">那霸市目前即時天氣</h4>
+                        <p id="naha-weather-desc" class="text-[11px] text-gray-500 font-bold">即時氣象獲取中...</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span id="naha-weather-temp" class="text-xl font-extrabold text-slate-800">--°C</span>
+                </div>
             </div>
 
             <!-- DAY 1 CARD -->
@@ -1571,10 +1585,64 @@
         }
 
         // Init App States on load
+
+// 取得那霸市即時氣象資料 (使用 Open-Meteo 免費 API)
+        function getNahaWeather() {
+            var url = 'https://api.open-meteo.com/v1/forecast?latitude=26.2124&longitude=127.6809&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo';
+            fetch(url)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data && data.current) {
+                        var temp = Math.round(data.current.temperature_2m);
+                        var code = data.current.weather_code;
+                        var maxTemp = data.daily && data.daily.temperature_2m_max ? Math.round(data.daily.temperature_2m_max[0]) : null;
+                        var minTemp = data.daily && data.daily.temperature_2m_min ? Math.round(data.daily.temperature_2m_min[0]) : null;
+                        
+                        // 天氣代碼對應 Emoji 與中文描述
+                        var emoji = '☀️';
+                        var desc = '晴朗';
+                        
+                        if (code === 0) { emoji = '☀️'; desc = '晴朗'; }
+                        else if (code >= 1 && code <= 3) { emoji = '☁️'; desc = '多雲偏晴'; }
+                        else if (code >= 45 && code <= 48) { emoji = '🌫️'; desc = '有霧'; }
+                        else if (code >= 51 && code <= 67) { emoji = '🌧️'; desc = '細雨或小雨'; }
+                        else if (code >= 71 && code <= 77) { emoji = '❄️'; desc = '降雪'; }
+                        else if (code >= 80 && code <= 82) { emoji = '🌧️'; desc = '陣雨'; }
+                        else if (code >= 95 && code <= 99) { emoji = '⛈️'; desc = '雷陣雨'; }
+
+                        var tempStr = temp + '°C';
+                        var descStr = desc;
+                        if (maxTemp !== null && minTemp !== null) {
+                            descStr += ' (今日氣溫介於 ' + minTemp + '°C ~ ' + maxTemp + '°C)';
+                        }
+
+                        var emojiEl = document.getElementById('naha-weather-emoji');
+                        var descEl = document.getElementById('naha-weather-desc');
+                        var tempEl = document.getElementById('naha-weather-temp');
+
+                        if (emojiEl) emojiEl.innerText = emoji;
+                        if (descEl) descEl.innerText = descStr;
+                        if (tempEl) tempEl.innerText = tempStr;
+                    } else {
+                        fallbackWeather();
+                    }
+                })
+                .catch(function(err) {
+                    fallbackWeather();
+                });
+        }
+
+        function fallbackWeather() {
+            var descEl = document.getElementById('naha-weather-desc');
+            if (descEl) descEl.innerText = '暫時無法連線取得那霸即時氣象';
+        }
+
+        // Init App States on load
         window.onload = function() {
             renderPrep();
             renderShop();
             loadMemos(); // Loaded updated array-based memo system
+            getNahaWeather(); // 自動取得那霸即時天氣
 
             // 安全載入匯率設定（透過 Try-Catch 機制包裝防止沙盒內 crashes）
             var savedRate = getStoredItem('exRate', '0.215');
