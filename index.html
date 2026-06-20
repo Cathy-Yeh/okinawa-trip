@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html>
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>沖繩自由行助手</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Font for Cute Rounded Text -->
-    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&amp;family=Noto+Sans+TC:wght@400;700&amp;display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Kosugi Maru', 'Noto Sans TC', sans-serif;
@@ -26,6 +27,7 @@
             text-decoration: line-through;
             opacity: 0.7;
         }
+
     </style>
 </head>
 <body class="flex flex-col min-h-screen text-slate-800 pb-20 select-none">
@@ -34,15 +36,17 @@
     <header class="bg-gradient-to-r from-sky-400 via-teal-300 to-sky-400 text-white py-3 px-4 sticky top-0 z-40 shadow-md flex items-center justify-between">
         <div class="flex items-center space-x-2">
             <!-- Ocean & Sumikko Vibe Emoji -->
-            <span class="text-2xl">🐚</span>
+            <span class="text-5xl">🏝️</span>
             <div>
-                <h1 class="text-lg font-bold tracking-wider">沖繩自由行助手</h1>
+                <h1 class="text-2xl font-black tracking-wider" style="text-shadow: -1px -1px 0 #5C4033, 1px -1px 0 #5C4033, -1px 1px 0 #5C4033, 1px 1px 0 #5C4033, 2px 2px 0 rgba(0,0,0,0.15);">沖繩自由行助手</h1>
                 <p class="text-xs opacity-90">Okinawa Travel Assistant 🐳</p>
             </div>
         </div>
-        <div class="flex items-center space-x-1 bg-white/20 px-2 py-1 rounded-full text-xs">
-            <span>🏝️</span>
-            <span>角落小夥伴同行中</span>
+        <div>
+            <button onclick="showTab('itinerary')" id="nav-itinerary" class="nav-item flex items-center space-x-1 bg-white px-5 py-2 rounded-full text-base font-bold transition-all shadow-sm text-slate-400">
+                <span>📅</span>
+                <span>行程</span>
+            </button>
         </div>
     </header>
 
@@ -50,7 +54,7 @@
     <main class="flex-grow p-4 max-w-md mx-auto w-full">
 
         <!-- SECTION 1: 行程區塊 (Itinerary) -->
-        <section id="sec-itinerary" class="tab-content space-y-6">
+        <section id="sec-itinerary" class="tab-content space-y-6 hidden">
             <!-- Day Selector Tab -->
             <div class="flex space-x-2 overflow-x-auto py-1 justify-start">
                 <button onclick="switchDay(1)" id="btn-day1" class="day-btn px-4 py-2 rounded-full bg-sky-500 text-white text-sm font-bold shadow-sm whitespace-nowrap">D1 (7/11)</button>
@@ -63,306 +67,451 @@
 
             <!-- DAY 1 CARD -->
             <div id="day-card-1" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden">
-                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🐱</div>
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">✈️</div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
                     <h2 class="text-xl font-bold text-sky-600">DAY 1 來去沖繩</h2>
                     <p class="text-xs text-amber-500 font-bold">📅 7/11 (六) 那霸市天氣 ☀️ 28°C ~ 32°C</p>
                 </div>
                 <div class="space-y-4 text-sm">
                     <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">10:00 ~ 11:00</span>
+                        <p class="font-bold">出發前往桃園國際機場</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=桃園國際機場" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至桃園機場</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
                         <span class="text-xs text-sky-500 font-bold block">11:00</span>
-                        <p class="font-bold">抵達桃園國際機場第一航廈</p>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1">✈️ 泰越捷航空 VZ568 (14:55-17:20)</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=桃園國際機場+第一航廈" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-2 hover:underline">🗺️ 導航至桃園機場</a>
+                        <p class="font-bold">抵達桃園國際機場</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=桃園國際機場" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至桃園機場</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">17:20</span>
-                        <p class="font-bold">降落那霸機場</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=那霸機場" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至那霸機場</a>
+                        <span class="text-xs text-sky-500 font-bold block">11:00 ~ 11:45</span>
+                        <p class="font-bold">【泰越捷航空】辦理 Check-in 及託運行李</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:00</span>
-                        <p class="font-bold">國內線航廈 2 樓伴手禮採購</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：Ferme La Terre Biei 起司三明治（加購保冷劑）</span>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：宮古島雪鹽法蘭酥</span>
+                        <span class="text-xs text-sky-500 font-bold block">11:45 ~ 12:45</span>
+                        <p class="font-bold">機場午餐及出發前休息</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:55</span>
-                        <p class="font-bold">單軌小祿站 ➔ AEON Naha 寄物</p>
-                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🎒 使用車站或賣場無料寄物櫃</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=AEON+MALL+Naha+Okinawa" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 AEON</a>
+                        <span class="text-xs text-sky-500 font-bold block">12:45 ~ 13:40</span>
+                        <p class="font-bold">通過安檢及出境查驗</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">19:10</span>
-                        <p class="font-bold">晚餐：琉球新麵 通堂 小祿本店</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍜 必吃：招牌男人麵/女人麵與辣豆芽菜</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=琉球新麵+通堂+小祿本店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至通堂拉麵</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(拉麵與店面外觀)</div>
+                        <span class="text-xs text-sky-500 font-bold block">13:40 ~ 14:20</span>
+                        <p class="font-bold">免稅店購物、候機</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">20:10</span>
-                        <p class="font-bold">AEON 超市大採購</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：水蜜桃、宮平鮮乳、大創泡澡球</span>
+                        <span class="text-xs text-sky-500 font-bold block">14:20 ~ 14:55</span>
+                        <p class="font-bold">前往登機門準備登機</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">21:15</span>
-                        <p class="font-bold">抵達飯店與全家採購</p>
+                        <span class="text-xs text-sky-500 font-bold block">14:55 ~ 17:20</span>
+                        <p class="font-bold">搭乘泰越捷航空 VZ568 飛往沖繩</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">17:20 ~ 18:00</span>
+                        <p class="font-bold">下飛機、順利出關、提領行李</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:00 ~ 18:40</span>
+                        <p class="font-bold">前往國內線航廈 2 樓採購伴手禮</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買伴手禮：Ferme La Terre Biei 北海道雙倍奶油起司三明治 (加購保冷劑)</span>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買伴手禮：雪鹽ぱりん 宮古島雪鹽法蘭酥</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=那霸機場+國內線航廈" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至國內線航廈</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:40 ~ 18:55</span>
+                        <p class="font-bold">從機場搭乘單軌電車前往小祿站</p>
+                        <a href="https://maps.app.goo.gl/o91vHFcTrq3Ndfjo8" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至小祿站</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:55 ~ 19:10</span>
+                        <p class="font-bold">步行至 AEON Naha 寄放行李</p>
+                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🎒 備註：使用車站或賣場內的無料寄物櫃寄放行李</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=AEON+MALL+Naha" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 AEON Naha</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">19:10 ~ 20:10</span>
+                        <p class="font-bold">步行至琉球新麵 通堂 小祿本店享用晚餐</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍜 必吃美食：招牌男人麵/女人麵與辣豆芽菜</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=琉球新麵+通堂+小祿本店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至通堂拉麵</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">20:10 ~ 21:00</span>
+                        <p class="font-bold">回到 AEON Naha 逛超市買伴手禮及大創</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：水蜜桃、宮平鮮乳、零食、大創泡澡球</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=AEON+MALL+Naha" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 AEON Naha</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">21:00 ~ 21:15</span>
+                        <p class="font-bold">搭乘單軌電車前往旭橋站下車</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=旭橋站" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至旭橋站</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">21:15 ~ 21:25</span>
+                        <p class="font-bold">抵達飯店樓下的全家便利商店</p>
                         <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：三平炸雞皮餅乾</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full mt-1">🏨 辦理大和ROYNET飯店 Check-in</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=FamilyMart+沖繩縣廳前" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至全家便利商店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">21:25 ~ 21:40</span>
+                        <p class="font-bold">辦理【縣廳前大和ROYNET酒店】Check-in，開始宵夜派對</p>
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full mt-1">🏨 住宿：縣廳前大和ROYNET酒店</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
                     </div>
                 </div>
             </div>
 
             <!-- DAY 2 CARD -->
             <div id="day-card-2" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🐻</div>
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🍧</div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
                     <h2 class="text-xl font-bold text-sky-600">DAY 2 牧志市場與國際通巡禮</h2>
                     <p class="text-xs text-amber-500 font-bold">📅 7/12 (日) 那霸市天氣 ☁️ 27°C ~ 31°C</p>
                 </div>
                 <div class="space-y-4 text-sm">
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:30</span>
-                        <p class="font-bold">第一牧志公設市場與週邊</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必逛：市場 1 樓【大城屋】伴手禮採購</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=第一牧志公設市場" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至牧志市場</a>
+                        <span class="text-xs text-sky-500 font-bold block">08:30 ~ 09:30</span>
+                        <p class="font-bold">飯店早餐</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">11:30</span>
-                        <p class="font-bold">午餐：麥當勞 國際通牧志店</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍔 必吃：日本夏季限定水果冰沙及辣味雞塊</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=麥當勞+國際通牧志店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至麥當勞</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(限定冰沙與辣雞塊)</div>
+                        <span class="text-xs text-sky-500 font-bold block">09:30 ~ 11:30</span>
+                        <p class="font-bold">【牧志公設市場與週邊】漫步採購</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買伴手禮：第一牧志市場內一樓【大城屋】伴手禮</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=第一牧志公設市場" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至牧志市場</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">14:30</span>
-                        <p class="font-bold">國際通精華購物</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 第一站：Calbee+（紅芋薯條）</span>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 第二站：Animate 那霸（4F 動漫周邊）</span>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 第三站：長七屋 國際通牧志店（沖繩藍飾品）</span>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 第四站：Splash okinawa 3號店（海洋風雜貨、變色水杯）</span>
-                        <div class="mt-2 space-y-1">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Calbee+plus+沖繩國際通店" target="_blank" class="block text-xs text-sky-600 hover:underline">🗺️ 導航至 Calbee+</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Animate+Naha" target="_blank" class="block text-xs text-sky-600 hover:underline">🗺️ 導航至 Animate</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=長七屋+国際通り久茂地店" target="_blank" class="block text-xs text-sky-600 hover:underline">🗺️ 導航至長七屋久茂地店</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Splash+okinawa+3號店" target="_blank" class="block text-xs text-sky-600 hover:underline">🗺️ 導航至 Splash 3號店</a>
-                        </div>
+                        <span class="text-xs text-sky-500 font-bold block">11:30 ~ 13:00</span>
+                        <p class="font-bold">【麥當勞 國際通牧志店】午餐</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍔 必吃美食：日本麥當勞夏季限定餐點</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=麥當勞+國際通牧志店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至麥當勞</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">17:45</span>
-                        <p class="font-bold">晚餐：琉家拉麵 國際通本店</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍜 必吃：黑蒜油拉麵 (海苔上有笑臉)</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=琉家+國際通本店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至琉家拉麵</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(笑臉海苔黑蒜油拉麵)</div>
+                        <span class="text-xs text-sky-500 font-bold block">13:00 ~ 14:30</span>
+                        <p class="font-bold">國際通巷弄探訪與移動</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">14:30 ~ 17:00</span>
+                        <p class="font-bold">開啟【國際通】精華購物</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=沖繩國際通" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至國際通</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">14:30 ~ 15:15</span>
+                        <p class="font-bold">第一站：【Calbee+ 專專賣店】</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍟 必吃美食：現炸紅芋薯條 (於店內享用)</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Calbee+plus+沖繩國際通店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Calbee+</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">15:15 ~ 16:15</span>
+                        <p class="font-bold">第二站：【Animate Naha】（Hana Bldg. 4F）</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：動漫週邊與沖繩限定徽章立牌</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Animate+Naha" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Animate</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">16:15 ~ 16:55</span>
+                        <p class="font-bold">第三站：【長七屋ー國際通り久茂地店】</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：精選「沖繩藍」海洋風飾品</span>
+                        <a href="https://maps.app.goo.gl/e428qHp1hRiGvyn97" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至長七屋</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">16:55 ~ 17:30</span>
+                        <p class="font-bold">第四站：【Splash okinawa 海洋風小館 3 號店】</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：手作雜貨與海洋風變色水杯</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Splash+okinawa+3號店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Splash 3號店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">17:30 ~ 17:45</span>
+                        <p class="font-bold">步行前往晚餐餐廳</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">17:45 ~ 19:15</span>
+                        <p class="font-bold">晚餐：【琉家拉麵 國際通本店】享用晚餐</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍜 必吃美食：招牌黑蒜油拉麵 (海苔上有可愛笑臉)</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=琉家+國際通本店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至琉家拉麵</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">19:15 ~ 19:30</span>
+                        <p class="font-bold">散步回【縣廳前大和 Roynet 飯店】休息</p>
+                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🎒 備註：使用下午在 AEON Naha 二樓大創買的泡澡球舒服泡澡</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
                     </div>
                 </div>
             </div>
 
             <!-- DAY 3 CARD -->
             <div id="day-card-3" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🐧</div>
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🦉</div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
                     <h2 class="text-xl font-bold text-sky-600">DAY 3 沖繩南部GO</h2>
                     <p class="text-xs text-amber-500 font-bold">📅 7/13 (一) 南部天氣 ☀️ 29°C ~ 33°C</p>
                 </div>
                 <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">07:30 ~ 08:30</span>
+                        <p class="font-bold">飯店早餐</p>
+                    </div>
                     <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
-                        <span class="text-xs text-red-500 font-bold block">08:45 (09:00出發)</span>
-                        <p class="font-bold text-red-600">🚨 交通工具集合點：那霸縣廳前 RYUBO百貨 BLUE SEAL 店鋪前</p>
-                        <p class="text-xs text-gray-600 mt-1">💡 憑證：沖繩南部 Fun Pass (KKday APP 憑證)</p>
-                        <p class="text-xs text-red-600 font-bold mt-1">🎧 語音導覽兌換序號：875146795599</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
+                        <span class="text-xs text-red-500 font-bold block">08:45 (09:00 出發)</span>
+                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩南部 Fun Pass (KKday APP 憑證)</span>
+                        <span class="inline-block bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎧 語音導覽兌換序號：875146795599</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:30</span>
-                        <p class="font-bold">沖繩世界 (玉泉洞、王國村、毒蛇博物館)</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=沖繩世界+玉泉洞" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至玉泉洞</a>
+                        <span class="text-xs text-sky-500 font-bold block">09:30 ~ 12:00</span>
+                        <p class="font-bold">【沖繩世界】</p>
+                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🎒 備註：順遊鐘乳石玉泉洞、王國村、毒蛇博物館三大區域</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=沖繩世界" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至沖繩世界</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">12:30</span>
-                        <p class="font-bold">午餐：系滿漁市場</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🦀 必吃：炭烤海鮮與海鮮丼飯</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=糸満漁業協同組合+お魚センター" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至系滿漁市場</a>
+                        <span class="text-xs text-sky-500 font-bold block">12:30 ~ 13:30</span>
+                        <p class="font-bold">【系滿漁市場】享用美味海鮮</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🦀 必吃美食：炭烤海鮮與海鮮丼飯</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=糸満漁業協同組合+お魚センター" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至系滿漁市場</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">13:40</span>
-                        <p class="font-bold">iias豐崎購物中心 OR DMM水族館</p>
+                        <span class="text-xs text-sky-500 font-bold block">13:40 ~ 15:40</span>
+                        <p class="font-bold">【Iias豐崎購物中心】 OR 【DMM水族館】</p>
                         <div class="flex space-x-2 mt-1">
-                            <a href="https://www.google.com/maps/search/?api=1&query=iias+Toyosaki" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 iias</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=DMM+Kariyushi+Aquarium" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 DMM 水族館</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=iias+Toyosaki" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 iias</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=DMM+Kariyushi+Aquarium" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 DMM 水族館</a>
                         </div>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">16:30</span>
-                        <p class="font-bold">瀨長島下午茶</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🥞 必吃：幸福鬆餅與海景</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=幸福鬆餅+瀨長島" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至幸福鬆餅</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(幸福鬆餅美照)</div>
+                        <span class="text-xs text-sky-500 font-bold block">16:30 ~ 18:00</span>
+                        <p class="font-bold">【瀨長島】吃幸福鬆餅賞海景</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🥞 必吃美食：幸福鬆餅與絕美海景</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=幸福鬆餅+瀨長島" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至幸福鬆餅</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:30</span>
-                        <p class="font-bold">晚餐：鳥貴族（県庁前国際通り店）</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍢 必吃：極致美味平價串燒</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=鳥貴族+県庁前国際通り店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至鳥貴族</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(鳥貴族串燒)</div>
+                        <span class="text-xs text-sky-500 font-bold block">18:00</span>
+                        <p class="font-bold">抵達縣廳前解散</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">20:30</span>
-                        <p class="font-bold">美麗海直營店 Umichurara</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：鯨鯊包裝紅薯巧克力脆餅</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=うみちゅらら+那霸" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至直營店</a>
+                        <span class="text-xs text-sky-500 font-bold block">18:00 ~ 18:30</span>
+                        <p class="font-bold">回【縣廳前大和 Roynet 飯店】稍作休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:30</span>
+                        <p class="font-bold">晚餐：【鳥貴族（県庁前國際通り店）】</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍢 必吃美食：極致美味平價串燒</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=鳥貴族+県庁前國際通り店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至鳥貴族</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">20:30 ~ 21:00</span>
+                        <p class="font-bold">【美麗海直營店 Umichurara (うみちゅらら 國際通り店)】</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買伴手禮：鯨鯊包裝紅薯巧克力脆餅</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=うみちゅらら+那霸" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至直營店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">21:00 ~ 21:10</span>
+                        <p class="font-bold">散步回【縣廳前大和 Roynet 飯店】休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
                     </div>
                 </div>
             </div>
 
             <!-- DAY 4 CARD -->
             <div id="day-card-4" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🐷</div>
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">👒</div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
                     <h2 class="text-xl font-bold text-sky-600">DAY 4 沖繩中部GO</h2>
                     <p class="text-xs text-amber-500 font-bold">📅 7/14 (二) 中部天氣 ☁️ 28°C ~ 32°C</p>
                 </div>
                 <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">07:00 ~ 08:00</span>
+                        <p class="font-bold">飯店早餐</p>
+                    </div>
                     <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
-                        <span class="text-xs text-red-500 font-bold block">08:10 (08:20出發)</span>
-                        <p class="font-bold text-red-600">🚨 交通工具集合點：那霸縣廳前 RYUBO百貨 BLUE SEAL 店鋪前</p>
-                        <p class="text-xs text-gray-600 mt-1">💡 憑證：沖繩中部 Easy Go (Klook APP 憑證)</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
+                        <span class="text-xs text-red-500 font-bold block">08:10 (08:20 出發)</span>
+                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩中部 Easy Go (Klook APP 憑證)</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:05</span>
-                        <p class="font-bold">道之驛嘉手納 (道の駅かでな)</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=道之驛嘉手納" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至嘉手納</a>
+                        <span class="text-xs text-sky-500 font-bold block">09:05 ~ 09:35</span>
+                        <p class="font-bold">【道之驛嘉手納 (道の駅かでな)】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=道之驛嘉手納" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至嘉手納</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:50</span>
-                        <p class="font-bold">東南植物樂園</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=東南植物樂園" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至東南植物園</a>
+                        <span class="text-xs text-sky-500 font-bold block">09:50 ~ 11:00</span>
+                        <p class="font-bold">【東南植物樂園】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=東南植物樂園" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至東南植物園</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">11:35</span>
-                        <p class="font-bold">午餐：星野 OLU Grill 海景餐廳</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍔 必吃：豬肉漢堡套餐與海景</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Hoshino+Resorts+OLU+Grill" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 OLU Grill</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(豬肉漢堡套餐)</div>
+                        <span class="text-xs text-sky-500 font-bold block">11:35 ~ 12:55</span>
+                        <p class="font-bold">星野度假飯店【OLU Grill 海景餐廳】午餐</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍔 必吃美食：經典豬肉漢堡套餐與無敵海景</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Hoshino+Resorts+OLU+Grill" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 OLU Grill</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">13:10</span>
-                        <p class="font-bold">殘波岬</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=殘波岬" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至殘波岬</a>
+                        <span class="text-xs text-sky-500 font-bold block">13:10 ~ 13:40</span>
+                        <p class="font-bold">【殘波岬】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=殘波岬" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至殘波岬</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">14:20</span>
-                        <p class="font-bold">🛍️ AEON MALL 永旺夢樂城沖繩來客夢</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：New Balance、Nike、On、Hoka 日本限定球鞋</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=AEON+MALL+Okinawa+Rycom" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至來客夢</a>
+                        <span class="text-xs text-sky-500 font-bold block">14:20 ~ 16:50</span>
+                        <p class="font-bold">【AEON MALL 永旺夢樂城沖繩來客夢】精華購物</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買戰利品：On 昂跑、HOKA 日本限定球鞋、Panasonic 吹風機</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=AEON+MALL+Okinawa+Rycom" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至來客夢</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:30</span>
-                        <p class="font-bold">晚餐：Captain's Inn Kokusai Street</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🥩 必吃：阿古豬里肌排+海鮮花式鐵板燒饗宴</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Captains+Inn+Kokusai+Street" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Captain's Inn</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(花式鐵板燒表演)</div>
+                        <span class="text-xs text-sky-500 font-bold block">18:00</span>
+                        <p class="font-bold">抵達縣廳前解散</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">20:00</span>
-                        <p class="font-bold">札幌藥妝 沖繩國際通店</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：ALLIE 防曬、日本熱門藥妝</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=札幌藥妝+沖繩國際通店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至札幌藥妝</a>
+                        <span class="text-xs text-sky-500 font-bold block">18:00 ~ 18:30</span>
+                        <p class="font-bold">回【縣廳前大和 Roynet 飯店】稍作休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:00</span>
+                        <p class="font-bold">晚餐：【Captain's Inn Kokusai Street】</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🥩 必吃美食：阿古豬里肌排套餐 + 鮮活海鮮花式鐵板燒表演饗宴</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Captains+Inn+Kokusai+Street" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Captain's Inn</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">20:00 ~ 21:00</span>
+                        <p class="font-bold">【札幌藥妝 沖繩國際通店】採買藥妝</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：ALLIE 持采UV高效防曬水凝乳、各類人氣日本藥妝</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=札幌藥妝+沖繩國際通店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至札幌藥妝</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">21:00 ~ 21:10</span>
+                        <p class="font-bold">散步回【縣廳前大和 Roynet 飯店】休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
                     </div>
                 </div>
             </div>
 
             <!-- DAY 5 CARD -->
             <div id="day-card-5" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🦕</div>
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">🐠</div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
                     <h2 class="text-xl font-bold text-sky-600">DAY 5 沖繩北部GO</h2>
                     <p class="text-xs text-amber-500 font-bold">📅 7/15 (三) 北部天氣 🌧️ 27°C ~ 30°C</p>
                 </div>
                 <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">07:00 ~ 08:00</span>
+                        <p class="font-bold">飯店早餐</p>
+                    </div>
                     <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
-                        <span class="text-xs text-red-500 font-bold block">08:20 (08:30出發)</span>
-                        <p class="font-bold text-red-600">🚨 交通工具集合點：那霸縣廳前 RYUBO 百貨 BLUE SEAL 店鋪前</p>
-                        <p class="text-xs text-gray-600 mt-1">💡 憑證：沖繩北部 Amphibians (KKday APP 憑證)</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
+                        <span class="text-xs text-red-500 font-bold block">08:20 (08:30 出發)</span>
+                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩北部 Amphibians (KKday APP 憑證)</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:40</span>
-                        <p class="font-bold">萬座毛</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=萬座毛" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至萬座毛</a>
+                        <span class="text-xs text-sky-500 font-bold block">09:40 ~ 10:10</span>
+                        <p class="font-bold">【萬座毛】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=萬座毛" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至萬座毛</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">11:15</span>
-                        <p class="font-bold">古宇利大橋（古宇利島）</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🦀 必吃：享用手繪圖盒裝蒜味蝦蝦飯</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=古宇利大橋" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至古宇利大橋</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(手繪圖盒裝蝦蝦飯)</div>
+                        <span class="text-xs text-sky-500 font-bold block">11:15 ~ 12:05</span>
+                        <p class="font-bold">【古宇利島】(享用招牌蒜味蝦蝦飯）</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍤 必吃美食：享用手繪圖盒裝蒜味蝦蝦飯</span>
+                        <a href="https://maps.app.goo.gl/Q9ioA7GgaTWXrWr87" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至古宇利島</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">12:30</span>
-                        <p class="font-bold">美麗海水族館 (吹冷氣、賞鯨鯊)</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=沖繩美麗海水族館" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至美麗海水族館</a>
+                        <span class="text-xs text-sky-500 font-bold block">12:30 ~ 16:00</span>
+                        <p class="font-bold">【美麗海水族館】</p>
+                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🐋 備註：吹冷氣、賞「黑潮之海」巨型觀景窗與大鯨鯊</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=沖繩美麗海水族館" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至美麗海水族館</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">17:20</span>
-                        <p class="font-bold">抵達美國村（下車地點，不作停留）</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=沖繩美國村" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至美國村</a>
+                        <span class="text-xs text-sky-500 font-bold block">18:10</span>
+                        <p class="font-bold">抵達縣廳前解散</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:30</span>
-                        <p class="font-bold">晚餐：Ryukyu Obanzai Tsukaya</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍱 必吃：精緻十二宮格琉球御膳</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Ryukyu+Obanzai+Tsukaya" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Tsukaya</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(十二宮格琉球御膳)</div>
+                        <span class="text-xs text-sky-500 font-bold block">18:10 ~ 18:30</span>
+                        <p class="font-bold">回 【縣廳前大和 Roynet 飯店】稍作休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">20:00</span>
-                        <p class="font-bold">MaxValu 牧志店</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🛒 最後大採買：零食、調味料伴手禮</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=MaxValu+Makishi" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 MaxValu</a>
+                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:00</span>
+                        <p class="font-bold">晚餐：【Ryukyu Obanzai Tsukaya】</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍱 必吃美食：精緻「十二宮格」琉球御膳</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Ryiqu+Obanzai+Tsukaya" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Tsukaya</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">20:00 ~ 20:15</span>
+                        <p class="font-bold">散步至【牧志站】搭乘電車回飯店</p>
+                        <div class="flex space-x-2 mt-1">
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=牧志站" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至牧志站</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至大和Roynet飯店</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- DAY 6 CARD -->
             <div id="day-card-6" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">👻</div>
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-amber-100 rounded-full opacity-40 flex items-center justify-center text-3xl">⛩️</div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
                     <h2 class="text-xl font-bold text-sky-600">DAY 6 達摩寺參拜與回台</h2>
                     <p class="text-xs text-amber-500 font-bold">📅 7/16 (四) 那霸市天氣 ☀️ 28°C ~ 32°C</p>
                 </div>
                 <div class="space-y-4 text-sm">
                     <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">08:00 ~ 09:00</span>
+                        <p class="font-bold">飯店早餐</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
                         <span class="text-xs text-sky-500 font-bold block">09:00</span>
-                        <p class="font-bold">搭單軌至首里站 ➔ 西來院 (達摩寺)</p>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full mt-1">🏷️ 必備：達摩御守、書包御守</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=西來院+達摩寺" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至達摩寺</a>
+                        <p class="font-bold">辦理退房，將行李寄存在飯店櫃檯</p>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">11:00</span>
-                        <p class="font-bold">午餐：漁師食堂 大ばんぶる舞 さかな大統漁</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🐟 必吃：比臉大鰻魚海鮮大餐</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Ryoshi+Shokudo+Obanburumai+Sakana+Daitoryo" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至漁師食堂</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(比臉大鰻魚海鮮大餐)</div>
+                        <span class="text-xs text-sky-500 font-bold block">09:00 ~ 10:30</span>
+                        <p class="font-bold">搭乘單軌電車到首里站下車，步行前往【西來院 (達摩寺)】參拜</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：達摩御守、書包御守 (保佑開運與學業平安)</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=西來院+達摩寺" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至達摩寺</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">12:30</span>
-                        <p class="font-bold">飯店領取行李 ➔ 旭橋站</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=旭橋站+沖繩" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至旭橋站</a>
+                        <span class="text-xs text-sky-500 font-bold block">10:30 ~ 11:00</span>
+                        <p class="font-bold">從達摩寺搭計程車前往【漁師食堂 大ばんぶる舞 さかな大統漁】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Ryoshi+Shokudo+Obanburumai+Sakana+Daitoryo" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至漁師食堂</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">13:30</span>
-                        <p class="font-bold">那霸機場國際線 4F 美食街觀機</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍙 必吃：pork tamago onigiri 炸蝦豬肉蛋飯糰</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=那霸機場+國際線航廈" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至那霸機場國際線</a>
-                        <div class="mt-2 text-xs text-gray-500 italic">💡 相片位置：(炸蝦豬肉蛋飯糰)</div>
+                        <span class="text-xs text-sky-500 font-bold block">11:00 ~ 12:15</span>
+                        <p class="font-bold">【漁師食堂 大ばんぶる舞 さかな大統漁】午餐</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🐟 必吃美食：享用比臉大鰻魚海鮮大餐</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Ryoshi+Shokudo+Obanburumai+Sakana+Daitoryo" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至漁師食堂</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">12:15 ~ 12:30</span>
+                        <p class="font-bold">搭乘計程車返回【縣廳前大和 ROYNET 飯店】領取行李</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">12:30 ~ 12:40</span>
+                        <p class="font-bold">從飯店步行至【旭橋站】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=旭橋站" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至旭橋站</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">12:40 ~ 13:10</span>
+                        <p class="font-bold">搭乘單軌電車前往【那霸機場站】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=那霸機場站" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至那霸機場站</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">13:10 ~ 13:30</span>
+                        <p class="font-bold">前往【3 樓出境大廳】確認行李寄放與開櫃時間</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">13:30 ~ 16:20</span>
+                        <p class="font-bold">前往國際線 4 樓【那覇空港国際線フードコート店】看飛機海景</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍙 必吃美食：pork tamago onigiri 炸蝦豬肉蛋飯糰 / Blue Seal 冰淇淋</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=那霸機場+國際線航廈" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至國際線航廈</a>
                     </div>
                     <div class="border-l-2 border-sky-400 pl-3">
                         <span class="text-xs text-sky-500 font-bold block">16:20</span>
-                        <p class="font-bold">辦理托運，準備回台</p>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1">✈️ 泰越捷航空 VZ569 (18:20-18:55)</span>
+                        <p class="font-bold">準時回國際線辦理託運、過安檢</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">16:20 ~ 18:20</span>
+                        <p class="font-bold">【泰越捷航空】辦理託運並準備登機</p>
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1">✈️ 航班：泰越捷航空 VZ569 (18:20 - 18:55) 返回台灣</span>
                     </div>
                 </div>
             </div>
@@ -386,7 +535,7 @@
                     <p><span class="font-bold">地址：</span>Daiwa Roynet Hotel, 1-11-2 Izumizaki, Naha, Okinawa 900-0021</p>
                     <p><span class="font-bold">電話：</span>+81988601855</p>
                     <p><span class="font-bold">備註：</span>憑證登入樂天旅遊或雅虎信箱</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-block text-xs text-sky-600 underline">🗺️ 開啟 Google Map 導航</a>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-block text-xs text-sky-600 underline">🗺️ 開啟 Google Map 導航</a>
                 </div>
             </div>
 
@@ -401,12 +550,12 @@
                     </div>
                     <div class="border-l-2 border-teal-400 pl-3">
                         <p class="font-bold text-teal-800">2026/7/14 沖繩中部 Easy Go</p>
-                        <p class="text-xs">憑證：Klook APP</p>
+                        <p class="text-xs font-bold">憑證：Klook APP</p>
                         <p class="text-xs text-gray-500">供應商電話：+81-5055263878 | Email: jphoka_sales@jph.co.jp</p>
                     </div>
                     <div class="border-l-2 border-teal-400 pl-3">
                         <p class="font-bold text-teal-800">2026/7/15 沖繩北部 Amphibians</p>
-                        <p class="text-xs">憑證：KKday APP</p>
+                        <p class="text-xs font-bold">憑證：KKday APP</p>
                         <p class="text-xs text-gray-500">供應商 LINE ID：@092alhfa</p>
                     </div>
                 </div>
@@ -450,15 +599,19 @@
             </div>
 
             <!-- Packing Items List -->
-            <div class="space-y-4" id="prep-categories-container">
-                <!-- Categories will be rendered by JS -->
-            </div>
+            <div class="space-y-4" id="prep-categories-container"><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 重要文件</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(1)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">護照 (效期需6個月以上)</span></label><button onclick="deletePrepItem(1)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(2)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">護照影本 (與正本分開擺放)</span></label><button onclick="deletePrepItem(2)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(3)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">2張2吋白底大頭照 (與正本分開擺放)</span></label><button onclick="deletePrepItem(3)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(4)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">身分證影本 (與正本分開擺放)</span></label><button onclick="deletePrepItem(4)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(5)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">機票 (建議下載PDF或截圖)</span></label><button onclick="deletePrepItem(5)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(6)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">登機證</span></label><button onclick="deletePrepItem(6)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(7)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">住宿證明 (建議下載PDF或截圖)</span></label><button onclick="deletePrepItem(7)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(8)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">KLOOK 交通票券 (建議下載憑證)</span></label><button onclick="deletePrepItem(8)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(9)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">KKDAY 交通票券 (建議下載憑證)</span></label><button onclick="deletePrepItem(9)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(10)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">旅遊保險文件 (建議下載PDF或截圖)</span></label><button onclick="deletePrepItem(10)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(11)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">簽證</span></label><button onclick="deletePrepItem(11)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(12)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">外幣</span></label><button onclick="deletePrepItem(12)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(13)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">信用卡 (需確認回饋、開通海外刷卡與預借現金密碼)</span></label><button onclick="deletePrepItem(13)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 個人用品</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(14)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">手機</span></label><button onclick="deletePrepItem(14)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(15)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">充電線</span></label><button onclick="deletePrepItem(15)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(16)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">充電器</span></label><button onclick="deletePrepItem(16)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(17)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">行動電源 (不可托運！需隨身攜帶)</span></label><button onclick="deletePrepItem(17)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(18)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">萬用轉接頭 (日本免轉接頭，一般充電器通用)</span></label><button onclick="deletePrepItem(18)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(19)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">網卡</span></label><button onclick="deletePrepItem(19)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(20)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">耳機</span></label><button onclick="deletePrepItem(20)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(21)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">隱形眼鏡</span></label><button onclick="deletePrepItem(21)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(22)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">太陽眼鏡</span></label><button onclick="deletePrepItem(22)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(23)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">飾品</span></label><button onclick="deletePrepItem(23)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(24)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">西瓜卡 / 交通卡 (建議出發前先加值)</span></label><button onclick="deletePrepItem(24)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(25)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">雨傘</span></label><button onclick="deletePrepItem(25)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(26)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">隨身小零錢包 (方便收納日本硬幣)</span></label><button onclick="deletePrepItem(26)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(27)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">環保購物袋 (日本超商與藥妝不提供免費塑膠袋)</span></label><button onclick="deletePrepItem(27)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(28)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">大容量摺疊行李袋 (防行李爆箱或免稅店爆買)</span></label><button onclick="deletePrepItem(28)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(29)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">原子筆</span></label><button onclick="deletePrepItem(29)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(30)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">休閒小側背包 / 防盜包 (出門逛街隨身攜帶較安全)</span></label><button onclick="deletePrepItem(30)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(31)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">空夾鏈袋幾只 (可用於分裝發票、收據或液體)</span></label><button onclick="deletePrepItem(31)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 個人衣物</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(32)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">內衣褲（＿＿ 套）</span></label><button onclick="deletePrepItem(32)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(33)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">上衣（＿＿ 件）</span></label><button onclick="deletePrepItem(33)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(34)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">下身（＿＿ 件）</span></label><button onclick="deletePrepItem(34)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(35)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">薄外套 / 防曬外套 (防海風與早晚溫差)</span></label><button onclick="deletePrepItem(35)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(36)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">襪子</span></label><button onclick="deletePrepItem(36)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(37)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">睡衣</span></label><button onclick="deletePrepItem(37)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(38)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">拖鞋</span></label><button onclick="deletePrepItem(38)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(39)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">帽子</span></label><button onclick="deletePrepItem(39)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(40)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">口罩（＿＿ 個）</span></label><button onclick="deletePrepItem(40)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 個人盥洗與美妝</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(41)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">卸妝棉</span></label><button onclick="deletePrepItem(41)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(42)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">洗面乳 (隨身限 100ml 內並裝透明夾鏈袋，其餘托運)</span></label><button onclick="deletePrepItem(42)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(43)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">牙膏</span></label><button onclick="deletePrepItem(43)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(44)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">牙刷</span></label><button onclick="deletePrepItem(44)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(45)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">牙線</span></label><button onclick="deletePrepItem(45)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(46)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">毛巾</span></label><button onclick="deletePrepItem(46)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(47)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">濕紙巾</span></label><button onclick="deletePrepItem(47)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(48)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">面紙</span></label><button onclick="deletePrepItem(48)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(49)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">防曬用品 (隨身限 100ml 內，加強防曬)</span></label><button onclick="deletePrepItem(49)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(50)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">保養品 (隨身限 100ml 內)</span></label><button onclick="deletePrepItem(50)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(51)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">化妝品 (隨身限 100ml 內)</span></label><button onclick="deletePrepItem(51)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 個人藥品</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(52)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">暈車藥 (搭船或出海行程必備)</span></label><button onclick="deletePrepItem(52)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(53)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">過敏藥</span></label><button onclick="deletePrepItem(53)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(54)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">感冒藥 (基本備用藥)</span></label><button onclick="deletePrepItem(54)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(55)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">蚊蟲止癢藥</span></label><button onclick="deletePrepItem(55)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(56)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">腹痛腹瀉藥 (基本備用藥)</span></label><button onclick="deletePrepItem(56)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(57)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">每日服用藥 (建議保留原處方箋或外包裝)</span></label><button onclick="deletePrepItem(57)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(58)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">酒精消毒噴霧</span></label><button onclick="deletePrepItem(58)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div></div>
         </section>
 
         <!-- SECTION 4: 購買清單區塊 (Shopping) -->
         <section id="sec-shop" class="tab-content hidden space-y-4">
             <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
-                <h3 class="font-bold text-lg text-sky-600 mb-2">🛒 沖繩採買購物清單</h3>
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-lg text-sky-600">🛒 沖繩採買購物清單</h3>
+                    <!-- Reset Button to force clear storage and load custom modifications -->
+                    <button onclick="resetShopToDefault()" class="text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-500 font-semibold px-2.5 py-1 rounded-lg border border-slate-200 transition-colors">
+                        重設預設清單
+                    </button>
+                </div>
                 <p class="text-xs text-gray-400">核對你要買的特色紀念品與商品，支持調整數量與自訂品項！</p>
             </div>
 
@@ -469,53 +622,115 @@
                 <button onclick="addShopItem()" class="bg-sky-500 text-white font-bold px-4 py-2 rounded-xl text-xs shadow hover:bg-sky-600">新增</button>
             </div>
 
-            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-4" id="shop-list-container">
-                <!-- Shopping items will be rendered by JS -->
-            </div>
+            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-4" id="shop-list-container"><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 1 購買項目</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(101)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Ferme La Terre Biei 北海道雙倍奶油起司三明治 (機場2F/3入精裝盒)</span><p class="text-[10px] text-gray-400 mt-0.5">1盒試吃</p></div></label><button onclick="deleteShopItem(101)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-101" onchange="uploadShopImage(101, this)" class="hidden"><button onclick="triggerShopImageUpload(101)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(101, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(101, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(101, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(102)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">宮古島雪鹽法蘭酥 (12入裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1盒試吃</p></div></label><button onclick="deleteShopItem(102)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-102" onchange="uploadShopImage(102, this)" class="hidden"><button onclick="triggerShopImageUpload(102)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(102, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(102, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(102, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(103)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">宮平鮮乳 (RYUBO B1 超市/946ml裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1瓶</p></div></label><button onclick="deleteShopItem(103)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-103" onchange="uploadShopImage(103, this)" class="hidden"><button onclick="triggerShopImageUpload(103)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(103, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(103, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(103, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(104)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩島鹽貓舌夾心餅乾 (RYUBO B1 超市/4入裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1包試吃</p></div></label><button onclick="deleteShopItem(104)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-104" onchange="uploadShopImage(104, this)" class="hidden"><button onclick="triggerShopImageUpload(104)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(104, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(104, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(104, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(105)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">三平炸雞皮餅乾 (全家便利商店/40g裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1包試吃</p></div></label><button onclick="deleteShopItem(105)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-105" onchange="uploadShopImage(105, this)" class="hidden"><button onclick="triggerShopImageUpload(105)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(105, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(105, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(105, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 2 土產店採購</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(106)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">南風堂辣味蝦餅 (14入或27入)</span><p class="text-[10px] text-gray-400 mt-0.5">14入x1, 27入x8</p></div></label><button onclick="deleteShopItem(106)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-106" onchange="uploadShopImage(106, this)" class="hidden"><button onclick="triggerShopImageUpload(106)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(106, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="9" onchange="setShopQty(106, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(106, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(107)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Kabaya 餅乾棒 (大盒裝)</span><p class="text-[10px] text-gray-400 mt-0.5">8盒</p></div></label><button onclick="deleteShopItem(107)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-107" onchange="uploadShopImage(107, this)" class="hidden"><button onclick="triggerShopImageUpload(107)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(107, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="8" onchange="setShopQty(107, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(107, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(108)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩SEIKA黑糖麻糬</span><p class="text-[10px] text-gray-400 mt-0.5">數量未定</p></div></label><button onclick="deleteShopItem(108)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-108" onchange="uploadShopImage(108, this)" class="hidden"><button onclick="triggerShopImageUpload(108)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(108, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(108, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(108, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(109)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Calbee 堅脆洋芋片 (50g 隨身包)</span><p class="text-[10px] text-gray-400 mt-0.5">1包試吃</p></div></label><button onclick="deleteShopItem(109)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-109" onchange="uploadShopImage(109, this)" class="hidden"><button onclick="triggerShopImageUpload(109)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(109, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(109, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(109, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(110)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩島辣椒粉 (12g~18g 玻璃裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1瓶</p></div></label><button onclick="deleteShopItem(110)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-110" onchange="uploadShopImage(110, this)" class="hidden"><button onclick="triggerShopImageUpload(110)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(110, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(110, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(110, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(111)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">石垣島辣油-激辛版 (100g裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1瓶</p></div></label><button onclick="deleteShopItem(111)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-111" onchange="uploadShopImage(111, this)" class="hidden"><button onclick="triggerShopImageUpload(111)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(111, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(111, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(111, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(112)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Calbee 限定黑糖脆薯粒 (144g 18gx8袋)</span><p class="text-[10px] text-gray-400 mt-0.5">5盒</p></div></label><button onclick="deleteShopItem(112)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-112" onchange="uploadShopImage(112, this)" class="hidden"><button onclick="triggerShopImageUpload(112)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(112, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="5" onchange="setShopQty(112, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(112, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(113)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Orion 啤酒酵母綜合堅果豆 (20袋大裝)</span><p class="text-[10px] text-gray-400 mt-0.5">5連包試吃</p></div></label><button onclick="deleteShopItem(113)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-113" onchange="uploadShopImage(113, this)" class="hidden"><button onclick="triggerShopImageUpload(113)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(113, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(113, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(113, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(114)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩水雲芽蕪海藻湯 (約85g)</span><p class="text-[10px] text-gray-400 mt-0.5">3包</p></div></label><button onclick="deleteShopItem(114)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-114" onchange="uploadShopImage(114, this)" class="hidden"><button onclick="triggerShopImageUpload(114)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(114, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(114, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(114, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ 水族館專賣店採購</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(115)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">大理石巧克力派-紅芋風味 (24入禮盒)</span><p class="text-[10px] text-gray-400 mt-0.5">3盒</p></div></label><button onclick="deleteShopItem(115)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-115" onchange="uploadShopImage(115, this)" class="hidden"><button onclick="triggerShopImageUpload(115)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(115, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(115, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(115, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(116)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">北谷鹽味莎布蕾餅乾 (32入禮盒)</span><p class="text-[10px] text-gray-400 mt-0.5">3盒</p></div></label><button onclick="deleteShopItem(116)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-116" onchange="uploadShopImage(116, this)" class="hidden"><button onclick="triggerShopImageUpload(116)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(116, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(116, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(116, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 4 購買項目</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(117)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">ALLIE 持采UV高效防曬水凝乳</span><p class="text-[10px] text-gray-400 mt-0.5">札幌藥妝</p></div></label><button onclick="deleteShopItem(117)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-117" onchange="uploadShopImage(117, this)" class="hidden"><button onclick="triggerShopImageUpload(117)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(117, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(117, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(117, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(118)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Panasonic 吹風機 (型號 EH-NE5N 或 EH-NE7N)</span><p class="text-[10px] text-gray-400 mt-0.5">AEON MALL永旺夢樂城沖繩來客夢</p></div></label><button onclick="deleteShopItem(118)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-118" onchange="uploadShopImage(118, this)" class="hidden"><button onclick="triggerShopImageUpload(118)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(118, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(118, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(118, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(119)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">On 昂跑、HOKA 球鞋</span><p class="text-[10px] text-gray-400 mt-0.5">AEON MALL永旺夢樂城沖繩來客夢</p></div></label><button onclick="deleteShopItem(119)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-119" onchange="uploadShopImage(119, this)" class="hidden"><button onclick="triggerShopImageUpload(119)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(119, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(119, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(119, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 6 購買項目</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(120)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">達摩御守、書包御守</span><p class="text-[10px] text-gray-400 mt-0.5">達摩寺</p></div></label><button onclick="deleteShopItem(120)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-120" onchange="uploadShopImage(120, this)" class="hidden"><button onclick="triggerShopImageUpload(120)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(120, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(120, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(120, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div></div>
         </section>
 
         <!-- SECTION 5: 匯率計算區塊 (Converter) -->
         <section id="sec-calc" class="tab-content hidden space-y-4">
             <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden">
-                <div class="absolute -top-5 -right-5 w-20 h-20 bg-teal-50 rounded-full opacity-40 flex items-center justify-center text-3xl">🪙</div>
-                <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-4">🪙 日幣匯率換算</h3>
-                
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-teal-50 rounded-full opacity-40 flex items-center justify-center text-3xl">💱</div>
+                <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-4">💱 日幣/台幣快速算</h3>
                 <div class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-500 mb-1">台幣匯率設定 (1 日圓 = ? 台幣)</label>
-                        <input type="number" id="ex-rate" value="0.215" step="0.0001" oninput="convertCurrency('rate')" class="w-full bg-slate-50 border border-sky-200 rounded-xl p-3 text-sm font-bold text-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-400">
+                        <input type="number" id="ex-rate" value="0.215" step="0.0001" oninput="convertCurrency('rate')" class="w-full bg-slate-50 border border-sky-200 rounded-xl p-3 text-sm font-bold text-sky-600 focus:outline-none">
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-gray-500 mb-1">日圓 (JPY ¥)</label>
-                            <input type="number" id="jpy-input" placeholder="0" oninput="convertCurrency('jpy')" class="w-full border border-sky-200 rounded-xl p-3 text-lg font-bold focus:outline-none focus:ring-1 focus:ring-sky-400">
+                            <input type="number" id="jpy-input" placeholder="0" oninput="convertCurrency('jpy')" class="w-full border border-sky-200 rounded-xl p-3 text-lg font-bold focus:outline-none">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-gray-500 mb-1">新台幣 (TWD $)</label>
-                            <input type="number" id="twd-input" placeholder="0" oninput="convertCurrency('twd')" class="w-full border border-sky-200 rounded-xl p-3 text-lg font-bold focus:outline-none focus:ring-1 focus:ring-sky-400">
+                            <input type="number" id="twd-input" placeholder="0" oninput="convertCurrency('twd')" class="w-full border border-sky-200 rounded-xl p-3 text-lg font-bold focus:outline-none">
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 text-center">💡 匯率變動時可自行手動調整上方的台幣匯率設定。</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 6: 備忘錄區塊 (Memo) -->
-        <section id="sec-memo" class="tab-content hidden space-y-4">
-            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
-                <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-3">📝 隨手備忘錄</h3>
-                <textarea id="memo-area" oninput="saveMemo()" placeholder="在這裡輸入任何想記錄的文字、地址、預算或想法... 系統會自動為你存檔喔！" class="w-full h-64 p-3 border border-sky-200 rounded-2xl text-sm focus:outline-none focus:border-sky-400 resize-none leading-relaxed"></textarea>
+        <!-- SECTION 6: 中日語音翻譯 (Translate) -->
+        <section id="sec-translate" class="tab-content hidden space-y-4">
+            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden">
+                <div class="absolute -top-5 -right-5 w-20 h-20 bg-teal-50 rounded-full opacity-40 flex items-center justify-center text-3xl">👄</div>
+                <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-4">👄 中日英多向即時翻譯</h3>
+                
+                <div class="space-y-3">
+                    <div class="flex space-x-2">
+                        <select id="trans-lang-pair" class="border border-sky-200 text-sm rounded-xl p-2 bg-sky-50 focus:outline-none font-bold">
+                            <option value="zh|ja">中文 ➔ 日文</option>
+                            <option value="ja|zh">日文 ➔ 中文</option>
+                            <option value="zh|en">中文 ➔ 英文</option>
+                            <option value="en|zh">英文 ➔ 中文</option>
+                        </select>
+                        <button onclick="startVoiceRecognition()" class="flex-grow bg-sky-500 text-white font-bold py-2 rounded-xl text-sm shadow hover:bg-sky-600 flex items-center justify-center space-x-1">
+                            <span id="mic-icon">🎤</span>
+                            <span id="mic-text">語音輸入</span>
+                        </button>
+                    </div>
+
+                    <div>
+                        <textarea id="trans-source" placeholder="請在此輸入文字，或使用語音輸入..." class="w-full h-24 p-3 border border-sky-200 rounded-2xl text-sm focus:outline-none resize-none"></textarea>
+                    </div>
+
+                    <button onclick="executeTranslation()" class="w-full bg-teal-400 text-white font-bold py-2.5 rounded-xl text-sm shadow hover:bg-teal-500 transition-colors">
+                        開始翻譯
+                    </button>
+
+                    <div class="border-t border-sky-50 pt-3">
+                        <label class="block text-xs font-bold text-slate-400 mb-1">翻譯結果：</label>
+                        <div id="trans-result-box" class="bg-slate-50 p-3 rounded-2xl min-h-[4rem] text-sm relative">
+                            <p id="trans-result-text" class="text-slate-800 font-bold leading-relaxed pr-8"></p>
+                            <button onclick="speakResult()" class="absolute right-3 top-3 bg-sky-100 hover:bg-sky-200 p-2 rounded-full hidden" id="btn-speak">
+                                🔊
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- SECTION 7: 備忘錄區塊 (Memo) -->
+        <section id="sec-memo" class="tab-content space-y-4">
+            <!-- Add Memo Form Container -->
+            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2">📝 隨手備忘錄</h3>
+                
+                <div class="flex flex-col space-y-2">
+                    <div class="flex space-x-2">
+                        <!-- Date Input -->
+                        <input type="date" id="new-memo-date" class="border border-sky-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-sky-400 font-bold bg-sky-50 text-sky-600">
+                        
+                        <!-- Upload Button -->
+                        <input type="file" accept="image/*" id="new-memo-file" onchange="previewMemoImage(this)" class="hidden">
+                        <button onclick="triggerMemoImageUpload()" class="flex-grow bg-sky-50 hover:bg-sky-100 text-sky-600 font-bold py-1.5 px-3 rounded-xl text-xs flex items-center justify-center space-x-1 border border-sky-200 transition-colors">
+                            <span>📷 拍照/相簿</span>
+                        </button>
+                    </div>
+
+                   <!-- Image Preview Container -->
+		  <div id="new-memo-img-preview" class="hidden relative w-16 h-16 mt-1">
+    			<img id="new-memo-preview-src" src="" class="w-full h-full object-cover rounded-xl border border-sky-100">
+    			<button type="button" onclick="removeTempMemoImage()" class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-[9px] font-bold shadow-sm">×</button>
+		  </div>
+                    <!-- Content Textarea -->
+                    <textarea id="new-memo-content" placeholder="在此輸入文字、地址、預算或想法回憶..." class="w-full h-24 p-3 border border-sky-200 rounded-2xl text-xs focus:outline-none focus:border-sky-400 resize-none leading-relaxed"></textarea>
+                    
+                    <!-- Add Button -->
+                    <button onclick="addMemoEntry()" class="w-full bg-sky-500 text-white font-bold py-2 rounded-xl text-xs shadow hover:bg-sky-600 transition-colors">
+                        新增備忘
+                    </button>
+                </div>
+            </div>
+
+            <!-- Memo Cards List Container -->
+            <div id="memo-list-container" class="space-y-4"><p class="text-center text-xs text-gray-400 py-6">目前還沒有隨手備忘，寫下想記錄的事情吧！</p></div>
         </section>
 
     </main>
 
     <!-- Bottom Navigation Bar -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-sky-100 py-2 shadow-lg flex justify-around items-center z-50 max-w-md mx-auto">
-        <button onclick="showTab('itinerary')" id="nav-itinerary" class="nav-item flex flex-col items-center space-y-0.5 text-sky-500">
-            <span class="text-xl">📅</span>
-            <span class="text-[10px] font-bold">行程</span>
-        </button>
         <button onclick="showTab('info')" id="nav-info" class="nav-item flex flex-col items-center space-y-0.5 text-slate-400">
             <span class="text-xl">✈️</span>
             <span class="text-[10px] font-bold">資訊</span>
@@ -529,42 +744,82 @@
             <span class="text-[10px] font-bold">購買</span>
         </button>
         <button onclick="showTab('calc')" id="nav-calc" class="nav-item flex flex-col items-center space-y-0.5 text-slate-400">
-            <span class="text-xl">🪙</span>
+            <span class="text-xl">💱</span>
             <span class="text-[10px] font-bold">匯率</span>
         </button>
-        <button onclick="showTab('memo')" id="nav-memo" class="nav-item flex flex-col items-center space-y-0.5 text-slate-400">
+        <button onclick="showTab('translate')" id="nav-translate" class="nav-item flex flex-col items-center space-y-0.5 text-slate-400">
+            <span class="text-xl">👄</span>
+            <span class="text-[10px] font-bold">翻譯</span>
+        </button>
+        <button onclick="showTab('memo')" id="nav-memo" class="nav-item flex flex-col items-center space-y-0.5 text-sky-500">
             <span class="text-xl">📝</span>
             <span class="text-[10px] font-bold">備忘</span>
         </button>
     </nav>
 
+    <!-- Image Lightbox Modal -->
+    <div id="image-lightbox" onclick="closeLightbox()" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 cursor-zoom-out">
+        <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+    </div>
+
     <!-- JS Logic -->
     <script>
+        // --- SAFE STORAGE WRAPPERS (沙盒防崩潰安全機制) ---
+        function getStoredItem(key, defaultVal) {
+            try {
+                var val = localStorage.getItem(key);
+                if (val === null) return defaultVal;
+                return val;
+            } catch(e) {
+                return defaultVal;
+            }
+        }
+
+        function setStoredItem(key, val) {
+            try {
+                localStorage.setItem(key, val);
+            } catch(e) {
+                // 在不支援 localStorage 的環境下靜默失效，不引發中斷
+            }
+        }
+
         // Tab Navigation
         function showTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`sec-${tabName}`).classList.remove('hidden');
+            document.querySelectorAll('.tab-content').forEach(function(el) {
+                el.classList.add('hidden');
+            });
+            var targetTab = document.getElementById('sec-' + tabName);
+            if (targetTab) targetTab.classList.remove('hidden');
 
-            document.querySelectorAll('.nav-item').forEach(el => {
+            document.querySelectorAll('.nav-item').forEach(function(el) {
                 el.classList.remove('text-sky-500');
                 el.classList.add('text-slate-400');
             });
-            document.getElementById(`nav-${tabName}`).classList.remove('text-slate-400');
-            document.getElementById(`nav-${tabName}`).classList.add('text-sky-500');
+            var targetNav = document.getElementById('nav-' + tabName);
+            if (targetNav) {
+                targetNav.classList.remove('text-slate-400');
+                targetNav.classList.add('text-sky-500');
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Itinerary Day Selector
         function switchDay(dayNum) {
-            document.querySelectorAll('.day-card').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`day-card-${dayNum}`).classList.remove('hidden');
+            document.querySelectorAll('.day-card').forEach(function(el) {
+                el.classList.add('hidden');
+            });
+            var targetCard = document.getElementById('day-card-' + dayNum);
+            if (targetCard) targetCard.classList.remove('hidden');
 
-            document.querySelectorAll('.day-btn').forEach(el => {
+            document.querySelectorAll('.day-btn').forEach(function(el) {
                 el.classList.remove('bg-sky-500', 'text-white');
                 el.classList.add('bg-white', 'text-sky-600');
             });
-            document.getElementById(`btn-day${dayNum}`).classList.remove('bg-white', 'text-sky-600');
-            document.getElementById(`btn-day${dayNum}`).classList.add('bg-sky-500', 'text-white');
+            var targetBtn = document.getElementById('btn-day' + dayNum);
+            if (targetBtn) {
+                targetBtn.classList.remove('bg-white', 'text-sky-600');
+                targetBtn.classList.add('bg-sky-500', 'text-white');
+            }
         }
 
         // --- PREPARATION LIST DATA & ACTIONS ---
@@ -577,77 +832,116 @@
         };
 
         const defaultPrepItems = [
-            { id: 1, cat: 1, text: "護照 (確認效期 6個月以上)", checked: false },
+            // 1. 重要文件
+            { id: 1, cat: 1, text: "護照 (效期需6個月以上)", checked: false },
             { id: 2, cat: 1, text: "護照影本 (與正本分開擺放)", checked: false },
-            { id: 3, cat: 1, text: "2張2吋白底大頭照 (萬一遺失補辦用)", checked: false },
-            { id: 4, cat: 1, text: "身分證影本", checked: false },
-            { id: 5, cat: 1, text: "機票 (下載PDF或截圖)", checked: false },
-            { id: 6, cat: 1, text: "登機證與住宿證明", checked: false },
-            { id: 7, cat: 1, text: "KLOOK / KKDAY 交通票券憑證", checked: false },
-            { id: 8, cat: 1, text: "旅遊保險文件", checked: false },
-            { id: 9, cat: 1, text: "外幣日圓與信用卡 (已確認海外回饋與開卡)", checked: false },
+            { id: 3, cat: 1, text: "2張2吋白底大頭照 (與正本分開擺放)", checked: false },
+            { id: 4, cat: 1, text: "身分證影本 (與正本分開擺放)", checked: false },
+            { id: 5, cat: 1, text: "機票 (建議下載PDF或截圖)", checked: false },
+            { id: 6, cat: 1, text: "登機證", checked: false },
+            { id: 7, cat: 1, text: "住宿證明 (建議下載PDF或截圖)", checked: false },
+            { id: 8, cat: 1, text: "KLOOK 交通票券 (建議下載憑證)", checked: false },
+            { id: 9, cat: 1, text: "KKDAY 交通票券 (建議下載憑證)", checked: false },
+            { id: 10, cat: 1, text: "旅遊保險文件 (建議下載PDF或截圖)", checked: false },
+            { id: 11, cat: 1, text: "簽證", checked: false },
+            { id: 12, cat: 1, text: "外幣", checked: false },
+            { id: 13, cat: 1, text: "信用卡 (需確認回饋、開通海外刷卡與預借現金密碼)", checked: false },
             
-            { id: 10, cat: 2, text: "手機、充電器與充電線", checked: false },
-            { id: 11, cat: 2, text: "行動電源 (隨身攜帶，不可託運)", checked: false },
-            { id: 12, cat: 2, text: "網卡 / eSIM", checked: false },
-            { id: 13, cat: 2, text: "太陽眼鏡與隨身小零錢包", checked: false },
-            { id: 14, cat: 2, text: "環保折疊購物袋", checked: false },
-            { id: 15, cat: 2, text: "雨傘 / 摺疊傘", checked: false },
-            { id: 16, cat: 2, text: "大容量摺疊行李袋 (備用防爆箱)", checked: false },
-            { id: 17, cat: 2, text: "原子筆 (機上填入境卡用)", checked: false },
+            // 2. 個人用品
+            { id: 14, cat: 2, text: "手機", checked: false },
+            { id: 15, cat: 2, text: "充電線", checked: false },
+            { id: 16, cat: 2, text: "充電器", checked: false },
+            { id: 17, cat: 2, text: "行動電源 (不可托運！需隨身攜帶)", checked: false },
+            { id: 18, cat: 2, text: "萬用轉接頭 (日本免轉接頭，一般充電器通用)", checked: false },
+            { id: 19, cat: 2, text: "網卡", checked: false },
+            { id: 20, cat: 2, text: "耳機", checked: false },
+            { id: 21, cat: 2, text: "隱形眼鏡", checked: false },
+            { id: 22, cat: 2, text: "太陽眼鏡", checked: false },
+            { id: 23, cat: 2, text: "飾品", checked: false },
+            { id: 24, cat: 2, text: "西瓜卡 / 交通卡 (建議出發前先加值)", checked: false },
+            { id: 25, cat: 2, text: "雨傘", checked: false },
+            { id: 26, cat: 2, text: "隨身小零錢包 (方便收納日本硬幣)", checked: false },
+            { id: 27, cat: 2, text: "環保購物袋 (日本超商與藥妝不提供免費塑膠袋)", checked: false },
+            { id: 28, cat: 2, text: "大容量摺疊行李袋 (防行李爆箱或免稅店爆買)", checked: false },
+            { id: 29, cat: 2, text: "原子筆", checked: false },
+            { id: 30, cat: 2, text: "休閒小側背包 / 防盜包 (出門逛街隨身攜帶較安全)", checked: false },
+            { id: 31, cat: 2, text: "空夾鏈袋幾只 (可用於分裝發票、收據或液體)", checked: false },
 
-            { id: 18, cat: 3, text: "內衣褲、上衣與下身衣物", checked: false },
-            { id: 19, cat: 3, text: "薄外套 / 防曬外套", checked: false },
-            { id: 20, cat: 3, text: "襪子與睡衣", checked: false },
-            { id: 21, cat: 3, text: "防滑拖鞋與帽子", checked: false },
+            // 3. 個人衣物
+            { id: 32, cat: 3, text: "內衣褲（＿＿ 套）", checked: false },
+            { id: 33, cat: 3, text: "上衣（＿＿ 件）", checked: false },
+            { id: 34, cat: 3, text: "下身（＿＿ 件）", checked: false },
+            { id: 35, cat: 3, text: "薄外套 / 防曬外套 (防海風與早晚溫差)", checked: false },
+            { id: 36, cat: 3, text: "襪子", checked: false },
+            { id: 37, cat: 3, text: "睡衣", checked: false },
+            { id: 38, cat: 3, text: "拖鞋", checked: false },
+            { id: 39, cat: 3, text: "帽子", checked: false },
+            { id: 40, cat: 3, text: "口罩（＿＿ 個）", checked: false },
 
-            { id: 22, cat: 4, text: "保養品與化妝品 (隨身攜帶單瓶不超 100ml)", checked: false },
-            { id: 23, cat: 4, text: "防曬乳與卸妝棉", checked: false },
-            { id: 24, cat: 4, text: "牙膏與牙刷 (有些日本飯店需自備)", checked: false },
-            { id: 25, cat: 4, text: "面紙與濕紙巾", checked: false },
+            // 4. 個人盥洗與美妝
+            { id: 41, cat: 4, text: "卸妝棉", checked: false },
+            { id: 42, cat: 4, text: "洗面乳 (隨身限 100ml 內並裝透明夾鏈袋，其餘托運)", checked: false },
+            { id: 43, cat: 4, text: "牙膏", checked: false },
+            { id: 44, cat: 4, text: "牙刷", checked: false },
+            { id: 45, cat: 4, text: "牙線", checked: false },
+            { id: 46, cat: 4, text: "毛巾", checked: false },
+            { id: 47, cat: 4, text: "濕紙巾", checked: false },
+            { id: 48, cat: 4, text: "面紙", checked: false },
+            { id: 49, cat: 4, text: "防曬用品 (隨身限 100ml 內，加強防曬)", checked: false },
+            { id: 50, cat: 4, text: "保養品 (隨身限 100ml 內)", checked: false },
+            { id: 51, cat: 4, text: "化妝品 (隨身限 100ml 內)", checked: false },
 
-            { id: 26, cat: 5, text: "暈車藥 (乘船或拉車非常實用)", checked: false },
-            { id: 27, cat: 5, text: "感冒備用藥與過敏藥", checked: false },
-            { id: 28, cat: 5, text: "腸胃止瀉藥", checked: false },
-            { id: 29, cat: 5, text: "每日服用慢性藥品", checked: false },
-            { id: 30, cat: 5, text: "酒精消毒噴霧", checked: false }
+            // 5. 個人藥品
+            { id: 52, cat: 5, text: "暈車藥 (搭船或出海行程必備)", checked: false },
+            { id: 53, cat: 5, text: "過敏藥", checked: false },
+            { id: 54, cat: 5, text: "感冒藥 (基本備用藥)", checked: false },
+            { id: 55, cat: 5, text: "蚊蟲止癢藥", checked: false },
+            { id: 56, cat: 5, text: "腹痛腹瀉藥 (基本備用藥)", checked: false },
+            { id: 57, cat: 5, text: "每日服用藥 (建議保留原處方箋或外包裝)", checked: false },
+            { id: 58, cat: 5, text: "酒精消毒噴霧", checked: false }
         ];
 
-        let prepItems = JSON.parse(localStorage.getItem('prepItems')) || defaultPrepItems;
+        var prepItems;
+        try {
+            var storedPrep = getStoredItem('prepItems', null);
+            prepItems = storedPrep ? JSON.parse(storedPrep) : defaultPrepItems;
+        } catch(e) {
+            prepItems = defaultPrepItems;
+        }
 
         function savePrep() {
-            localStorage.setItem('prepItems', JSON.stringify(prepItems));
+            setStoredItem('prepItems', JSON.stringify(prepItems));
             renderPrep();
         }
 
         function renderPrep() {
             const container = document.getElementById('prep-categories-container');
+            if (!container) return;
             container.innerHTML = '';
 
-            Object.keys(PREP_CATEGORIES).forEach(catKey => {
+            Object.keys(PREP_CATEGORIES).forEach(function(catKey) {
                 const catId = parseInt(catKey);
                 const catName = PREP_CATEGORIES[catId];
-                const catItems = prepItems.filter(item => item.cat === catId);
+                const catItems = prepItems.filter(function(item) { return item.cat === catId; });
 
                 if (catItems.length === 0) return;
 
                 const catCard = document.createElement('div');
                 catCard.className = 'bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3';
-                catCard.innerHTML = `<h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 ${catName}</h4>`;
+                catCard.innerHTML = '<h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 ' + catName + '</h4>';
 
                 const listDiv = document.createElement('div');
                 listDiv.className = 'space-y-2';
 
-                catItems.forEach(item => {
+                catItems.forEach(function(item) {
                     const itemRow = document.createElement('div');
                     itemRow.className = 'flex items-center justify-between text-sm py-1';
-                    itemRow.innerHTML = `
-                        <label class="flex items-start space-x-3 cursor-pointer flex-grow">
-                            <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="togglePrepItem(${item.id})" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
-                            <span class="${item.checked ? 'checked-item' : 'text-slate-700 font-medium'} text-xs leading-relaxed">${item.text}</span>
-                        </label>
-                        <button onclick="deletePrepItem(${item.id})" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
-                    `;
+                    itemRow.innerHTML = 
+                        '<label class="flex items-start space-x-3 cursor-pointer flex-grow">' +
+                            '<input type="checkbox" ' + (item.checked ? 'checked' : '') + ' onchange="togglePrepItem(' + item.id + ')" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">' +
+                            '<span class="' + (item.checked ? 'checked-item' : 'text-slate-700 font-medium') + ' text-xs leading-relaxed">' + item.text + '</span>' +
+                        '</label>' +
+                        '<button onclick="deletePrepItem(' + item.id + ')" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>';
                     listDiv.appendChild(itemRow);
                 });
 
@@ -657,24 +951,28 @@
 
             // Update Progress Bar
             const total = prepItems.length;
-            const checked = prepItems.filter(item => item.checked).length;
+            const checked = prepItems.filter(function(item) { return item.checked; }).length;
             const percent = total > 0 ? Math.round((checked / total) * 100) : 0;
 
-            document.getElementById('prep-bar').style.width = `${percent}%`;
-            document.getElementById('prep-percent').innerText = `${percent}%`;
+            var prepBar = document.getElementById('prep-bar');
+            if (prepBar) prepBar.style.width = percent + '%';
+            var prepPercent = document.getElementById('prep-percent');
+            if (prepPercent) prepPercent.innerText = percent + '%';
         }
 
         function togglePrepItem(id) {
-            const item = prepItems.find(i => i.id === id);
+            const item = prepItems.find(function(i) { return i.id === id; });
             if (item) {
                 item.checked = !item.checked;
                 savePrep();
             }
         }
 
+        // Add Manual Packing Item
         function addPrepItem() {
             const catSelect = document.getElementById('new-prep-cat');
             const nameInput = document.getElementById('new-prep-name');
+            if (!catSelect || !nameInput) return;
             const text = nameInput.value.trim();
 
             if (!text) return;
@@ -692,7 +990,7 @@
         }
 
         function deletePrepItem(id) {
-            prepItems = prepItems.filter(item => item.id !== id);
+            prepItems = prepItems.filter(function(item) { return item.id !== id; });
             savePrep();
         }
 
@@ -700,77 +998,98 @@
         const defaultShopItems = [
             // Day 1
             { id: 101, group: "Day 1 購買項目", text: "Ferme La Terre Biei 北海道雙倍奶油起司三明治 (機場2F/3入精裝盒)", desc: "1盒試吃", qty: 1, checked: false },
-            { id: 102, group: "Day 1 購買項目", text: "宮古島雪鹽法蘭酥 (12入裝)", desc: "2盒", qty: 2, checked: false },
+            { id: 102, group: "Day 1 購買項目", text: "宮古島雪鹽法蘭酥 (12入裝)", desc: "1盒試吃", qty: 1, checked: false },
             { id: 103, group: "Day 1 購買項目", text: "宮平鮮乳 (RYUBO B1 超市/946ml裝)", desc: "1瓶", qty: 1, checked: false },
             { id: 104, group: "Day 1 購買項目", text: "沖繩島鹽貓舌夾心餅乾 (RYUBO B1 超市/4入裝)", desc: "1包試吃", qty: 1, checked: false },
             { id: 105, group: "Day 1 購買項目", text: "三平炸雞皮餅乾 (全家便利商店/40g裝)", desc: "1包試吃", qty: 1, checked: false },
             // Day 2
             { id: 106, group: "Day 2 土產店採購", text: "南風堂辣味蝦餅 (14入或27入)", desc: "14入x1, 27入x8", qty: 9, checked: false },
             { id: 107, group: "Day 2 土產店採購", text: "Kabaya 餅乾棒 (大盒裝)", desc: "8盒", qty: 8, checked: false },
-            { id: 108, group: "Day 2 土產店採購", text: "沖繩SEIKA黑糖麻糬", desc: "現場看袋裝顆數決定", qty: 1, checked: false },
+            { id: 108, group: "Day 2 土產店採購", text: "沖繩SEIKA黑糖麻糬", desc: "數量未定", qty: 1, checked: false },
             { id: 109, group: "Day 2 土產店採購", text: "Calbee 堅脆洋芋片 (50g 隨身包)", desc: "1包試吃", qty: 1, checked: false },
             { id: 110, group: "Day 2 土產店採購", text: "沖繩島辣椒粉 (12g~18g 玻璃裝)", desc: "1瓶", qty: 1, checked: false },
             { id: 111, group: "Day 2 土產店採購", text: "石垣島辣油-激辛版 (100g裝)", desc: "1瓶", qty: 1, checked: false },
             { id: 112, group: "Day 2 土產店採購", text: "Calbee 限定黑糖脆薯粒 (144g 18gx8袋)", desc: "5盒", qty: 5, checked: false },
-            { id: 113, group: "Day 2 土產店採購", text: "Orion 啤酒酵母綜合堅果豆 (20袋大裝)", desc: "3袋", qty: 3, checked: false },
+            { id: 113, group: "Day 2 土產店採購", text: "Orion 啤酒酵母綜合堅果豆 (20袋大裝)", desc: "5連包試吃", qty: 3, checked: false },
             { id: 114, group: "Day 2 土產店採購", text: "沖繩水雲芽蕪海藻湯 (約85g)", desc: "3包", qty: 3, checked: false },
             // Day 3
             { id: 115, group: "水族館專賣店採購", text: "大理石巧克力派-紅芋風味 (24入禮盒)", desc: "3盒", qty: 3, checked: false },
             { id: 116, group: "水族館專賣店採購", text: "北谷鹽味莎布蕾餅乾 (32入禮盒)", desc: "3盒", qty: 3, checked: false },
             // Day 4
-            { id: 117, group: "Day 4 購買項目", text: "ALLIE 持采UV高效防曬水凝乳 (札幌藥妝)", desc: "防曬大作戰", qty: 1, checked: false },
-            { id: 118, group: "Day 4 購買項目", text: "Panasonic 吹風機 (型號 EH-NE5N 或 EH-NE7N)", desc: "BIC / 唐吉訶德 1台", qty: 1, checked: false },
+            { id: 117, group: "Day 4 購買項目", text: "ALLIE 持采UV高效防曬水凝乳", desc: "札幌藥妝", qty: 1, checked: false },
+            { id: 118, group: "Day 4 購買項目", text: "Panasonic 吹風機 (型號 EH-NE5N 或 EH-NE7N)", desc: "AEON MALL永旺夢樂城沖繩來客夢", qty: 1, checked: false },
+            { id: 119, group: "Day 4 購買項目", text: "On 昂跑、HOKA 球鞋", desc: "AEON MALL永旺夢樂城沖繩來客夢", qty: 1, checked: false },
             // Day 6
-            { id: 119, group: "Day 6 購買項目", text: "達摩御守、書包御守 (達摩寺)", desc: "開運保平安", qty: 1, checked: false }
+            { id: 120, group: "Day 6 購買項目", text: "達摩御守、書包御守", desc: "達摩寺", qty: 1, checked: false }
         ];
 
-        let shopItems = JSON.parse(localStorage.getItem('shopItems')) || defaultShopItems;
+        var shopItems;
+        try {
+            var storedShop = getStoredItem('shopItems', null);
+            shopItems = storedShop ? JSON.parse(storedShop) : defaultShopItems;
+        } catch(e) {
+            shopItems = defaultShopItems;
+        }
 
         function saveShop() {
-            localStorage.setItem('shopItems', JSON.stringify(shopItems));
+            setStoredItem('shopItems', JSON.stringify(shopItems));
             renderShop();
         }
 
         function renderShop() {
             const container = document.getElementById('shop-list-container');
+            if (!container) return;
             container.innerHTML = '';
 
             // Group by group name
             const groups = {};
-            shopItems.forEach(item => {
+            shopItems.forEach(function(item) {
                 if (!groups[item.group]) {
                     groups[item.group] = [];
                 }
                 groups[item.group].push(item);
             });
 
-            Object.keys(groups).forEach(groupName => {
+            Object.keys(groups).forEach(function(groupName) {
                 const groupItems = groups[groupName];
                 const groupDiv = document.createElement('div');
                 groupDiv.className = 'border-b border-sky-50 pb-4 space-y-3';
-                groupDiv.innerHTML = `<h4 class="font-bold text-sm text-sky-600">🛍️ ${groupName}</h4>`;
+                groupDiv.innerHTML = '<h4 class="font-bold text-sm text-sky-600">🛍️ ' + groupName + '</h4>';
 
-                groupItems.forEach(item => {
+                groupItems.forEach(function(item) {
                     const row = document.createElement('div');
                     row.className = 'flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0';
-                    row.innerHTML = `
-                        <div class="flex items-start justify-between">
-                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
-                                <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleShopItem(${item.id})" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
-                                <div>
-                                    <span class="${item.checked ? 'checked-item' : 'text-slate-800 font-bold'} text-xs">${item.text}</span>
-                                    <p class="text-[10px] text-gray-400 mt-0.5">${item.desc || ''}</p>
-                                </div>
-                            </label>
-                            <button onclick="deleteShopItem(${item.id})" class="text-xs text-red-400 ml-2">🗑️</button>
+                    
+                    // Render thumbnail with openLightbox on click
+                    const imgHtml = item.image ? `
+                        <div class="relative w-16 h-16 mt-1.5 mb-1 cursor-zoom-in">
+                            <img src="${item.image}" onclick="openLightbox('${item.image}')" class="w-16 h-16 object-cover rounded-xl border border-sky-200">
+                            <button onclick="removeShopImage(${item.id})" class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-[9px] font-bold shadow-sm">×</button>
                         </div>
-                        <div class="flex items-center justify-end space-x-2 mt-1">
-                            <span class="text-[10px] text-gray-500">數量:</span>
-                            <button onclick="updateShopQty(${item.id}, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
-                            <input type="number" value="${item.qty}" onchange="setShopQty(${item.id}, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
-                            <button onclick="updateShopQty(${item.id}, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
-                        </div>
-                    `;
+                    ` : '';
+
+                    row.innerHTML = 
+                        '<div class="flex items-start justify-between">' +
+                            '<label class="flex items-start space-x-3 cursor-pointer flex-grow">' +
+                                '<input type="checkbox" ' + (item.checked ? 'checked' : '') + ' onchange="toggleShopItem(' + item.id + ')" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">' +
+                                '<div>' +
+                                    '<span class="' + (item.checked ? 'checked-item' : 'text-slate-800 font-bold') + ' text-xs">' + item.text + '</span>' +
+                                    '<p class="text-[10px] text-gray-400 mt-0.5">' + (item.desc || '') + '</p>' +
+                                    imgHtml +
+                                '</div>' +
+                            '</label>' +
+                            '<button onclick="deleteShopItem(' + item.id + ')" class="text-xs text-red-400 ml-2">🗑️</button>' +
+                        '</div>' +
+                        '<div class="flex items-center justify-end space-x-2 mt-1">' +
+                            // Hidden input file for photo selection
+                            '<input type="file" accept="image/*" id="shop-img-file-' + item.id + '" onchange="uploadShopImage(' + item.id + ', this)" class="hidden">' +
+                            // Camera Button
+                            '<button onclick="triggerShopImageUpload(' + item.id + ')" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>' +
+                            '<span class="text-[10px] text-gray-500">數量:</span>' +
+                            '<button onclick="updateShopQty(' + item.id + ', -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>' +
+                            '<input type="number" min="0" value="' + item.qty + '" onchange="setShopQty(' + item.id + ', this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">' +
+                            '<button onclick="updateShopQty(' + item.id + ', 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>' +
+                        '</div>';
                     groupDiv.appendChild(row);
                 });
 
@@ -779,25 +1098,91 @@
         }
 
         function toggleShopItem(id) {
-            const item = shopItems.find(i => i.id === id);
+            const item = shopItems.find(function(i) { return i.id === id; });
             if (item) {
                 item.checked = !item.checked;
                 saveShop();
             }
         }
 
+        // Updated for min qty = 0
         function updateShopQty(id, change) {
-            const item = shopItems.find(i => i.id === id);
+            const item = shopItems.find(function(i) { return i.id === id; });
             if (item) {
-                item.qty = Math.max(1, item.qty + change);
+                item.qty = Math.max(0, item.qty + change);
                 saveShop();
             }
         }
 
+        // Updated for min qty = 0
         function setShopQty(id, value) {
-            const item = shopItems.find(i => i.id === id);
+            const item = shopItems.find(function(i) { return i.id === id; });
             if (item) {
-                item.qty = Math.max(1, parseInt(value) || 1);
+                item.qty = Math.max(0, parseInt(value) || 0);
+                saveShop();
+            }
+        }
+
+        // Camera Action Handlers
+        function triggerShopImageUpload(id) {
+            var fileEl = document.getElementById('shop-img-file-' + id);
+            if (fileEl) fileEl.click();
+        }
+
+        // Image compression scaled up to 1000px and 75% quality JPEG for route map clarity
+        function uploadShopImage(id, input) {
+            if (!input.files || !input.files[0]) return;
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var img = new Image();
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var max_size = 1000; 
+                    var width = img.width;
+                    var height = img.height;
+                    if (width > height) {
+                        if (width > max_size) {
+                            height *= max_size / width;
+                            width = max_size;
+                        }
+                    } else {
+                        if (height > max_size) {
+                            width *= max_size / height;
+                            height = max_size;
+                        }
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    var compressedBase64 = canvas.toDataURL('image/jpeg', 0.75); // Compressed JPEG 75%
+                    
+                    var item = shopItems.find(function(i) { return i.id === id; });
+                    if (item) {
+                        item.image = compressedBase64;
+                        saveShop();
+                    }
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeShopImage(id) {
+            var item = shopItems.find(function(i) { return i.id === id; });
+            if (item) {
+                delete item.image;
+                saveShop();
+            }
+        }
+
+        // Reset Cache and load coded defaultShopItems
+        function resetShopToDefault() {
+            if (confirm("確定要將購買清單重設為預設清單嗎？這會清除您目前自訂的品項、數量與相片。")) {
+                localStorage.removeItem('shopItems');
+                // Use a deep copy to load pristine defaults without reference leakage
+                shopItems = JSON.parse(JSON.stringify(defaultShopItems));
                 saveShop();
             }
         }
@@ -805,6 +1190,7 @@
         function addShopItem() {
             const nameInput = document.getElementById('new-shop-name');
             const descInput = document.getElementById('new-shop-desc');
+            if (!nameInput || !descInput) return;
             const text = nameInput.value.trim();
             const desc = descInput.value.trim();
 
@@ -826,7 +1212,7 @@
         }
 
         function deleteShopItem(id) {
-            shopItems = shopItems.filter(item => item.id !== id);
+            shopItems = shopItems.filter(function(item) { return item.id !== id; });
             saveShop();
         }
 
@@ -835,6 +1221,7 @@
             const exRateInput = document.getElementById('ex-rate');
             const jpyInput = document.getElementById('jpy-input');
             const twdInput = document.getElementById('twd-input');
+            if (!exRateInput || !jpyInput || !twdInput) return;
 
             const rate = parseFloat(exRateInput.value) || 0.215;
             localStorage.setItem('exRate', rate);
@@ -848,16 +1235,338 @@
             }
         }
 
-        // --- MEMO STORAGE ---
-        function saveMemo() {
-            const text = document.getElementById('memo-area').value;
-            localStorage.setItem('tripMemo', text);
+        // --- TRANSLATOR ACTIONS ---
+        function checkTranslateInput() {
+            var sourceTextarea = document.getElementById('trans-source');
+            var resultText = document.getElementById('trans-result-text');
+            var btnSpeak = document.getElementById('btn-speak');
+
+            if (!sourceTextarea) return;
+
+            var rawVal = sourceTextarea.value || '';
+            var cleanVal = rawVal.replace(/[\s\u200b-\u200d\uFEFF]/g, '');
+
+            if (cleanVal === '') {
+                if (resultText && resultText.innerText !== '') {
+                    resultText.innerText = '';
+                }
+                if (btnSpeak && !btnSpeak.classList.contains('hidden')) {
+                    btnSpeak.classList.add('hidden');
+                }
+            }
         }
 
-        function loadMemo() {
-            const saved = localStorage.getItem('tripMemo');
-            if (saved) {
-                document.getElementById('memo-area').value = saved;
+        function executeTranslation() {
+            var sourceTextarea = document.getElementById('trans-source');
+            var resultText = document.getElementById('trans-result-text');
+            var btnSpeak = document.getElementById('btn-speak');
+            var pairSelect = document.getElementById('trans-lang-pair');
+
+            if (!sourceTextarea || !resultText) return;
+
+            var rawVal = sourceTextarea.value || '';
+            var sourceText = rawVal.replace(/[\s\u200b-\u200d\uFEFF]/g, '');
+            if (!sourceText) {
+                resultText.innerText = '';
+                if (btnSpeak) btnSpeak.classList.add('hidden');
+                return;
+            }
+
+            resultText.innerText = '翻譯中...';
+            if (btnSpeak) btnSpeak.classList.add('hidden');
+
+            var pair = pairSelect ? pairSelect.value : 'zh|ja';
+            var langPairParam = pair;
+            if (pair === 'zh|ja') langPairParam = 'zh-TW|ja';
+            else if (pair === 'ja|zh') langPairParam = 'ja|zh-TW';
+            else if (pair === 'zh|en') langPairParam = 'zh-TW|en';
+            else if (pair === 'en|zh') langPairParam = 'en|zh-TW';
+
+            var url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(sourceTextarea.value.trim()) + '&langpair=' + encodeURIComponent(langPairParam);
+
+            fetch(url)
+                .then(function(res) {
+                    return res.json();
+                })
+                .then(function(data) {
+                    var currentRaw = sourceTextarea.value || '';
+                    var currentClean = currentRaw.replace(/[\s\u200b-\u200d\uFEFF]/g, '');
+                    if (currentClean === '') {
+                        resultText.innerText = '';
+                        if (btnSpeak) btnSpeak.classList.add('hidden');
+                        return;
+                    }
+
+                    if (data && data.responseData) {
+                        resultText.innerText = data.responseData.translatedText;
+                        if (btnSpeak) btnSpeak.classList.remove('hidden');
+                    } else {
+                        resultText.innerText = '翻譯失敗，請稍後再試。';
+                    }
+                })
+                .catch(function(err) {
+                    resultText.innerText = '連線異常，請檢查網路。';
+                });
+        }
+
+        var recognition;
+        function startVoiceRecognition() {
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                alert("您的瀏覽器不支援語音辨識功能。建議使用 Chrome 瀏覽器。");
+                return;
+            }
+
+            var micText = document.getElementById('mic-text');
+            var micIcon = document.getElementById('mic-icon');
+            var pairSelect = document.getElementById('trans-lang-pair');
+            var pair = pairSelect ? pairSelect.value : 'zh|ja';
+
+            if (recognition && recognition.state === 'running') {
+                recognition.stop();
+                return;
+            }
+
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            var sourceLang = pair.split('|')[0];
+            if (sourceLang === 'zh') {
+                recognition.lang = 'zh-TW';
+            } else if (sourceLang === 'ja') {
+                recognition.lang = 'ja-JP';
+            } else if (sourceLang === 'en') {
+                recognition.lang = 'en-US';
+            }
+
+            recognition.onstart = function() {
+                if (micText) micText.innerText = "聆聽中...";
+                if (micIcon) micIcon.innerText = "🛑";
+            };
+
+            recognition.onerror = function(event) {
+                console.error("語音辨識錯誤:", event.error);
+                resetMicButton();
+            };
+
+            recognition.onend = function() {
+                resetMicButton();
+            };
+
+            recognition.onresult = function(event) {
+                var result = event.results[0][0].transcript;
+                var sourceTextarea = document.getElementById('trans-source');
+                if (sourceTextarea) {
+                    sourceTextarea.value = result;
+                }
+                checkTranslateInput();
+            };
+
+            recognition.start();
+        }
+
+        function resetMicButton() {
+            var micText = document.getElementById('mic-text');
+            var micIcon = document.getElementById('mic-icon');
+            if (micText) micText.innerText = "語音輸入";
+            if (micIcon) micIcon.innerText = "🎤";
+        }
+
+        function speakResult() {
+            var resultTextEl = document.getElementById('trans-result-text');
+            var resultText = resultTextEl ? resultTextEl.innerText.trim() : '';
+            if (!resultText) return;
+
+            window.speechSynthesis.cancel();
+
+            var msg = new SpeechSynthesisUtterance(resultText);
+            var pairSelect = document.getElementById('trans-lang-pair');
+            var pair = pairSelect ? pairSelect.value : 'zh|ja';
+            var destLang = pair.split('|')[1];
+
+            if (destLang === 'ja') {
+                msg.lang = 'ja-JP';
+            } else if (destLang === 'zh') {
+                msg.lang = 'zh-TW';
+            } else if (destLang === 'en') {
+                msg.lang = 'en-US';
+            }
+
+            window.speechSynthesis.speak(msg);
+        }
+
+        // --- MEMO STORAGE & ACTIONS ---
+        var memoEntries = [];
+        var tempMemoImage = "";
+
+        function loadMemos() {
+            var stored = getStoredItem('tripMemos', null);
+            try {
+                memoEntries = stored ? JSON.parse(stored) : [];
+            } catch(e) {
+                memoEntries = [];
+            }
+            renderMemos();
+            resetMemoFormDate();
+	    removeTempMemoImage();
+        }
+
+        function resetMemoFormDate() {
+            var dateInput = document.getElementById('new-memo-date');
+            if (dateInput) {
+                dateInput.value = new Date().toISOString().split('T')[0];
+            }
+        }
+
+        function triggerMemoImageUpload() {
+            var fileEl = document.getElementById('new-memo-file');
+            if (fileEl) fileEl.click();
+        }
+
+        // Image compression scaled up to 1000px and 75% quality JPEG for route map clarity
+        function previewMemoImage(input) {
+            if (!input.files || !input.files[0]) return;
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var img = new Image();
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var max_size = 1000; 
+                    var width = img.width;
+                    var height = img.height;
+                    if (width > height) {
+                        if (width > max_size) {
+                            height *= max_size / width;
+                            width = max_size;
+                        }
+                    } else {
+                        if (height > max_size) {
+                            width *= max_size / height;
+                            height = max_size;
+                        }
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    tempMemoImage = canvas.toDataURL('image/jpeg', 0.75); // Compressed JPEG 75%
+                    
+                    var previewDiv = document.getElementById('new-memo-img-preview');
+                    var previewImg = document.getElementById('new-memo-preview-src');
+                    if (previewDiv && previewImg) {
+                        previewImg.src = tempMemoImage;
+                        previewDiv.classList.remove('hidden');
+                    }
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeTempMemoImage() {
+            tempMemoImage = "";
+            var previewDiv = document.getElementById('new-memo-img-preview');
+            var fileInput = document.getElementById('new-memo-file');
+            if (previewDiv) previewDiv.classList.add('hidden');
+            if (fileInput) fileInput.value = "";
+        }
+
+        function addMemoEntry() {
+            var contentEl = document.getElementById('new-memo-content');
+            var dateEl = document.getElementById('new-memo-date');
+            if (!contentEl || !dateEl) return;
+
+            var content = contentEl.value.trim();
+            var date = dateEl.value;
+
+            if (!content) {
+                alert("請輸入備忘內容！");
+                return;
+            }
+
+            var newEntry = {
+                id: Date.now(),
+                date: date || new Date().toISOString().split('T')[0],
+                content: content,
+                image: tempMemoImage || null
+            };
+
+            memoEntries.push(newEntry);
+            setStoredItem('tripMemos', JSON.stringify(memoEntries));
+            
+            // Reset Memo Form
+            contentEl.value = "";
+            removeTempMemoImage();
+            resetMemoFormDate();
+            
+            renderMemos();
+        }
+
+        function deleteMemoEntry(id) {
+            if (confirm("確定要刪除這筆備忘嗎？")) {
+                memoEntries = memoEntries.filter(function(m) { return m.id !== id; });
+                setStoredItem('tripMemos', JSON.stringify(memoEntries));
+                renderMemos();
+            }
+        }
+
+        function renderMemos() {
+            var container = document.getElementById('memo-list-container');
+            if (!container) return;
+            container.innerHTML = "";
+
+            // Sort memos by date descending, then by creation ID descending
+            var sortedMemos = memoEntries.slice().sort(function(a, b) {
+                if (a.date !== b.date) {
+                    return b.date.localeCompare(a.date);
+                }
+                return b.id - a.id;
+            });
+
+            if (sortedMemos.length === 0) {
+                container.innerHTML = `<p class="text-center text-xs text-gray-400 py-6">目前還沒有隨手備忘，寫下想記錄的事情吧！</p>`;
+                return;
+            }
+
+            sortedMemos.forEach(function(memo) {
+                var card = document.createElement('div');
+                card.className = "bg-white rounded-3xl p-4 shadow-md border border-sky-100 space-y-2 relative";
+                
+                // Render image with cursor-zoom-in and openLightbox support
+                var imgHtml = memo.image ? `
+                    <div class="mt-2 cursor-zoom-in">
+                        <img src="${memo.image}" onclick="openLightbox('${memo.image}')" class="w-full max-w-[150px] h-auto object-cover rounded-2xl border border-sky-50">
+                    </div>
+                ` : '';
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-sky-500 bg-sky-50 px-2.5 py-1 rounded-full">📅 ${memo.date}</span>
+                        <button onclick="deleteMemoEntry(${memo.id})" class="text-xs text-red-400 hover:text-red-600 transition-colors p-1">🗑️</button>
+                    </div>
+                    <p class="text-xs text-slate-700 leading-relaxed font-medium whitespace-pre-wrap">${memo.content}</p>
+                    ${imgHtml}
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // --- IMAGE LIGHTBOX MODAL ---
+        function openLightbox(src) {
+            var lightbox = document.getElementById('image-lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = src;
+                lightbox.classList.remove('hidden');
+            }
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById('image-lightbox');
+            if (lightbox) {
+                lightbox.classList.add('hidden');
             }
         }
 
@@ -865,14 +1574,18 @@
         window.onload = function() {
             renderPrep();
             renderShop();
-            loadMemo();
+            loadMemos(); // Loaded updated array-based memo system
 
-            // Load saved exchange rate
-            const savedRate = localStorage.getItem('exRate');
-            if (savedRate) {
-                document.getElementById('ex-rate').value = savedRate;
-            }
+            // 安全載入匯率設定（透過 Try-Catch 機制包裝防止沙盒內 crashes）
+            var savedRate = getStoredItem('exRate', '0.215');
+            var exRateEl = document.getElementById('ex-rate');
+            if (exRateEl) exRateEl.value = savedRate;
+
+            // 註冊背景每 300 毫秒一次的主動輪詢監聽計時器，完全解決所有行動裝置、鍵盤快速清空不發送事件造成的不同步相容性問題
+            setInterval(checkTranslateInput, 300);
         };
     </script>
+
+
 </body>
 </html>
