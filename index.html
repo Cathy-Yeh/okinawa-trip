@@ -35,53 +35,44 @@
 <body class="flex flex-col min-h-screen text-slate-800 pb-20 select-none">
 
 <!-- Top App Header with Banner -->
-    <header class="relative w-full max-w-md mx-auto h-[250px] overflow-hidden shadow-md">
-        <!-- Banner Image (以您的檔案名稱 "Banner" 作為路徑，若有副檔名請記得自行加上，如 Banner.png) -->
+    	<header class="relative w-full max-w-md mx-auto h-[250px] overflow-hidden shadow-md">
+        <!-- Banner Image (確認已套用 Banner.png) -->
         <img src="Banner.png" alt="Banner" class="w-full h-full object-cover object-center">
         
-        <!-- 漸層黑底遮罩與內容重疊區域 -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent flex items-end justify-between p-4">
+        <!-- 漸層遮罩與內容重疊區域 (已移除左側文字，保留右下角直立雙排柔和按鈕) -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end justify-end p-4">
             
-            <!-- 標題區域 (左側) -->
-            <div class="flex items-center space-x-1.5 text-white pb-1.5">
-                <span class="text-4xl">🎎</span>
-                <div>
-                    <h1 class="text-base sm:text-lg font-bold text-white whitespace-nowrap" style="text-shadow: -1px -1px 0 #5c3a21, 1px -1px 0 #5c3a21, -1px 1px 0 #5c3a21, 1px 1px 0 #5c3a21;">沖繩自由行小幫手</h1>
-                    <p class="text-[9px] font-semibold text-amber-200">Okinawa Travel Assistant</p>
-                </div>
-            </div>
-            
-            <!-- 2x3 放大版天數快速切換按鈕矩陣 (右側) -->
-            <div class="grid grid-cols-3 gap-1.5 mb-1 max-w-[210px] w-full">
-                <!-- D1 (預設高亮) -->
-                <button onclick="bannerSwitchDay(1)" id="banner-btn-day1" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/95 text-sky-700 shadow-sm border border-transparent">
+            <!-- 2x3 直立雙排天數快速切換按鈕矩陣 (右下角) -->
+            <div class="grid grid-cols-2 gap-1.5 w-[130px]">
+                <!-- D1 (預設高亮啟用狀態) -->
+                <button onclick="bannerSwitchDay(1)" id="banner-btn-day1" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/95 text-sky-600 border border-sky-100 shadow-md">
                     <span class="text-xs font-black">D1</span>
                     <span class="text-[9px] font-bold">7/11</span>
                 </button>
                 <!-- D2 -->
-                <button onclick="bannerSwitchDay(2)" id="banner-btn-day2" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
-                    <span class="text-xs font-black">D2</span>
-                    <span class="text-[9px] font-bold">7/12</span>
+                <button onclick="bannerSwitchDay(2)" id="banner-btn-day2" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/60 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
+                    <span class="text-xs font-bold">D2</span>
+                    <span class="text-[9px] opacity-80">7/12</span>
                 </button>
                 <!-- D3 -->
-                <button onclick="bannerSwitchDay(3)" id="banner-btn-day3" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
-                    <span class="text-xs font-black">D3</span>
-                    <span class="text-[9px] font-bold">7/13</span>
+                <button onclick="bannerSwitchDay(3)" id="banner-btn-day3" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/60 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
+                    <span class="text-xs font-bold">D3</span>
+                    <span class="text-[9px] opacity-80">7/13</span>
                 </button>
                 <!-- D4 -->
-                <button onclick="bannerSwitchDay(4)" id="banner-btn-day4" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
-                    <span class="text-xs font-black">D4</span>
-                    <span class="text-[9px] font-bold">7/14</span>
+                <button onclick="bannerSwitchDay(4)" id="banner-btn-day4" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/60 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
+                    <span class="text-xs font-bold">D4</span>
+                    <span class="text-[9px] opacity-80">7/14</span>
                 </button>
                 <!-- D5 -->
-                <button onclick="bannerSwitchDay(5)" id="banner-btn-day5" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
-                    <span class="text-xs font-black">D5</span>
-                    <span class="text-[9px] font-bold">7/15</span>
+                <button onclick="bannerSwitchDay(5)" id="banner-btn-day5" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/60 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
+                    <span class="text-xs font-bold">D5</span>
+                    <span class="text-[9px] opacity-80">7/15</span>
                 </button>
                 <!-- D6 -->
-                <button onclick="bannerSwitchDay(6)" id="banner-btn-day6" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
-                    <span class="text-xs font-black">D6</span>
-                    <span class="text-[9px] font-bold">7/16</span>
+                <button onclick="bannerSwitchDay(6)" id="banner-btn-day6" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/60 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
+                    <span class="text-xs font-bold">D6</span>
+                    <span class="text-[9px] opacity-80">7/16</span>
                 </button>
             </div>
 
@@ -1760,8 +1751,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-
-	// Itinerary Day Selector (已更新：配合刪除頁面按鈕，僅同步高亮 Banner 按鈕)
+	// Itinerary Day Selector (已配合刪除頁面按鈕，僅同步高亮 Banner 上的直立雙排柔和按鈕)
         function switchDay(dayNum) {
             // 切換行程卡片顯示
             document.querySelectorAll('.day-card').forEach(function(el) {
@@ -1770,15 +1760,32 @@
             var targetCard = document.getElementById('day-card-' + dayNum);
             if (targetCard) targetCard.classList.remove('hidden');
 
-            // 同步頂部 Banner 上的 2x3 矩陣按鈕樣式
+            // 同步頂部 Banner 上的直立雙排按鈕樣式 (日系柔和半透明配色)
             document.querySelectorAll('.banner-day-btn').forEach(function(el) {
-                el.classList.remove('bg-white/95', 'text-sky-700', 'border-transparent');
-                el.classList.add('bg-black/50', 'text-white', 'border-white/20');
+                // 恢復為預設的「未啟用」半透明樣式
+                el.classList.remove('bg-white/95', 'text-sky-600', 'border-sky-100', 'shadow-md');
+                el.classList.add('bg-white/45', 'text-sky-900', 'border-white/60', 'shadow-sm', 'backdrop-blur-[1px]');
+                
+                // 恢復天數標題為一般粗細
+                var titleSpan = el.querySelector('span:first-child');
+                if (titleSpan) {
+                    titleSpan.classList.remove('font-black');
+                    titleSpan.classList.add('font-bold');
+                }
             });
+            
             var targetBannerBtn = document.getElementById('banner-btn-day' + dayNum);
             if (targetBannerBtn) {
-                targetBannerBtn.classList.remove('bg-black/50', 'text-white', 'border-white/20');
-                targetBannerBtn.classList.add('bg-white/95', 'text-sky-700', 'border-transparent');
+                // 切換為「啟用中」的高亮純白樣式
+                targetBannerBtn.classList.remove('bg-white/45', 'text-sky-900', 'border-white/60', 'shadow-sm', 'backdrop-blur-[1px]');
+                targetBannerBtn.classList.add('bg-white/95', 'text-sky-600', 'border-sky-100', 'shadow-md');
+                
+                // 設定天數標題為特粗體
+                var activeTitleSpan = targetBannerBtn.querySelector('span:first-child');
+                if (activeTitleSpan) {
+                    activeTitleSpan.classList.remove('font-bold');
+                    activeTitleSpan.classList.add('font-black');
+                }
             }
         }
 
@@ -1787,6 +1794,7 @@
             showTab('itinerary');
             switchDay(dayNum);
         }
+
 
         // --- PREPARATION LIST DATA & ACTIONS ---
         const PREP_CATEGORIES = {
