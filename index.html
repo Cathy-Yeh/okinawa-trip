@@ -615,9 +615,455 @@
             </div>
 
             <!-- Packing Items List -->
-            <div class="space-y-4" id="prep-categories-container"><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 重要文件</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(1)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">護照 (效期需6個月以上)</span></label><button onclick="deletePrepItem(1)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(2)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">護照影本 (與正本分開擺放)</span></label><button onclick="deletePrepItem(2)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(3)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">2張2吋白底大頭照 (與正本分開擺放)</span></label><button onclick="deletePrepItem(3)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(4)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">身分證影本 (與正本分開擺放)</span></label><button onclick="deletePrepItem(4)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(5)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">機票 (建議下載PDF或截圖)</span></label><button onclick="deletePrepItem(5)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(6)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">登機證</span></label><button onclick="deletePrepItem(6)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(7)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">住宿證明 (建議下載PDF或截圖)</span></label><button onclick="deletePrepItem(7)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(8)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">KLOOK 交通票券 (建議下載憑證)</span></label><button onclick="deletePrepItem(8)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(9)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">KKDAY 交通票券 (建議下載憑證)</span></label><button onclick="deletePrepItem(9)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(10)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">旅遊保險文件 (建議下載PDF或截圖)</span></label><button onclick="deletePrepItem(10)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(11)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">簽證</span></label><button onclick="deletePrepItem(11)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(12)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">外幣</span></label><button onclick="deletePrepItem(12)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(13)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">信用卡 (需確認回饋、開通海外刷卡與預借現金密碼)</span></label><button onclick="deletePrepItem(13)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人用品</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(14)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">手機</span></label><button onclick="deletePrepItem(14)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(15)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">充電線</span></label><button onclick="deletePrepItem(15)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(16)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">充電器</span></label><button onclick="deletePrepItem(16)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(17)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">行動電源 (不可托運！需隨身攜帶)</span></label><button onclick="deletePrepItem(17)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(18)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">萬用轉接頭 (日本免轉接頭，一般充電器通用)</span></label><button onclick="deletePrepItem(18)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(19)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">網卡</span></label><button onclick="deletePrepItem(19)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(20)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">耳機</span></label><button onclick="deletePrepItem(20)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(21)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">隱形眼鏡</span></label><button onclick="deletePrepItem(21)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(22)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">太陽眼鏡</span></label><button onclick="deletePrepItem(22)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(23)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">飾品</span></label><button onclick="deletePrepItem(23)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(24)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">西瓜卡 / 交通卡 (建議出發前先加值)</span></label><button onclick="deletePrepItem(24)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(25)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">雨傘</span></label><button onclick="deletePrepItem(25)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(26)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">隨身小零錢包 (方便收納日本硬幣)</span></label><button onclick="deletePrepItem(26)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(27)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">環保購物袋 (日本超商與藥妝不提供免費塑膠袋)</span></label><button onclick="deletePrepItem(27)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(28)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">大容量摺疊行李袋 (防行李爆箱或免稅店爆買)</span></label><button onclick="deletePrepItem(28)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(29)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">原子筆</span></label><button onclick="deletePrepItem(29)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(30)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">休閒小側背包 / 防盜包 (出門逛街隨身攜帶較安全)</span></label><button onclick="deletePrepItem(30)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(31)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">空夾鏈袋幾只 (可用於分裝發票、收據或液體)</span></label><button onclick="deletePrepItem(31)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人衣物</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(32)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">內衣褲（＿＿ 套）</span></label><button onclick="deletePrepItem(32)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(33)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">上衣（＿＿ 件）</span></label><button onclick="deletePrepItem(33)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(34)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">下身（＿＿ 件）</span></label><button onclick="deletePrepItem(34)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(35)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">薄外套 / 防曬外套 (防海風與早晚溫差)</span></label><button onclick="deletePrepItem(35)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(36)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">襪子</span></label><button onclick="deletePrepItem(36)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(37)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">睡衣</span></label><button onclick="deletePrepItem(37)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(38)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">拖鞋</span></label><button onclick="deletePrepItem(38)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(39)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">帽子</span></label><button onclick="deletePrepItem(39)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(40)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">口罩（＿＿ 個）</span></label><button onclick="deletePrepItem(40)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人盥洗與美妝</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(41)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">卸妝棉</span></label><button onclick="deletePrepItem(41)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(42)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">洗面乳 (隨身限 100ml 內並裝透明夾鏈袋，其餘托運)</span></label><button onclick="deletePrepItem(42)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(43)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">牙膏</span></label><button onclick="deletePrepItem(43)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(44)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">牙刷</span></label><button onclick="deletePrepItem(44)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(45)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">牙線</span></label><button onclick="deletePrepItem(45)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(46)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">毛巾</span></label><button onclick="deletePrepItem(46)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(47)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">濕紙巾</span></label><button onclick="deletePrepItem(47)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(48)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">面紙</span></label><button onclick="deletePrepItem(48)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(49)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">防曬用品 (隨身限 100ml 內，加強防曬)</span></label><button onclick="deletePrepItem(49)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(50)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">保養品 (隨身限 100ml 內)</span></label><button onclick="deletePrepItem(50)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(51)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">化妝品 (隨身限 100ml 內)</span></label><button onclick="deletePrepItem(51)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div><div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3"><h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人藥品</h4><div class="space-y-2"><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(52)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">暈車藥 (搭船或出海行程必備)</span></label><button onclick="deletePrepItem(52)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(53)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">過敏藥</span></label><button onclick="deletePrepItem(53)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(54)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">感冒藥 (基本備用藥)</span></label><button onclick="deletePrepItem(54)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(55)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">蚊蟲止癢藥</span></label><button onclick="deletePrepItem(55)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(56)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">腹痛腹瀉藥 (基本備用藥)</span></label><button onclick="deletePrepItem(56)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(57)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">每日服用藥 (建議保留原處方箋或外包裝)</span></label><button onclick="deletePrepItem(57)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div><div class="flex items-center justify-between text-sm py-1"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="togglePrepItem(58)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><span class="text-slate-700 font-medium text-xs leading-relaxed">酒精消毒噴霧</span></label><button onclick="deletePrepItem(58)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button></div></div></div></div>
-        </section>
+<!-- ==================== 整理後的行前準備清單區塊 ==================== -->
+            <div class="space-y-4" id="prep-categories-container">
+                
+                <!-- 分類 1：重要文件 -->
+                <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 重要文件</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(1)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">護照 (效期需6個月以上)</span>
+                            </label>
+                            <button onclick="deletePrepItem(1)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(2)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">護照影本 (與正本分開擺放)</span>
+                            </label>
+                            <button onclick="deletePrepItem(2)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(3)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">2張2吋白底大頭照 (與正本分開擺放)</span>
+                            </label>
+                            <button onclick="deletePrepItem(3)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(4)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">身分證影本 (與正本分開擺放)</span>
+                            </label>
+                            <button onclick="deletePrepItem(4)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(5)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">機票 (建議下載PDF或截圖)</span>
+                            </label>
+                            <button onclick="deletePrepItem(5)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(6)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">登機證</span>
+                            </label>
+                            <button onclick="deletePrepItem(6)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(7)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">住宿證明 (建議下載PDF或截圖)</span>
+                            </label>
+                            <button onclick="deletePrepItem(7)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(8)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">KLOOK 交通票券 (建議下載憑證)</span>
+                            </label>
+                            <button onclick="deletePrepItem(8)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(9)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">KKDAY 交通票券 (建議下載憑證)</span>
+                            </label>
+                            <button onclick="deletePrepItem(9)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(10)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">旅遊保險文件 (建議下載PDF或截圖)</span>
+                            </label>
+                            <button onclick="deletePrepItem(10)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(11)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">簽證</span>
+                            </label>
+                            <button onclick="deletePrepItem(11)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(12)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">外幣</span>
+                            </label>
+                            <button onclick="deletePrepItem(12)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(13)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">信用卡 (需確認回饋、開通海外刷卡與預借現金密碼)</span>
+                            </label>
+                            <button onclick="deletePrepItem(13)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- 分類 2：個人用品 -->
+                <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人用品</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(14)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">手機</span>
+                            </label>
+                            <button onclick="deletePrepItem(14)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(15)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">充電線</span>
+                            </label>
+                            <button onclick="deletePrepItem(15)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(16)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">充電器</span>
+                            </label>
+                            <button onclick="deletePrepItem(16)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(17)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">行動電源 (不可托運！需隨身攜帶)</span>
+                            </label>
+                            <button onclick="deletePrepItem(17)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(18)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">萬用轉接頭 (日本免轉接頭，一般充電器通用)</span>
+                            </label>
+                            <button onclick="deletePrepItem(18)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(19)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">網卡</span>
+                            </label>
+                            <button onclick="deletePrepItem(19)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(20)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">耳機</span>
+                            </label>
+                            <button onclick="deletePrepItem(20)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(21)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">隱形眼鏡</span>
+                            </label>
+                            <button onclick="deletePrepItem(21)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(22)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">太陽眼鏡</span>
+                            </label>
+                            <button onclick="deletePrepItem(22)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(23)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">飾品</span>
+                            </label>
+                            <button onclick="deletePrepItem(23)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(24)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">西瓜卡 / 交通卡 (建議出發前先加值)</span>
+                            </label>
+                            <button onclick="deletePrepItem(24)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(25)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">雨傘</span>
+                            </label>
+                            <button onclick="deletePrepItem(25)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(26)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">隨身小零錢包 (方便收納日本硬幣)</span>
+                            </label>
+                            <button onclick="deletePrepItem(26)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(27)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">環保購物袋 (日本超商與藥妝不提供免費塑膠袋)</span>
+                            </label>
+                            <button onclick="deletePrepItem(27)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(28)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">大容量摺疊行李袋 (防行李爆箱或免稅店爆買)</span>
+                            </label>
+                            <button onclick="deletePrepItem(28)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(29)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">原子筆</span>
+                            </label>
+                            <button onclick="deletePrepItem(29)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(30)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">休閒小側背包 / 防盜包 (出門逛街隨身攜帶較安全)</span>
+                            </label>
+                            <button onclick="deletePrepItem(30)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(31)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">空夾鏈袋幾只 (可用於分裝發票、收據或液體)</span>
+                            </label>
+                            <button onclick="deletePrepItem(31)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分類 3：個人衣物 -->
+                <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人衣物</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(32)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">內衣褲（＿＿ 套）</span>
+                            </label>
+                            <button onclick="deletePrepItem(32)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(33)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">上衣（＿＿ 件）</span>
+                            </label>
+                            <button onclick="deletePrepItem(33)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(34)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">下身（＿＿ 件）</span>
+                            </label>
+                            <button onclick="deletePrepItem(34)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(35)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">薄外套 / 防曬外套 (防海風與早晚溫差)</span>
+                            </label>
+                            <button onclick="deletePrepItem(35)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(36)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">襪子</span>
+                            </label>
+                            <button onclick="deletePrepItem(36)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(37)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">睡衣</span>
+                            </label>
+                            <button onclick="deletePrepItem(37)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(38)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">拖鞋</span>
+                            </label>
+                            <button onclick="deletePrepItem(38)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(39)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">帽子</span>
+                            </label>
+                            <button onclick="deletePrepItem(39)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(40)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">口罩（＿＿ 個）</span>
+                            </label>
+                            <button onclick="deletePrepItem(40)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分類 4：個人盥洗與美妝 -->
+                <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人盥洗與美妝</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(41)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">卸妝棉</span>
+                            </label>
+                            <button onclick="deletePrepItem(41)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(42)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">洗面乳 (隨身限 100ml 內並裝透明夾鏈袋，其餘托運)</span>
+                            </label>
+                            <button onclick="deletePrepItem(42)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(43)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">牙膏</span>
+                            </label>
+                            <button onclick="deletePrepItem(43)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(44)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">牙刷</span>
+                            </label>
+                            <button onclick="deletePrepItem(44)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(45)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">牙線</span>
+                            </label>
+                            <button onclick="deletePrepItem(45)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(46)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">毛巾</span>
+                            </label>
+                            <button onclick="deletePrepItem(46)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(47)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">濕紙巾</span>
+                            </label>
+                            <button onclick="deletePrepItem(47)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(48)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">面紙</span>
+                            </label>
+                            <button onclick="deletePrepItem(48)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(49)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">防曬用品 (隨身限 100ml 內，加強防曬)</span>
+                            </label>
+                            <button onclick="deletePrepItem(49)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(50)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">保養品 (隨身限 100ml 內)</span>
+                            </label>
+                            <button onclick="deletePrepItem(50)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(51)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">化妝品 (隨身限 100ml 內)</span>
+                            </label>
+                            <button onclick="deletePrepItem(51)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分類 5：個人藥品 -->
+                <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 個人藥品</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(52)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">暈車藥 (搭船或出海行程必備)</span>
+                            </label>
+                            <button onclick="deletePrepItem(52)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(53)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">過敏藥</span>
+                            </label>
+                            <button onclick="deletePrepItem(53)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(54)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">感冒藥 (基本備用藥)</span>
+                            </label>
+                            <button onclick="deletePrepItem(54)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(55)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">蚊蟲止癢藥</span>
+                            </label>
+                            <button onclick="deletePrepItem(55)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(56)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">腹痛腹瀉藥 (基本備用藥)</span>
+                            </label>
+                            <button onclick="deletePrepItem(56)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(57)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">每日服用藥 (建議保留原處方箋或外包裝)</span>
+                            </label>
+                            <button onclick="deletePrepItem(57)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-between text-sm py-1">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="togglePrepItem(58)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <span class="text-slate-700 font-medium text-xs leading-relaxed">酒精消毒噴霧</span>
+                            </label>
+                            <button onclick="deletePrepItem(58)" class="text-xs text-red-400 hover:text-red-600 ml-2">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ==================== 行前準備清單區塊結束 ==================== -->
+
+
+        </section>
         <!-- SECTION 4: 購買清單區塊 (Shopping) -->
         <section id="sec-shop" class="tab-content hidden space-y-4">
             <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
@@ -638,8 +1084,477 @@
                 <button onclick="addShopItem()" class="bg-sky-500 text-white font-bold px-4 py-2 rounded-xl text-xs shadow hover:bg-sky-600">新增</button>
             </div>
 
-            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-4" id="shop-list-container"><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 1 購買項目</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(101)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Ferme La Terre Biei 北海道雙倍奶油起司三明治 (機場2F/3入精裝盒)</span><p class="text-[10px] text-gray-400 mt-0.5">1盒試吃</p></div></label><button onclick="deleteShopItem(101)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-101" onchange="uploadShopImage(101, this)" class="hidden"><button onclick="triggerShopImageUpload(101)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(101, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(101, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(101, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(102)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">宮古島雪鹽法蘭酥 (12入裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1盒試吃</p></div></label><button onclick="deleteShopItem(102)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-102" onchange="uploadShopImage(102, this)" class="hidden"><button onclick="triggerShopImageUpload(102)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(102, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(102, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(102, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(103)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">宮平鮮乳 (RYUBO B1 超市/946ml裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1瓶</p></div></label><button onclick="deleteShopItem(103)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-103" onchange="uploadShopImage(103, this)" class="hidden"><button onclick="triggerShopImageUpload(103)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(103, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(103, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(103, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(104)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩島鹽貓舌夾心餅乾 (RYUBO B1 超市/4入裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1包試吃</p></div></label><button onclick="deleteShopItem(104)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-104" onchange="uploadShopImage(104, this)" class="hidden"><button onclick="triggerShopImageUpload(104)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(104, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(104, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(104, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(105)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">三平炸雞皮餅乾 (全家便利商店/40g裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1包試吃</p></div></label><button onclick="deleteShopItem(105)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-105" onchange="uploadShopImage(105, this)" class="hidden"><button onclick="triggerShopImageUpload(105)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(105, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(105, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(105, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 2 土產店採購</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(106)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">南風堂辣味蝦餅 (14入或27入)</span><p class="text-[10px] text-gray-400 mt-0.5">14入x1, 27入x8</p></div></label><button onclick="deleteShopItem(106)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-106" onchange="uploadShopImage(106, this)" class="hidden"><button onclick="triggerShopImageUpload(106)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(106, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="9" onchange="setShopQty(106, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(106, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(107)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Kabaya 餅乾棒 (大盒裝)</span><p class="text-[10px] text-gray-400 mt-0.5">8盒</p></div></label><button onclick="deleteShopItem(107)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-107" onchange="uploadShopImage(107, this)" class="hidden"><button onclick="triggerShopImageUpload(107)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(107, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="8" onchange="setShopQty(107, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(107, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(108)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩SEIKA黑糖麻糬</span><p class="text-[10px] text-gray-400 mt-0.5">數量未定</p></div></label><button onclick="deleteShopItem(108)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-108" onchange="uploadShopImage(108, this)" class="hidden"><button onclick="triggerShopImageUpload(108)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(108, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(108, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(108, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(109)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Calbee 堅脆洋芋片 (50g 隨身包)</span><p class="text-[10px] text-gray-400 mt-0.5">1包試吃</p></div></label><button onclick="deleteShopItem(109)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-109" onchange="uploadShopImage(109, this)" class="hidden"><button onclick="triggerShopImageUpload(109)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(109, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(109, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(109, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(110)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩島辣椒粉 (12g~18g 玻璃裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1瓶</p></div></label><button onclick="deleteShopItem(110)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-110" onchange="uploadShopImage(110, this)" class="hidden"><button onclick="triggerShopImageUpload(110)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(110, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(110, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(110, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(111)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">石垣島辣油-激辛版 (100g裝)</span><p class="text-[10px] text-gray-400 mt-0.5">1瓶</p></div></label><button onclick="deleteShopItem(111)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-111" onchange="uploadShopImage(111, this)" class="hidden"><button onclick="triggerShopImageUpload(111)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(111, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(111, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(111, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(112)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Calbee 限定黑糖脆薯粒 (144g 18gx8袋)</span><p class="text-[10px] text-gray-400 mt-0.5">5盒</p></div></label><button onclick="deleteShopItem(112)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-112" onchange="uploadShopImage(112, this)" class="hidden"><button onclick="triggerShopImageUpload(112)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(112, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="5" onchange="setShopQty(112, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(112, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(113)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Orion 啤酒酵母綜合堅果豆 (20袋大裝)</span><p class="text-[10px] text-gray-400 mt-0.5">5連包試吃</p></div></label><button onclick="deleteShopItem(113)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-113" onchange="uploadShopImage(113, this)" class="hidden"><button onclick="triggerShopImageUpload(113)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(113, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(113, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(113, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(114)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">沖繩水雲芽蕪海藻湯 (約85g)</span><p class="text-[10px] text-gray-400 mt-0.5">3包</p></div></label><button onclick="deleteShopItem(114)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-114" onchange="uploadShopImage(114, this)" class="hidden"><button onclick="triggerShopImageUpload(114)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(114, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(114, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(114, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ 水族館專賣店採購</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(115)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">大理石巧克力派-紅芋風味 (24入禮盒)</span><p class="text-[10px] text-gray-400 mt-0.5">3盒</p></div></label><button onclick="deleteShopItem(115)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-115" onchange="uploadShopImage(115, this)" class="hidden"><button onclick="triggerShopImageUpload(115)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(115, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(115, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(115, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(116)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">北谷鹽味莎布蕾餅乾 (32入禮盒)</span><p class="text-[10px] text-gray-400 mt-0.5">3盒</p></div></label><button onclick="deleteShopItem(116)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-116" onchange="uploadShopImage(116, this)" class="hidden"><button onclick="triggerShopImageUpload(116)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(116, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="3" onchange="setShopQty(116, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(116, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 4 購買項目</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(117)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">ALLIE 持采UV高效防曬水凝乳</span><p class="text-[10px] text-gray-400 mt-0.5">札幌藥妝</p></div></label><button onclick="deleteShopItem(117)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-117" onchange="uploadShopImage(117, this)" class="hidden"><button onclick="triggerShopImageUpload(117)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(117, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(117, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(117, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(118)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">Panasonic 吹風機 (型號 EH-NE5N 或 EH-NE7N)</span><p class="text-[10px] text-gray-400 mt-0.5">AEON MALL永旺夢樂城沖繩來客夢</p></div></label><button onclick="deleteShopItem(118)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-118" onchange="uploadShopImage(118, this)" class="hidden"><button onclick="triggerShopImageUpload(118)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(118, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(118, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(118, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(119)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">On 昂跑、HOKA 球鞋</span><p class="text-[10px] text-gray-400 mt-0.5">AEON MALL永旺夢樂城沖繩來客夢</p></div></label><button onclick="deleteShopItem(119)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-119" onchange="uploadShopImage(119, this)" class="hidden"><button onclick="triggerShopImageUpload(119)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(119, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(119, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(119, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div><div class="border-b border-sky-50 pb-4 space-y-3"><h4 class="font-bold text-sm text-sky-600">🛍️ Day 6 購買項目</h4><div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0"><div class="flex items-start justify-between"><label class="flex items-start space-x-3 cursor-pointer flex-grow"><input type="checkbox" onchange="toggleShopItem(120)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400"><div><span class="text-slate-800 font-bold text-xs">達摩御守、書包御守</span><p class="text-[10px] text-gray-400 mt-0.5">達摩寺</p></div></label><button onclick="deleteShopItem(120)" class="text-xs text-red-400 ml-2">🗑️</button></div><div class="flex items-center justify-end space-x-2 mt-1"><input type="file" accept="image/*" id="shop-img-file-120" onchange="uploadShopImage(120, this)" class="hidden"><button onclick="triggerShopImageUpload(120)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button><span class="text-[10px] text-gray-500">數量:</span><button onclick="updateShopQty(120, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button><input type="number" min="0" value="1" onchange="setShopQty(120, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold"><button onclick="updateShopQty(120, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button></div></div></div></div>
-        </section>
+<!-- ==================== 整理後的購買清單區塊 ==================== -->
+            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-4" id="shop-list-container">
+                
+                <!-- Day 1 購買項目 -->
+                <div class="border-b border-sky-50 pb-4 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600">🛍️ Day 1 購買項目</h4>
+                    
+                    <!-- 商品 101 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(101)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">Ferme La Terre Biei 北海道雙倍奶油起司三明治(3入裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">機場2F/1盒試吃</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(101)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-101" onchange="uploadShopImage(101, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(101)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(101, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(101, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(101, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 102 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(102)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">宮古島雪鹽法蘭酥(12入裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">機場2F/1盒試吃</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(102)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-102" onchange="uploadShopImage(102, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(102)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(102, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(102, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(102, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 103 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(103)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">宮平鮮乳</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5"> AEON/1瓶</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(103)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-103" onchange="uploadShopImage(103, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(103)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(103, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(103, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(103, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 104 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(104)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">沖繩島鹽貓舌夾心餅乾(4入裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">AEON/1包試吃</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(104)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-104" onchange="uploadShopImage(104, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(104)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(104, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(104, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(104, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 105 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(105)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">三平炸雞皮餅乾(40g裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">全家便利商店/1包試吃</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(105)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-105" onchange="uploadShopImage(105, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(105)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(105, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(105, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(105, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 土產店採購 -->
+                <div class="border-b border-sky-50 pb-4 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600">🛍️ Day 2 土產店採購</h4>
+                    
+                    <!-- 商品 106 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(106)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">南風堂辣味蝦餅(14入或27入)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">好吃必買</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(106)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-106" onchange="uploadShopImage(106, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(106)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(106, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="9" onchange="setShopQty(106, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(106, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 107 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(107)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">Kabaya 餅乾棒(大盒裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">8盒</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(107)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-107" onchange="uploadShopImage(107, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(107)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(107, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="8" onchange="setShopQty(107, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(107, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 108 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(108)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">沖繩SEIKA黑糖麻糬</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">網友大推</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(108)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-108" onchange="uploadShopImage(108, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(108)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(108, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(108, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(108, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 109 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(109)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">Calbee 堅脆洋芋片(50g 隨身包)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">1包試吃</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(109)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-109" onchange="uploadShopImage(109, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(109)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(109, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(109, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(109, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 110 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(110)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">沖繩島辣椒粉(12g~18g 玻璃裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">1瓶</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(110)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-110" onchange="uploadShopImage(110, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(110)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(110, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(110, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(110, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 111 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(111)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">石垣島辣油-激辛版(100g裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">1瓶</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(111)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-111" onchange="uploadShopImage(111, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(111)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(111, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(111, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(111, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 112 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(112)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">Calbee 限定黑糖脆薯粒(144g 18gx8袋)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">5盒</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(112)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-112" onchange="uploadShopImage(112, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(112)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(112, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="5" onchange="setShopQty(112, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(112, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 113 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(113)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">Orion 啤酒酵母綜合堅果豆(5連包或20袋大裝)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">5連包試吃</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(113)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-113" onchange="uploadShopImage(113, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(113)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(113, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="3" onchange="setShopQty(113, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(113, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 114 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(114)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">沖繩水雲芽蕪海藻湯(約85g)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">3包</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(114)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-114" onchange="uploadShopImage(114, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(114)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(114, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="3" onchange="setShopQty(114, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(114, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 水族館專賣店採購 -->
+                <div class="border-b border-sky-50 pb-4 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600">🛍️ 水族館專賣店採購</h4>
+                    
+                    <!-- 商品 115 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(115)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">大理石巧克力派-紅芋風味(24入禮盒)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">3盒</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(115)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-115" onchange="uploadShopImage(115, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(115)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(115, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="3" onchange="setShopQty(115, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(115, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 116 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(116)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">北谷鹽味莎布蕾餅乾(32入禮盒)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">3盒</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(116)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-116" onchange="uploadShopImage(116, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(116)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(116, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="3" onchange="setShopQty(116, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(116, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4 購買項目 -->
+                <div class="border-b border-sky-50 pb-4 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600">🛍️ Day 4 購買項目</h4>
+                    
+                    <!-- 商品 117 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(117)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">ALLIE 持采UV高效防曬水凝乳</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">札幌藥妝</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(117)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-117" onchange="uploadShopImage(117, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(117)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(117, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(117, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(117, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 118 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(118)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">Panasonic 吹風機(型號 EH-NE5N 或 EH-NE7N)</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">AEON MALL永旺夢樂城沖繩來客夢</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(118)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-118" onchange="uploadShopImage(118, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(118)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(118, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(118, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(118, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+
+                    <!-- 商品 119 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(119)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">On 昂跑、HOKA 球鞋</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">AEON MALL永旺夢樂城沖繩來客夢</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(119)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-119" onchange="uploadShopImage(119, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(119)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(119, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(119, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(119, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 6 購買項目 -->
+                <div class="border-b border-sky-50 pb-4 space-y-3">
+                    <h4 class="font-bold text-base text-sky-600">🛍️ Day 6 購買項目</h4>
+                    
+                    <!-- 商品 120 -->
+                    <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
+                        <div class="flex items-start justify-between">
+                            <label class="flex items-start space-x-3 cursor-pointer flex-grow">
+                                <input type="checkbox" onchange="toggleShopItem(120)" class="mt-1 h-4 w-4 rounded text-sky-500 focus:ring-sky-400">
+                                <div>
+                                    <span class="text-slate-800 font-bold text-xs">達摩御守、書包御守、許願達摩</span>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">達摩寺</p>
+                                </div>
+                            </label>
+                            <button onclick="deleteShopItem(120)" class="text-xs text-red-400 ml-2">🗑️</button>
+                        </div>
+                        <div class="flex items-center justify-end space-x-2 mt-1">
+                            <input type="file" accept="image/*" id="shop-img-file-120" onchange="uploadShopImage(120, this)" class="hidden">
+                            <button onclick="triggerShopImageUpload(120)" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>
+                            <span class="text-[10px] text-gray-500">數量:</span>
+                            <button onclick="updateShopQty(120, -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>
+                            <input type="number" min="0" value="1" onchange="setShopQty(120, this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">
+                            <button onclick="updateShopQty(120, 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ==================== 購買清單區塊結束 ==================== -->
+
 
         <!-- SECTION 5: 匯率計算區塊 (Converter) -->
         <section id="sec-calc" class="tab-content hidden space-y-4">
