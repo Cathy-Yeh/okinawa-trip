@@ -670,8 +670,9 @@
                 <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-4">👄 中日英多向即時翻譯</h3>
 
                 <div class="space-y-3">
-                    <div class="flex space-x-2">
-                        <select id="trans-lang-pair" class="border border-sky-200 text-sm rounded-xl p-2 bg-sky-50 focus:outline-none font-bold">
+		<div class="flex space-x-2">
+                        <!-- 切換語系時立即觸發翻譯 -->
+                        <select id="trans-lang-pair" onchange="executeTranslation()" class="border border-sky-200 text-sm rounded-xl p-2 bg-sky-50 focus:outline-none font-bold">
                             <option value="zh|ja">中文 ➔ 日文</option>
                             <option value="ja|zh">日文 ➔ 中文</option>
                             <option value="zh|en">中文 ➔ 英文</option>
@@ -684,12 +685,14 @@
                     </div>
 
                     <div>
-                        <textarea id="trans-source" placeholder="請在此輸入文字，或使用語音輸入..." class="w-full h-24 p-3 border border-sky-200 rounded-2xl text-sm focus:outline-none resize-none"></textarea>
+                        <!-- 輸入文字打字停頓時自動觸發防抖動翻譯 -->
+                        <textarea id="trans-source" oninput="debouncedTranslate()" placeholder="請在此輸入文字，或使用語音輸入..." class="w-full h-24 p-3 border border-sky-200 rounded-2xl text-sm focus:outline-none resize-none"></textarea>
                     </div>
 
-                    <button onclick="executeTranslation()" class="w-full bg-teal-400 text-white font-bold py-2.5 rounded-xl text-sm shadow hover:bg-teal-500 transition-colors">
-                        開始翻譯
-                    </button>
+                    <!-- 保持原有版面，改為無點擊點亮效果的靜態即時翻譯標示 -->
+                    <div class="w-full bg-teal-400 text-white font-bold py-2.5 rounded-xl text-sm text-center shadow">
+                        ⚡ 已啟動即時自動翻譯
+                    </div>
 
                     <div class="border-t border-sky-50 pt-3">
                         <label class="block text-xs font-bold text-slate-400 mb-1">翻譯結果：</label>
@@ -942,7 +945,7 @@
 
                 const catCard = document.createElement('div');
                 catCard.className = 'bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3';
-                catCard.innerHTML = '<h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🎈 ' + catName + '</h4>';
+                catCard.innerHTML = '<h4 class="font-bold text-sm text-sky-600 border-b border-sky-50 pb-1 mb-2">🌸 ' + catName + '</h4>';
 
                 const listDiv = document.createElement('div');
                 listDiv.className = 'space-y-2';
@@ -1269,6 +1272,15 @@
                 }
             }
         }
+	// 宣告防抖動計時器變數
+        var transTimeout;
+        function debouncedTranslate() {
+            clearTimeout(transTimeout);
+            // 停頓 500 毫秒未打字後，自動觸發翻譯
+            transTimeout = setTimeout(function() {
+                executeTranslation();
+            }, 500);
+        }
 
         function executeTranslation() {
             var sourceTextarea = document.getElementById('trans-source');
@@ -1368,13 +1380,14 @@
                 resetMicButton();
             };
 
-            recognition.onresult = function(event) {
+	    recognition.onresult = function(event) {
                 var result = event.results[0][0].transcript;
                 var sourceTextarea = document.getElementById('trans-source');
                 if (sourceTextarea) {
                     sourceTextarea.value = result;
                 }
                 checkTranslateInput();
+                executeTranslation(); // 語音辨識結束，文字填入後立即執行翻譯
             };
 
             recognition.start();
