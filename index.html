@@ -615,7 +615,6 @@
             </div>
 
             <!-- Packing Items List -->
-<!-- ==================== 整理後的行前準備清單區塊 ==================== -->
             <div class="space-y-4" id="prep-categories-container">
                 
                 <!-- 分類 1：重要文件 -->
@@ -1060,8 +1059,6 @@
                 </div>
 
             </div>
-            <!-- ==================== 行前準備清單區塊結束 ==================== -->
-
 
         </section>
         <!-- SECTION 4: 購買清單區塊 (Shopping) -->
@@ -1554,6 +1551,7 @@
 
             </div>
             <!-- ==================== 購買清單區塊結束 ==================== -->
+		</section> 
 
 
         <!-- SECTION 5: 匯率計算區塊 (Converter) -->
@@ -1927,33 +1925,34 @@ const catCard = document.createElement('div');
         }
 
         // --- SHOPPING LIST DATA & ACTIONS ---
-        const defaultShopItems = [
+	const defaultShopItems = [
             // Day 1
-            { id: 101, group: "Day 1 購買項目", text: "Ferme La Terre Biei 北海道雙倍奶油起司三明治 (機場2F/3入精裝盒)", desc: "1盒試吃", qty: 1, checked: false },
-            { id: 102, group: "Day 1 購買項目", text: "宮古島雪鹽法蘭酥 (12入裝)", desc: "1盒試吃", qty: 1, checked: false },
-            { id: 103, group: "Day 1 購買項目", text: "宮平鮮乳 (RYUBO B1 超市/946ml裝)", desc: "1瓶", qty: 1, checked: false },
-            { id: 104, group: "Day 1 購買項目", text: "沖繩島鹽貓舌夾心餅乾 (RYUBO B1 超市/4入裝)", desc: "1包試吃", qty: 1, checked: false },
-            { id: 105, group: "Day 1 購買項目", text: "三平炸雞皮餅乾 (全家便利商店/40g裝)", desc: "1包試吃", qty: 1, checked: false },
+            { id: 101, group: "Day 1 購買項目", text: "Ferme La Terre Biei 北海道雙倍奶油起司三明治(3入裝)", desc: "機場2F/1盒試吃", qty: 1, checked: false },
+            { id: 102, group: "Day 1 購買項目", text: "宮古島雪鹽法蘭酥(12入裝)", desc: "機場2F/1盒試吃", qty: 1, checked: false },
+            { id: 103, group: "Day 1 購買項目", text: "宮平鮮乳", desc: "AEON/1瓶", qty: 1, checked: false },
+            { id: 104, group: "Day 1 購買項目", text: "沖繩島鹽貓舌夾心餅乾(4入裝)", desc: "AEON/1包試吃", qty: 1, checked: false },
+            { id: 105, group: "Day 1 購買項目", text: "三平炸雞皮餅乾(40g裝)", desc: "全家便利商店/1包試吃", qty: 1, checked: false },
             // Day 2
-            { id: 106, group: "Day 2 土產店採購", text: "南風堂辣味蝦餅 (14入或27入)", desc: "14入x1, 27入x8", qty: 9, checked: false },
-            { id: 107, group: "Day 2 土產店採購", text: "Kabaya 餅乾棒 (大盒裝)", desc: "8盒", qty: 8, checked: false },
-            { id: 108, group: "Day 2 土產店採購", text: "沖繩SEIKA黑糖麻糬", desc: "數量未定", qty: 1, checked: false },
-            { id: 109, group: "Day 2 土產店採購", text: "Calbee 堅脆洋芋片 (50g 隨身包)", desc: "1包試吃", qty: 1, checked: false },
-            { id: 110, group: "Day 2 土產店採購", text: "沖繩島辣椒粉 (12g~18g 玻璃裝)", desc: "1瓶", qty: 1, checked: false },
-            { id: 111, group: "Day 2 土產店採購", text: "石垣島辣油-激辛版 (100g裝)", desc: "1瓶", qty: 1, checked: false },
-            { id: 112, group: "Day 2 土產店採購", text: "Calbee 限定黑糖脆薯粒 (144g 18gx8袋)", desc: "5盒", qty: 5, checked: false },
-            { id: 113, group: "Day 2 土產店採購", text: "Orion 啤酒酵母綜合堅果豆 (20袋大裝)", desc: "5連包試吃", qty: 3, checked: false },
-            { id: 114, group: "Day 2 土產店採購", text: "沖繩水雲芽蕪海藻湯 (約85g)", desc: "3包", qty: 3, checked: false },
-            // Day 3
-            { id: 115, group: "水族館專賣店採購", text: "大理石巧克力派-紅芋風味 (24入禮盒)", desc: "3盒", qty: 3, checked: false },
-            { id: 116, group: "水族館專賣店採購", text: "北谷鹽味莎布蕾餅乾 (32入禮盒)", desc: "3盒", qty: 3, checked: false },
+            { id: 106, group: "Day 2 土產店採購", text: "南風堂辣味蝦餅(14入或27入)", desc: "好吃必買", qty: 9, checked: false },
+            { id: 107, group: "Day 2 土產店採購", text: "Kabaya 餅乾棒(大盒裝)", desc: "8盒", qty: 8, checked: false },
+            { id: 108, group: "Day 2 土產店採購", text: "沖繩SEIKA黑糖麻糬", desc: "網友大推", qty: 1, checked: false },
+            { id: 109, group: "Day 2 土產店採購", text: "Calbee 堅脆洋芋片(50g 隨身包)", desc: "1包試吃", qty: 1, checked: false },
+            { id: 110, group: "Day 2 土產店採購", text: "沖繩島辣椒粉(12g~18g 玻璃裝)", desc: "1瓶", qty: 1, checked: false },
+            { id: 111, group: "Day 2 土產店採購", text: "石垣島辣油-激辛版(100g裝)", desc: "1瓶", qty: 1, checked: false },
+            { id: 112, group: "Day 2 土產店採購", text: "Calbee 限定黑糖脆薯粒(144g 18gx8袋)", desc: "5盒", qty: 5, checked: false },
+            { id: 113, group: "Day 2 土產店採購", text: "Orion 啤酒酵母綜合堅果豆(5連包或20袋大裝)", desc: "5連包試吃", qty: 3, checked: false },
+            { id: 114, group: "Day 2 土產店採購", text: "沖繩水雲芽蕪海藻湯(約85g)", desc: "3包", qty: 3, checked: false },
+            // Day 3 (水族館專賣店採購)
+            { id: 115, group: "水族館專賣店採購", text: "大理石巧克力派-紅芋風味(24入禮盒)", desc: "3盒", qty: 3, checked: false },
+            { id: 116, group: "水族館專賣店採購", text: "北谷鹽味莎布蕾餅乾(32入禮盒)", desc: "3盒", qty: 3, checked: false },
             // Day 4
             { id: 117, group: "Day 4 購買項目", text: "ALLIE 持采UV高效防曬水凝乳", desc: "札幌藥妝", qty: 1, checked: false },
-            { id: 118, group: "Day 4 購買項目", text: "Panasonic 吹風機 (型號 EH-NE5N 或 EH-NE7N)", desc: "AEON MALL永旺夢樂城沖繩來客夢", qty: 1, checked: false },
+            { id: 118, group: "Day 4 購買項目", text: "Panasonic 吹風機(型號 EH-NE5N 或 EH-NE7N)", desc: "AEON MALL永旺夢樂城沖繩來客夢", qty: 1, checked: false },
             { id: 119, group: "Day 4 購買項目", text: "On 昂跑、HOKA 球鞋", desc: "AEON MALL永旺夢樂城沖繩來客夢", qty: 1, checked: false },
             // Day 6
-            { id: 120, group: "Day 6 購買項目", text: "達摩御守、書包御守", desc: "達摩寺", qty: 1, checked: false }
+            { id: 120, group: "Day 6 購買項目", text: "達摩御守、書包御守、許願達摩", desc: "達摩寺", qty: 1, checked: false }
         ];
+
 
         var shopItems;
         try {
