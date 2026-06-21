@@ -34,21 +34,57 @@
 </head>
 <body class="flex flex-col min-h-screen text-slate-800 pb-20 select-none">
 
-    <!-- Top Header -->
-    <header class="bg-gradient-to-r from-sky-400 via-teal-300 to-sky-400 text-white py-3 px-4 sticky top-0 z-40 shadow-md flex items-center justify-between">
-        <div class="flex items-center space-x-2">
-            <!-- Ocean & Sumikko Vibe Emoji -->
-            <span class="text-5xl">🎎</span>
-            <div>
-                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-white whitespace-nowrap" style="text-shadow: -1px -1px 0 #5c3a21, 1px -1px 0 #5c3a21, -1px 1px 0 #5c3a21, 1px 1px 0 #5c3a21;">沖繩自由行小幫手</h1>
-                <p class="text-xs font-semibold text-[#8b5a2b]">Okinawa Travel Assistant</p>
+<!-- Top App Header with Banner -->
+    <header class="relative w-full max-w-md mx-auto h-[250px] overflow-hidden shadow-md">
+        <!-- Banner Image (以您的檔案名稱 "Banner" 作為路徑，若有副檔名請記得自行加上，如 Banner.png) -->
+        <img src="Banner" alt="Banner" class="w-full h-full object-cover object-center">
+        
+        <!-- 漸層黑底遮罩與內容重疊區域 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent flex items-end justify-between p-4">
+            
+            <!-- 標題區域 (左側) -->
+            <div class="flex items-center space-x-1.5 text-white pb-1.5">
+                <span class="text-4xl">🎎</span>
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold text-white whitespace-nowrap" style="text-shadow: -1px -1px 0 #5c3a21, 1px -1px 0 #5c3a21, -1px 1px 0 #5c3a21, 1px 1px 0 #5c3a21;">沖繩自由行小幫手</h1>
+                    <p class="text-[9px] font-semibold text-amber-200">Okinawa Travel Assistant</p>
+                </div>
             </div>
-        </div>
-        <div>
-	    <button onclick="showTab('itinerary')" id="nav-itinerary" class="nav-item flex flex-col items-center space-y-0.5 bg-white px-4 py-2 md:px-6 md:py-2.5 rounded-full font-extrabold transition-all shadow-md text-sky-600 whitespace-nowrap border border-sky-100">
-    		<span class="text-xl">📅</span>
-    		<span class="text-[10px] font-bold">行程</span>
-	    </button>
+            
+            <!-- 2x3 放大版天數快速切換按鈕矩陣 (右側) -->
+            <div class="grid grid-cols-3 gap-1.5 mb-1 max-w-[210px] w-full">
+                <!-- D1 (預設高亮) -->
+                <button onclick="bannerSwitchDay(1)" id="banner-btn-day1" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-white/95 text-sky-700 shadow-sm border border-transparent">
+                    <span class="text-xs font-black">D1</span>
+                    <span class="text-[9px] font-bold">7/11</span>
+                </button>
+                <!-- D2 -->
+                <button onclick="bannerSwitchDay(2)" id="banner-btn-day2" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
+                    <span class="text-xs font-black">D2</span>
+                    <span class="text-[9px] font-bold">7/12</span>
+                </button>
+                <!-- D3 -->
+                <button onclick="bannerSwitchDay(3)" id="banner-btn-day3" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
+                    <span class="text-xs font-black">D3</span>
+                    <span class="text-[9px] font-bold">7/13</span>
+                </button>
+                <!-- D4 -->
+                <button onclick="bannerSwitchDay(4)" id="banner-btn-day4" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
+                    <span class="text-xs font-black">D4</span>
+                    <span class="text-[9px] font-bold">7/14</span>
+                </button>
+                <!-- D5 -->
+                <button onclick="bannerSwitchDay(5)" id="banner-btn-day5" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
+                    <span class="text-xs font-black">D5</span>
+                    <span class="text-[9px] font-bold">7/15</span>
+                </button>
+                <!-- D6 -->
+                <button onclick="bannerSwitchDay(6)" id="banner-btn-day6" class="banner-day-btn flex flex-col items-center justify-center h-11 rounded-xl transition-all bg-black/50 text-white shadow-sm border border-white/20 hover:bg-black/60">
+                    <span class="text-xs font-black">D6</span>
+                    <span class="text-[9px] font-bold">7/16</span>
+                </button>
+            </div>
+
         </div>
     </header>
 
@@ -57,15 +93,6 @@
 
         <!-- SECTION 1: 行程區塊 (Itinerary) -->
         <section id="sec-itinerary" class="tab-content space-y-6 hidden">
-            <!-- Day Selector Tab -->
-            <div class="flex space-x-2 overflow-x-auto py-1 justify-start">
-                <button onclick="switchDay(1)" id="btn-day1" class="day-btn px-4 py-2 rounded-full bg-sky-500 text-white text-sm font-bold shadow-sm whitespace-nowrap">D1 (7/11)</button>
-                <button onclick="switchDay(2)" id="btn-day2" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D2 (7/12)</button>
-                <button onclick="switchDay(3)" id="btn-day3" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D3 (7/13)</button>
-                <button onclick="switchDay(4)" id="btn-day4" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D4 (7/14)</button>
-                <button onclick="switchDay(5)" id="btn-day5" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D5 (7/15)</button>
-                <button onclick="switchDay(6)" id="btn-day6" class="day-btn px-4 py-2 rounded-full bg-white text-sky-600 text-sm font-bold shadow-sm whitespace-nowrap">D6 (7/16)</button>
-            </div>
 
             <!-- 那霸即時天氣看板 -->
             <div id="naha-weather-board" class="bg-white rounded-2xl p-4 shadow-md border border-sky-100 flex items-center justify-between">
@@ -1733,23 +1760,32 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Itinerary Day Selector
+
+	// Itinerary Day Selector (已更新：配合刪除頁面按鈕，僅同步高亮 Banner 按鈕)
         function switchDay(dayNum) {
+            // 切換行程卡片顯示
             document.querySelectorAll('.day-card').forEach(function(el) {
                 el.classList.add('hidden');
             });
             var targetCard = document.getElementById('day-card-' + dayNum);
             if (targetCard) targetCard.classList.remove('hidden');
 
-            document.querySelectorAll('.day-btn').forEach(function(el) {
-                el.classList.remove('bg-sky-500', 'text-white');
-                el.classList.add('bg-white', 'text-sky-600');
+            // 同步頂部 Banner 上的 2x3 矩陣按鈕樣式
+            document.querySelectorAll('.banner-day-btn').forEach(function(el) {
+                el.classList.remove('bg-white/95', 'text-sky-700', 'border-transparent');
+                el.classList.add('bg-black/50', 'text-white', 'border-white/20');
             });
-            var targetBtn = document.getElementById('btn-day' + dayNum);
-            if (targetBtn) {
-                targetBtn.classList.remove('bg-white', 'text-sky-600');
-                targetBtn.classList.add('bg-sky-500', 'text-white');
+            var targetBannerBtn = document.getElementById('banner-btn-day' + dayNum);
+            if (targetBannerBtn) {
+                targetBannerBtn.classList.remove('bg-black/50', 'text-white', 'border-white/20');
+                targetBannerBtn.classList.add('bg-white/95', 'text-sky-700', 'border-transparent');
             }
+        }
+
+        // 新增輔助函數：供 Banner 上的按鈕呼叫（先切換至行程 Tab，再切換天數）
+        function bannerSwitchDay(dayNum) {
+            showTab('itinerary');
+            switchDay(dayNum);
         }
 
         // --- PREPARATION LIST DATA & ACTIONS ---
