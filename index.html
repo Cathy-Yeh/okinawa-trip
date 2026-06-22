@@ -607,12 +607,18 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
+	<div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
                 <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-3">📞 緊急聯絡電話</h3>
-                <div class="space-y-2 text-sm">
-                    <p><span class="font-bold">日本警察求助：</span>110</p>
-                    <p><span class="font-bold">消防、救護車：</span>119</p>
-                    <p><span class="font-bold">台北駐日經濟文化代表處那霸分處：</span>+81-98-862-7008</p>
+                <div class="space-y-3 text-sm">
+                    <p><span class="font-bold">日本警察求助：</span><a href="tel:110" class="text-sky-600 hover:underline">110</a></p>
+                    <p><span class="font-bold">消防、救護車：</span><a href="tel:119" class="text-sky-600 hover:underline">119</a></p>
+                    <p><span class="font-bold">台北駐日經濟文化代表處那霸分處：</span><br><a href="tel:+81988627008" class="text-sky-600 hover:underline">+81-98-862-7008</a></p>
+                    
+                    <!-- 新增訪日外國人熱線 -->
+                    <div class="border-t border-dashed border-sky-100 pt-2">
+                        <p class="mt-1"><span class="font-bold">訪日外國人醫療 & 急難熱線 (JNTO)：</span><br><a href="tel:05038162787" class="text-sky-600 font-extrabold hover:underline">050-3816-2787</a></p>
+                        <p class="text-[10px] text-gray-400 mt-0.5 leading-relaxed">* 24小時對應 (英/中/韓)。生病受傷或發生事故時可撥打。</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -631,17 +637,17 @@
                 </div>
             </div>
 
-            <!-- Manual Item Input -->
-            <div class="bg-white rounded-3xl p-4 shadow-md border border-sky-50 flex space-x-2">
-                <select id="new-prep-cat" class="bg-sky-50 border border-sky-200 text-xs rounded-xl p-2 focus:outline-none">
+	<!-- Manual Item Input -->
+            <div class="bg-white rounded-3xl p-4 shadow-md border border-sky-50 flex space-x-2 items-center">
+                <select id="new-prep-cat" class="bg-sky-50 border border-sky-200 text-xs rounded-xl p-2 focus:outline-none shrink-0">
                     <option value="1">重要文件</option>
                     <option value="2">個人用品</option>
                     <option value="3">個人衣物</option>
                     <option value="4">盥洗美妝</option>
                     <option value="5">個人藥品</option>
                 </select>
-                <input type="text" id="new-prep-name" placeholder="新增自訂行李項目" class="flex-grow border border-sky-200 rounded-xl px-3 text-sm focus:outline-none focus:border-sky-400">
-                <button onclick="addPrepItem()" class="bg-sky-500 text-white font-bold px-4 py-2 rounded-xl text-xs shadow hover:bg-sky-600">新增</button>
+                <input type="text" id="new-prep-name" placeholder="新增自訂行李項目" class="flex-grow min-w-0 border border-sky-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-sky-400">
+                <button onclick="addPrepItem()" class="bg-sky-500 text-white font-bold px-3 py-2 rounded-xl text-xs shadow hover:bg-sky-600 shrink-0">新增</button>
             </div>
 
             <!-- Packing Items List -->
