@@ -2657,13 +2657,18 @@ function speakResult() {
             if (descEl) descEl.innerText = '暫時無法連線取得那霸即時氣象';
         }
 
-        // Init App States on load
+	// Init App States on load
         window.onload = function() {
             renderPrep();
             renderShop();
             loadMemos(); // Loaded updated array-based memo system
             getNahaWeather(); // 自動取得那霸即時天氣
-            showTab('itinerary'); // 設定一進網頁預設顯示「行程」區塊
+            
+            // 【修改重點】：將 showTab('itinerary') 放入 setTimeout 中延遲 100 毫秒執行
+            // 避開瀏覽器初次渲染與 Tailwind CSS CDN 載入時的主線程衝突，確保半透明順利顯示
+            setTimeout(function() {
+                showTab('itinerary');
+            }, 100);
 
             // 安全載入匯率設定（透過 Try-Catch 機制包裝防止沙盒內 crashes）
             var savedRate = getStoredItem('exRate', '0.215');
@@ -2673,6 +2678,7 @@ function speakResult() {
             // 註冊背景每 300 毫秒一次的主動輪詢監聽計時器，完全解決所有行動裝置、鍵盤快速清空不發送事件造成的不同步相容性問題
             setInterval(checkTranslateInput, 300);
         };
+
     </script>
 
 
