@@ -1785,9 +1785,14 @@
             var targetCard = document.getElementById('day-card-' + dayNum);
             if (targetCard) targetCard.classList.remove('hidden');
 
-            // 同步頂部 Banner 上的 1x6 橫向按鈕樣式 (改用半透明天藍邊框高亮，100%不遮擋背景)
+	    // 同步頂部 Banner 上的 1x6 橫向按鈕樣式 (改用半透明天藍邊框高亮，100%不遮擋背景)
             document.querySelectorAll('.banner-day-btn').forEach(function(el) {
-                // 恢復為預設的「未選取」沙灘半透明白樣式（此處已正確加入移除 bg-white/85 的防衝突代碼）
+                // 【修改重點】：若是當前選取中的天數按鈕，直接跳過重設步驟，避免瞬時重複切換樣式導致渲染異常
+                if (el.id === 'banner-btn-day' + dayNum) {
+                    return;
+                }
+
+                // 恢復為預設的「未選取」沙灘半透明白樣式
                 el.classList.remove('bg-white/85', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
                 el.classList.add('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm', 'backdrop-blur-[1px]');
                 
