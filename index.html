@@ -1804,19 +1804,21 @@
                 }
             });
             
-            var targetBannerBtn = document.getElementById('banner-btn-day' + dayNum);
-            if (targetBannerBtn) {
-                // 切換為「選取中」的半透明天藍邊框高亮樣式 (不產生實心色塊，防止遮擋背景)
-                targetBannerBtn.classList.remove('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm', 'backdrop-blur-[1px]');
-                targetBannerBtn.classList.add('bg-white/85', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
-                
-                // 設定天數標題為特粗體
-                var activeTitleSpan = targetBannerBtn.querySelector('span:first-child');
-                if (activeTitleSpan) {
-                    activeTitleSpan.classList.remove('font-bold');
-                    activeTitleSpan.classList.add('font-black');
-                }
+
+	var targetBannerBtn = document.getElementById('banner-btn-day' + dayNum);
+        if (targetBannerBtn) {
+            // 【修改重點】：移除列表拿掉了 'backdrop-blur-[1px]'，強制讓選取中的按鈕也保留毛玻璃效果
+            // 這能強制瀏覽器在初次載入與重新整理時，都啟用硬體加速進行背景混合，解決實心白底的渲染 Bug
+            targetBannerBtn.classList.remove('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm');
+            targetBannerBtn.classList.add('bg-white/85', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
+            
+            // 設定天數標題為特粗體
+            var activeTitleSpan = targetBannerBtn.querySelector('span:first-child');
+            if (activeTitleSpan) {
+                activeTitleSpan.classList.remove('font-bold');
+                activeTitleSpan.classList.add('font-black');
             }
+          }
         }
 
         // 新增輔助函數：供 Banner 上的按鈕呼叫（先切換至行程 Tab，再切換天數）
