@@ -36,8 +36,9 @@
 
 <!-- Top App Header with Banner -->
     <header class="relative w-full max-w-md mx-auto h-[250px] overflow-hidden shadow-md">
-        <!-- Banner Image (確認已套用 Banner.png) -->
-        <img src="Banner.png" alt="Banner" class="w-full h-full object-cover object-center">
+
+	<!-- Banner Image (確認已套用 Banner.png，並加入 onload 偵測解決不透明 Bug) -->
+        <img src="Banner.png" alt="Banner" onload="bannerImageLoaded()" class="w-full h-full object-cover object-center">
         
         <!-- 內容重疊區域 (將按鈕置於 Banner 最底部，橫向一整排，完全不遮擋上方角色與魚群) -->
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end justify-center p-3">
@@ -1803,30 +1804,24 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Itinerary Day Selector (已更新：配合最下方橫向單排柔和按鈕，完美融合海洋/沙灘背景)
+	// Itinerary Day Selector (已微調白底透明度為 bg-white/75，使底圖透出更清晰自然)
         function switchDay(dayNum) {
-            // 更新全域變數，紀錄當前選取的天數
             activeDay = dayNum;
 
-            // 切換行程卡片顯示
             document.querySelectorAll('.day-card').forEach(function(el) {
                 el.classList.add('hidden');
             });
             var targetCard = document.getElementById('day-card-' + dayNum);
             if (targetCard) targetCard.classList.remove('hidden');
 
-	    // 同步頂部 Banner 上的 1x6 橫向按鈕樣式 (改用半透明天藍邊框高亮，100%不遮擋背景)
             document.querySelectorAll('.banner-day-btn').forEach(function(el) {
-                // 【修改重點】：若是當前選取中的天數按鈕，直接跳過重設步驟，避免瞬時重複切換樣式導致渲染異常
                 if (el.id === 'banner-btn-day' + dayNum) {
                     return;
                 }
 
-                // 恢復為預設的「未選取」沙灘半透明白樣式
-                el.classList.remove('bg-white/85', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
+                el.classList.remove('bg-white/75', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
                 el.classList.add('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm', 'backdrop-blur-[1px]');
                 
-                // 恢復天數標題為一般粗細
                 var titleSpan = el.querySelector('span:first-child');
                 if (titleSpan) {
                     titleSpan.classList.remove('font-black');
@@ -1834,21 +1829,24 @@
                 }
             });
             
-
-	var targetBannerBtn = document.getElementById('banner-btn-day' + dayNum);
-        if (targetBannerBtn) {
-            // 【修改重點】：移除列表拿掉了 'backdrop-blur-[1px]'，強制讓選取中的按鈕也保留毛玻璃效果
-            // 這能強制瀏覽器在初次載入與重新整理時，都啟用硬體加速進行背景混合，解決實心白底的渲染 Bug
-            targetBannerBtn.classList.remove('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm');
-            targetBannerBtn.classList.add('bg-white/85', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
-            
-            // 設定天數標題為特粗體
-            var activeTitleSpan = targetBannerBtn.querySelector('span:first-child');
-            if (activeTitleSpan) {
-                activeTitleSpan.classList.remove('font-bold');
-                activeTitleSpan.classList.add('font-black');
+            var targetBannerBtn = document.getElementById('banner-btn-day' + dayNum);
+            if (targetBannerBtn) {
+                targetBannerBtn.classList.remove('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm');
+                targetBannerBtn.classList.add('bg-white/75', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
+                
+                var activeTitleSpan = targetBannerBtn.querySelector('span:first-child');
+                if (activeTitleSpan) {
+                    activeTitleSpan.classList.remove('font-bold');
+                    activeTitleSpan.classList.add('font-black');
+                }
             }
-          }
+        }
+
+        // 新增：解決背景圖還沒下載完就進行毛玻璃渲染導致白底不透明的解決函式
+        function bannerImageLoaded() {
+            if (activeDay) {
+                switchDay(activeDay);
+            }
         }
 
         // 新增輔助函數：供 Banner 上的按鈕呼叫（先切換至行程 Tab，再切換天數）
