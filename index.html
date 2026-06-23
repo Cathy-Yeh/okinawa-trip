@@ -1110,17 +1110,27 @@
                 <p class="text-xs text-gray-400">核對你要買的特色紀念品與商品，支持調整數量與自訂品項！</p>
             </div>
 
-	<!-- Add Shopping Item -->
-            <div class="bg-white rounded-3xl p-4 shadow-md border border-sky-50 flex space-x-2 items-center">
-                <input type="text" id="new-shop-name" placeholder="商品名稱 (如：水蜜桃)" class="flex-grow min-w-0 border border-sky-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-sky-400">
-                <input type="text" id="new-shop-desc" placeholder="規格/備註 (如：1盒)" class="w-1/4 min-w-0 border border-sky-200 rounded-xl px-2 py-2 text-sm focus:outline-none focus:border-sky-400">
-                <button onclick="addShopItem()" class="bg-sky-500 text-white font-bold px-3 py-2 rounded-xl text-xs shadow hover:bg-sky-600 shrink-0 whitespace-nowrap">新增</button>
+	<!-- Add Shopping Item (已整合分組選擇與新增分類功能) -->
+            <div class="bg-white rounded-3xl p-4 shadow-md border border-sky-50 space-y-2">
+                <div class="flex space-x-2 items-center">
+                    <!-- 分組選擇下拉選單 -->
+                    <select id="new-shop-group-select" onchange="toggleCustomGroupInput()" class="bg-sky-50 border border-sky-200 text-xs rounded-xl p-2 focus:outline-none shrink-0 font-bold max-w-[150px] text-sky-700">
+                        <!-- 選項由 JS 動態產生 -->
+                    </select>
+                    <!-- 自訂新分類輸入框 (預設隱藏) -->
+                    <input type="text" id="new-shop-custom-group-input" placeholder="輸入新分類名稱 (如：藥妝)" class="hidden flex-grow min-w-0 border border-sky-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-sky-400">
+                </div>
+                <div class="flex space-x-2 items-center">
+                    <input type="text" id="new-shop-name" placeholder="商品名稱 (如：水蜜桃)" class="flex-grow min-w-0 border border-sky-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-sky-400">
+                    <input type="text" id="new-shop-desc" placeholder="規格/備註 (如：1盒)" class="w-1/4 min-w-0 border border-sky-200 rounded-xl px-2 py-2 text-sm focus:outline-none focus:border-sky-400">
+                    <button onclick="addShopItem()" class="bg-sky-500 text-white font-bold px-3 py-2 rounded-xl text-xs shadow hover:bg-sky-600 shrink-0 whitespace-nowrap">新增</button>
+                </div>
             </div>
 
 
-<!-- ==================== 整理後的購買清單區塊 ==================== -->
+	<!-- ==================== 整理後的購買清單區塊 (內部結構由 JS 動態生成，其餘靜態項目已被移除以配合動態渲染) ==================== -->
             <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-4" id="shop-list-container">
-                
+              
                 <!-- Day 1 購買項目 -->
                 <div class="border-b border-sky-50 pb-4 space-y-3">
                     <h4 class="font-bold text-base text-sky-600">🛍️ Day 1 購買項目</h4>
@@ -2047,8 +2057,7 @@ const catCard = document.createElement('div');
             { id: 120, group: "Day 6 購買項目", text: "達摩御守、書包御守、許願達摩", desc: "達摩寺", qty: 1, checked: false }
         ];
 
-
-        var shopItems;
+	var shopItems;
         try {
             var storedShop = getStoredItem('shopItems', null);
             shopItems = storedShop ? JSON.parse(storedShop) : defaultShopItems;
@@ -2056,17 +2065,82 @@ const catCard = document.createElement('div');
             shopItems = defaultShopItems;
         }
 
+        // 記憶折疊狀態之變數
+        var collapsedGroups;
+        try {
+            var storedCollapsed = localStorage.getItem('collapsedGroups');
+            collapsedGroups = storedCollapsed ? JSON.parse(storedCollapsed) : {};
+        } catch(e) {
+            collapsedGroups = {};
+        }
+
+        function saveCollapsedGroups() {
+            try {
+                localStorage.setItem('collapsedGroups', JSON.stringify(collapsedGroups));
+            } catch(e) {}
+        }
+
         function saveShop() {
             setStoredItem('shopItems', JSON.stringify(shopItems));
             renderShop();
         }
 
+	// 切換自訂分組輸入框的顯示與隱藏
+        function toggleCustomGroupInput() {
+            var select = document.getElementById('new-shop-group-select');
+            var input = document.getElementById('new-shop-custom-group-input');
+            if (select && input) {
+                if (select.value === '__new_group__') {
+                    input.classList.remove('hidden');
+                    input.focus();
+                } else {
+                    input.classList.add('hidden');
+                }
+            }
+        }
+
+        // 動態生成購買清單分組與商品的渲染函式
         function renderShop() {
             const container = document.getElementById('shop-list-container');
             if (!container) return;
             container.innerHTML = '';
 
-            // Group by group name
+            // 1. 取得目前清單中所有不重複的分組名稱
+            const uniqueGroups = [];
+            shopItems.forEach(function(item) {
+                if (uniqueGroups.indexOf(item.group) === -1) {
+                    uniqueGroups.push(item.group);
+                }
+            });
+            if (uniqueGroups.length === 0) {
+                uniqueGroups.push("自訂額外購買項目");
+            }
+
+            // 2. 動態渲染「新增商品區」的分組下拉選單
+            var groupSelect = document.getElementById('new-shop-group-select');
+            if (groupSelect) {
+                var selectedVal = groupSelect.value;
+                groupSelect.innerHTML = '';
+                uniqueGroups.forEach(function(g) {
+                    var opt = document.createElement('option');
+                    opt.value = g;
+                    opt.innerText = g;
+                    groupSelect.appendChild(opt);
+                });
+                var optNew = document.createElement('option');
+                optNew.value = '__new_group__';
+                optNew.innerText = '[＋ 新增自訂分類]';
+                groupSelect.appendChild(optNew);
+                
+                if (selectedVal && (uniqueGroups.indexOf(selectedVal) !== -1 || selectedVal === '__new_group__')) {
+                    groupSelect.value = selectedVal;
+                } else {
+                    groupSelect.value = uniqueGroups[0];
+                }
+                toggleCustomGroupInput();
+            }
+
+            // 3. 依據分組整理並分類商品資料
             const groups = {};
             shopItems.forEach(function(item) {
                 if (!groups[item.group]) {
@@ -2075,23 +2149,53 @@ const catCard = document.createElement('div');
                 groups[item.group].push(item);
             });
 
-	    Object.keys(groups).forEach(function(groupName) {
+            // 4. 開始渲染各個分組與底下商品
+            Object.keys(groups).forEach(function(groupName) {
                 const groupItems = groups[groupName];
                 const groupDiv = document.createElement('div');
                 groupDiv.className = 'border-b border-sky-50 pb-4 space-y-3';
-                groupDiv.innerHTML = '<h4 class="font-bold text-lg text-sky-600">🛍️ ' + groupName + '</h4>';
+                
+                var isCollapsed = !!collapsedGroups[groupName];
+                var arrow = isCollapsed ? '▶' : '▼';
+
+                // 生成群組標題列 (點擊折疊，點 ✏️ 重新命名分類)
+                groupDiv.innerHTML = 
+                    '<div class="flex items-center justify-between border-b border-sky-100 pb-2 mb-2">' +
+                        '<h4 onclick="toggleGroupCollapse(\'' + groupName.replace(/'/g, "\\'") + '\')" class="font-bold text-base text-sky-600 flex items-center space-x-1 cursor-pointer select-none flex-grow">' +
+                            '<span>' + arrow + ' ' + groupName + '</span>' +
+                        '</h4>' +
+                        '<button onclick="renameGroup(\'' + groupName.replace(/'/g, "\\'") + '\')" class="text-xs bg-slate-50 hover:bg-slate-100 text-slate-500 p-1.5 rounded-lg border border-slate-200 leading-none" title="重命名分類">✏️</button>' +
+                    '</div>';
+
+                // 商品卡片容器 (依折疊狀態進行隱藏/顯示)
+                const itemsContainer = document.createElement('div');
+                itemsContainer.className = 'space-y-3' + (isCollapsed ? ' hidden' : '');
 
                 groupItems.forEach(function(item) {
                     const row = document.createElement('div');
                     row.className = 'flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0';
                     
-                    // Render thumbnail with openLightbox on click
                     const imgHtml = item.image ? `
                         <div class="relative w-16 h-16 mt-1.5 mb-1 cursor-zoom-in">
                             <img src="${item.image}" onclick="openLightbox('${item.image}')" class="w-16 h-16 object-cover rounded-xl border border-sky-200">
                             <button onclick="removeShopImage(${item.id})" class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-[9px] font-bold shadow-sm">×</button>
                         </div>
                     ` : '';
+
+                    // 動態生成跨組搬移 (📁) 的選項
+                    var groupSelectHtml = '<select onchange="moveShopItemToGroup(' + item.id + ', this.value)" class="bg-sky-50 border border-sky-100 rounded text-[10px] px-1 py-0.5 text-sky-600 focus:outline-none max-w-[85px] font-bold">';
+                    uniqueGroups.forEach(function(g) {
+                        var selected = (g === item.group) ? 'selected' : '';
+                        groupSelectHtml += '<option value="' + g + '" ' + selected + '>📁 ' + g + '</option>';
+                    });
+                    groupSelectHtml += '</select>';
+
+                    // 組內微調排序 (▲ / ▼) 按鈕
+                    var orderButtonsHtml = 
+                        '<div class="flex items-center space-x-1 mr-1">' +
+                            '<button onclick="moveShopItemOrder(' + item.id + ', -1)" class="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-500 font-extrabold px-1 py-0.5 rounded text-[9px]">▲</button>' +
+                            '<button onclick="moveShopItemOrder(' + item.id + ', 1)" class="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-500 font-extrabold px-1 py-0.5 rounded text-[9px]">▼</button>' +
+                        '</div>';
 
                     row.innerHTML = 
                         '<div class="flex items-start justify-between">' +
@@ -2105,21 +2209,95 @@ const catCard = document.createElement('div');
                             '</label>' +
                             '<button onclick="deleteShopItem(' + item.id + ')" class="text-xs text-red-400 ml-2">🗑️</button>' +
                         '</div>' +
-                        '<div class="flex items-center justify-end space-x-2 mt-1">' +
-                            // Hidden input file for photo selection
-                            '<input type="file" accept="image/*" id="shop-img-file-' + item.id + '" onchange="uploadShopImage(' + item.id + ', this)" class="hidden">' +
-                            // Camera Button
-                            '<button onclick="triggerShopImageUpload(' + item.id + ')" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-sm flex items-center justify-center mr-1">📷</button>' +
-                            '<span class="text-[10px] text-gray-500">數量:</span>' +
-                            '<button onclick="updateShopQty(' + item.id + ', -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>' +
-                            '<input type="number" min="0" value="' + item.qty + '" onchange="setShopQty(' + item.id + ', this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">' +
-                            '<button onclick="updateShopQty(' + item.id + ', 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>' +
+                        '<div class="flex items-center justify-between mt-1">' +
+                            // 左側：搬家下拉選單 與 排序排序
+                            '<div class="flex items-center space-x-1.5">' +
+                                orderButtonsHtml +
+                                groupSelectHtml +
+                            </div>' +
+                            // 右側：照相與數量控制
+                            '<div class="flex items-center space-x-2">' +
+                                '<input type="file" accept="image/*" id="shop-img-file-' + item.id + '" onchange="uploadShopImage(' + item.id + ', this)" class="hidden">' +
+                                '<button onclick="triggerShopImageUpload(' + item.id + ')" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-xs flex items-center justify-center">📷</button>' +
+                                '<span class="text-[10px] text-gray-500">數量:</span>' +
+                                '<button onclick="updateShopQty(' + item.id + ', -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>' +
+                                '<input type="number" min="0" value="' + item.qty + '" onchange="setShopQty(' + item.id + ', this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">' +
+                                '<button onclick="updateShopQty(' + item.id + ', 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>' +
+                            '</div>' +
                         '</div>';
-                    groupDiv.appendChild(row);
+                    itemsContainer.appendChild(row);
                 });
 
+                groupDiv.appendChild(itemsContainer);
                 container.appendChild(groupDiv);
             });
+        }
+
+        // 切換折疊狀態
+        function toggleGroupCollapse(groupName) {
+            collapsedGroups[groupName] = !collapsedGroups[groupName];
+            saveCollapsedGroups();
+            renderShop();
+        }
+
+        // 重新命名分類
+        function renameGroup(oldName) {
+            var newName = prompt("請輸入此分類的新名稱：", oldName);
+            if (newName) {
+                newName = newName.trim();
+                if (!newName) return;
+                if (newName === oldName) return;
+                
+                shopItems.forEach(function(item) {
+                    if (item.group === oldName) {
+                        item.group = newName;
+                    }
+                });
+                
+                if (collapsedGroups[oldName] !== undefined) {
+                    collapsedGroups[newName] = collapsedGroups[oldName];
+                    delete collapsedGroups[oldName];
+                    saveCollapsedGroups();
+                }
+                
+                saveShop();
+            }
+        }
+
+        // 一鍵搬移群組
+        function moveShopItemToGroup(id, targetGroupName) {
+            var item = shopItems.find(function(i) { return i.id === id; });
+            if (item && targetGroupName) {
+                item.group = targetGroupName;
+                saveShop();
+            }
+        }
+
+        // 組內上下微調排序 (▲ / ▼)
+        function moveShopItemOrder(id, direction) {
+            var index = shopItems.findIndex(function(i) { return i.id === id; });
+            if (index === -1) return;
+            var item = shopItems[index];
+            var group = item.group;
+            
+            // 找出同一群組的所有商品在 shopItems 的索引
+            var groupIndices = [];
+            shopItems.forEach(function(it, idx) {
+                if (it.group === group) groupIndices.push(idx);
+            });
+            
+            var positionInGroup = groupIndices.indexOf(index);
+            if (positionInGroup === -1) return;
+            
+            var targetPositionInGroup = positionInGroup + direction;
+            if (targetPositionInGroup >= 0 && targetPositionInGroup < groupIndices.length) {
+                var targetIndex = groupIndices[targetPositionInGroup];
+                // 交換兩個商品在主陣列內的位置
+                var temp = shopItems[index];
+                shopItems[index] = shopItems[targetIndex];
+                shopItems[targetIndex] = temp;
+                saveShop();
+            }
         }
 
         function toggleShopItem(id) {
@@ -2130,7 +2308,7 @@ const catCard = document.createElement('div');
             }
         }
 
-        // Updated for min qty = 0
+        // Qty 微調
         function updateShopQty(id, change) {
             const item = shopItems.find(function(i) { return i.id === id; });
             if (item) {
@@ -2139,7 +2317,7 @@ const catCard = document.createElement('div');
             }
         }
 
-        // Updated for min qty = 0
+        // Qty 設定
         function setShopQty(id, value) {
             const item = shopItems.find(function(i) { return i.id === id; });
             if (item) {
@@ -2148,13 +2326,13 @@ const catCard = document.createElement('div');
             }
         }
 
-        // Camera Action Handlers
+        // 照相按鈕觸發
         function triggerShopImageUpload(id) {
             var fileEl = document.getElementById('shop-img-file-' + id);
             if (fileEl) fileEl.click();
         }
 
-        // Image compression scaled up to 1000px and 75% quality JPEG for route map clarity
+        // 壓縮與上傳商品相片
         function uploadShopImage(id, input) {
             if (!input.files || !input.files[0]) return;
             var file = input.files[0];
@@ -2181,7 +2359,7 @@ const catCard = document.createElement('div');
                     canvas.height = height;
                     var ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, width, height);
-                    var compressedBase64 = canvas.toDataURL('image/jpeg', 0.75); // Compressed JPEG 75%
+                    var compressedBase64 = canvas.toDataURL('image/jpeg', 0.75);
                     
                     var item = shopItems.find(function(i) { return i.id === id; });
                     if (item) {
@@ -2194,6 +2372,7 @@ const catCard = document.createElement('div');
             reader.readAsDataURL(file);
         }
 
+        // 移除商品相片
         function removeShopImage(id) {
             var item = shopItems.find(function(i) { return i.id === id; });
             if (item) {
@@ -2202,28 +2381,39 @@ const catCard = document.createElement('div');
             }
         }
 
-        // Reset Cache and load coded defaultShopItems
+        // 重置為預設資料 (清除快取)
         function resetShopToDefault() {
             if (confirm("確定要將購買清單重設為預設清單嗎？這會清除您目前自訂的品項、數量與相片。")) {
                 localStorage.removeItem('shopItems');
-                // Use a deep copy to load pristine defaults without reference leakage
                 shopItems = JSON.parse(JSON.stringify(defaultShopItems));
                 saveShop();
             }
         }
 
+        // 新增商品 (結合動態新增分類)
         function addShopItem() {
             const nameInput = document.getElementById('new-shop-name');
             const descInput = document.getElementById('new-shop-desc');
-            if (!nameInput || !descInput) return;
+            const groupSelect = document.getElementById('new-shop-group-select');
+            const customGroupInput = document.getElementById('new-shop-custom-group-input');
+
+            if (!nameInput || !descInput || !groupSelect) return;
             const text = nameInput.value.trim();
             const desc = descInput.value.trim();
 
             if (!text) return;
 
+            var groupName = groupSelect.value;
+            if (groupName === '__new_group__') {
+                if (customGroupInput) {
+                    groupName = customGroupInput.value.trim();
+                }
+                if (!groupName) groupName = "自訂額外購買項目";
+            }
+
             const newItem = {
                 id: Date.now(),
-                group: "自訂額外購買項目",
+                group: groupName,
                 text: text,
                 desc: desc || "無額外描述",
                 qty: 1,
@@ -2233,6 +2423,10 @@ const catCard = document.createElement('div');
             shopItems.push(newItem);
             nameInput.value = '';
             descInput.value = '';
+            if (customGroupInput) {
+                customGroupInput.value = '';
+                customGroupInput.classList.add('hidden');
+            }
             saveShop();
         }
 
