@@ -1819,7 +1819,7 @@
                     return;
                 }
 
-                el.classList.remove('bg-white/75', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
+                el.classList.remove('bg-white/65', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
                 el.classList.add('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm', 'backdrop-blur-[1px]');
                 
                 var titleSpan = el.querySelector('span:first-child');
@@ -1832,7 +1832,7 @@
             var targetBannerBtn = document.getElementById('banner-btn-day' + dayNum);
             if (targetBannerBtn) {
                 targetBannerBtn.classList.remove('bg-white/45', 'text-sky-900', 'border', 'border-white/50', 'shadow-sm');
-                targetBannerBtn.classList.add('bg-white/75', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
+                targetBannerBtn.classList.add('bg-white/65', 'text-sky-600', 'border-2', 'border-sky-400', 'shadow-md');
                 
                 var activeTitleSpan = targetBannerBtn.querySelector('span:first-child');
                 if (activeTitleSpan) {
@@ -2656,10 +2656,10 @@ function speakResult() {
                 }
             }
 
-            // 3. 延遲 100 毫秒播放，確保手機端音訊緩衝區已完全釋放，解決 Safari/Chrome 靜音問題
+	// 【修改重點】：延遲增加到 350 毫秒執行，給予手機充足的時間在背景渲染完成後才點亮 D1 按鈕
             setTimeout(function() {
                 window.speechSynthesis.speak(msg);
-            }, 100);
+            }, 350);
         }
 
         // --- MEMO STORAGE & ACTIONS ---
