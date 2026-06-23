@@ -1453,7 +1453,7 @@
 
                 <!-- 水族館專賣店採購 -->
                 <div class="border-b border-sky-50 pb-4 space-y-3">
-                    <h4 class="font-bold text-base text-sky-600">🛍️ 水族館專賣店採購</h4>
+                    <h4 class="font-bold text-base text-sky-600">🛍️ Day 3 水族館專賣店採購</h4>
                     
                     <!-- 商品 115 -->
                     <div class="flex flex-col space-y-1 py-2 px-1 border-b border-dashed border-slate-100 last:border-0">
@@ -2048,9 +2048,9 @@ const catCard = document.createElement('div');
             { id: 112, group: "Day 2 土產店採購", text: "Calbee 限定黑糖脆薯粒(144g 18gx8袋)", desc: "5盒", qty: 5, checked: false },
             { id: 113, group: "Day 2 土產店採購", text: "Orion 啤酒酵母綜合堅果豆(5連包或20袋大裝)", desc: "5連包試吃", qty: 3, checked: false },
             { id: 114, group: "Day 2 土產店採購", text: "沖繩水雲芽蕪海藻湯(約85g)", desc: "3包", qty: 3, checked: false },
-            // Day 3 (水族館專賣店採購)
-            { id: 115, group: "水族館專賣店採購", text: "大理石巧克力派-紅芋風味(24入禮盒)", desc: "3盒", qty: 3, checked: false },
-            { id: 116, group: "水族館專賣店採購", text: "北谷鹽味莎布蕾餅乾(32入禮盒)", desc: "3盒", qty: 3, checked: false },
+            // Day 3
+            { id: 115, group: "Day 3 水族館專賣店採購", text: "大理石巧克力派-紅芋風味(24入禮盒)", desc: "3盒", qty: 3, checked: false },
+            { id: 116, group: "Day 3 水族館專賣店採購", text: "北谷鹽味莎布蕾餅乾(32入禮盒)", desc: "3盒", qty: 3, checked: false },
             // Day 4
             { id: 117, group: "Day 4 購買項目", text: "ALLIE 持采UV高效防曬水凝乳", desc: "札幌藥妝", qty: 1, checked: false },
             { id: 118, group: "Day 4 購買項目", text: "Panasonic 吹風機(型號 EH-NE5N 或 EH-NE7N)", desc: "AEON MALL永旺夢樂城沖繩來客夢", qty: 1, checked: false },
@@ -2180,7 +2180,7 @@ const catCard = document.createElement('div');
                 groupDiv.innerHTML = 
                     '<div class="flex items-center justify-between border-b border-sky-100 pb-2 mb-2">' +
                         '<h4 onclick="toggleGroupCollapse(\'' + groupName.replace(/'/g, "\\'") + '\')" class="font-bold text-base text-sky-600 flex items-center space-x-1 cursor-pointer select-none flex-grow">' +
-                            '<span>' + arrow + ' ' + groupName + '</span>' +
+                            '<span>' + arrow + ' 🛍️ ' + groupName + '</span>'
                         '</h4>' +
                         '<button onclick="renameGroup(\'' + groupName.replace(/'/g, "\\'") + '\')" class="text-xs bg-slate-50 hover:bg-slate-100 text-slate-500 p-1.5 rounded-lg border border-slate-200 leading-none" title="重命名分類">✏️</button>' +
                     '</div>';
