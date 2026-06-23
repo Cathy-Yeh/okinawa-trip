@@ -1629,11 +1629,13 @@
             <!-- ➕ 快速記帳輸入區 (支援動態分類、自訂新分類與備註) -->
             <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
                 <h3 class="font-bold text-base text-sky-600 border-b border-sky-100 pb-1.5">➕ 快速記入帳本</h3>
-                <div class="space-y-2.5">
+		<div class="space-y-2.5">
                     <div class="flex space-x-2 items-center">
+                        <!-- 預設自動日期輸入框 (可手動修改) -->
+                        <input type="text" id="expense-date-input" placeholder="7/12" class="w-16 border border-sky-200 rounded-xl px-2 py-1.5 text-xs text-center font-bold text-sky-600 focus:outline-none focus:border-sky-400">
                         <!-- 動態分類選擇 -->
                         <select id="expense-group-select" onchange="toggleExpenseCustomGroupInput()" class="bg-sky-50 border border-sky-200 text-xs rounded-xl p-2 focus:outline-none shrink-0 font-bold max-w-[150px] text-sky-700">
-                            <!-- 由 JS 動態生成選項 -->
+                        <!-- 由 JS 動態生成選項 -->
                         </select>
                         <!-- 自訂新分類輸入框 -->
                         <input type="text" id="expense-custom-group-input" placeholder="輸入新分類 (如：景點門票)" class="hidden flex-grow min-w-0 border border-sky-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-sky-400">
@@ -2665,12 +2667,13 @@ const catCard = document.createElement('div');
             }
         }
 
-        // 新增記帳條目 (結合動態新增分類)
+	// 新增記帳條目 (支援預設今天日期與手動修改日期)
         function addExpenseEntry() {
             var jpyInput = document.getElementById('expense-jpy-input');
             var remarkInput = document.getElementById('expense-remark-input');
             var groupSelect = document.getElementById('expense-group-select');
             var customGroupInput = document.getElementById('expense-custom-group-input');
+            var dateInput = document.getElementById('expense-date-input');
 
             if (!jpyInput || !remarkInput || !groupSelect) return;
 
@@ -2690,8 +2693,18 @@ const catCard = document.createElement('div');
                 if (!catName) catName = "其他 🪙";
             }
 
+            // 讀取日期：若使用者有手動修改則用修改的，若為空則自動抓取今天
+            var dateStr = "";
+            if (dateInput && dateInput.value.trim()) {
+                dateStr = dateInput.value.trim();
+            } else {
+                var now = new Date();
+                dateStr = (now.getMonth() + 1) + '/' + now.getDate();
+            }
+
             var newItem = {
                 id: Date.now(),
+                date: dateStr,
                 group: catName,
                 jpy: jpyVal,
                 remark: remark || "未分類消費"
@@ -2704,7 +2717,18 @@ const catCard = document.createElement('div');
                 customGroupInput.value = '';
                 customGroupInput.classList.add('hidden');
             }
+            // 記帳完成後，自動將輸入框重新填回當前日期
+            setTodayDate();
             saveExpenses();
+        }
+
+        // 新增輔助：自動將日期框填入當天日期的函式
+        function setTodayDate() {
+            var dateInput = document.getElementById('expense-date-input');
+            if (dateInput) {
+                var now = new Date();
+                dateInput.value = (now.getMonth() + 1) + '/' + now.getDate();
+            }
         }
 
         // 刪除單筆記帳
@@ -3160,6 +3184,7 @@ function speakResult() {
             renderShop();
             loadMemos(); // Loaded updated array-based memo system
             renderExpenses(); // 載入時自動更新消費明細與占比比例圖
+            setTodayDate();   // 當網頁打開時，自動在小日期框中填入今天日期
             getNahaWeather(); // 自動取得那霸即時天氣
             
             // 【修改重點】：將 showTab('itinerary') 放入 setTimeout 中延遲 100 毫秒執行
