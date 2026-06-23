@@ -1603,9 +1603,9 @@
             <!-- ==================== 購買清單區塊結束 ==================== -->
 		</section> 
 
-
-        <!-- SECTION 5: 匯率計算區塊 (Converter) -->
+	<!-- SECTION 5: 匯率與消費記帳 (已經合併為全新「消費」記帳分頁) -->
         <section id="sec-calc" class="tab-content hidden space-y-4">
+            <!-- 💱 日幣/台幣快速算 (保留您原有的匯率換算器) -->
             <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden">
                 <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-4">💱 日幣/台幣快速算</h3>
                 <div class="space-y-4">
@@ -1623,6 +1623,49 @@
                             <input type="number" id="twd-input" placeholder="0" oninput="convertCurrency('twd')" class="w-full border border-sky-200 rounded-xl p-3 text-lg font-bold focus:outline-none">
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ➕ 快速記帳輸入區 (支援動態分類、自訂新分類與備註) -->
+            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                <h3 class="font-bold text-base text-sky-600 border-b border-sky-100 pb-1.5">➕ 快速記入帳本</h3>
+                <div class="space-y-2.5">
+                    <div class="flex space-x-2 items-center">
+                        <!-- 動態分類選擇 -->
+                        <select id="expense-group-select" onchange="toggleExpenseCustomGroupInput()" class="bg-sky-50 border border-sky-200 text-xs rounded-xl p-2 focus:outline-none shrink-0 font-bold max-w-[150px] text-sky-700">
+                            <!-- 由 JS 動態生成選項 -->
+                        </select>
+                        <!-- 自訂新分類輸入框 -->
+                        <input type="text" id="expense-custom-group-input" placeholder="輸入新分類 (如：景點門票)" class="hidden flex-grow min-w-0 border border-sky-200 rounded-xl px-3 py-1.5 text-xs focus:outline-none focus:border-sky-400">
+                    </div>
+                    <div class="flex space-x-2 items-center">
+                        <input type="number" id="expense-jpy-input" placeholder="日幣金額 ¥" class="w-1/3 min-w-0 border border-sky-200 rounded-xl px-3 py-2 text-sm font-bold focus:outline-none focus:border-sky-400">
+                        <input type="text" id="expense-remark-input" placeholder="消費備註 (如：一蘭拉麵)" class="flex-grow min-w-0 border border-sky-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-sky-400">
+                        <button onclick="addExpenseEntry()" class="bg-sky-500 text-white font-bold px-3 py-2 rounded-xl text-xs shadow hover:bg-sky-600 shrink-0 whitespace-nowrap">記帳</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📊 消費佔比比例圖 (極輕量、純 CSS/Tailwind 動態渲染，支援完全離線) -->
+            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-4">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="font-bold text-lg text-sky-600">📊 預算消費占比</h3>
+                    <button onclick="resetExpenses()" class="text-[10px] bg-slate-50 hover:bg-slate-100 text-slate-400 px-2 py-0.5 rounded border border-slate-200 font-semibold transition-colors">清空記帳</button>
+                </div>
+                <div id="expense-proportion-container" class="space-y-2.5">
+                    <!-- 由 JS 動態產生彩色進度條與百分比 -->
+                </div>
+            </div>
+
+            <!-- 🧾 消費明細與加總 (串接匯率自動折算台幣，可隨時刪除單筆) -->
+            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 space-y-3">
+                <h3 class="font-bold text-base text-sky-600 border-b border-sky-100 pb-1.5">🧾 旅費消費明細</h3>
+                <div id="expense-list-container" class="space-y-2 divide-y divide-dashed divide-sky-100">
+                    <!-- 由 JS 動態生成消費明細 -->
+                </div>
+                <!-- 消費總計區域 -->
+                <div id="expense-total-box" class="border-t border-sky-100 pt-3 text-right">
+                    <!-- 由 JS 動態生成加總數值 -->
                 </div>
             </div>
         </section>
@@ -1724,7 +1767,7 @@
         </button>
         <button onclick="showTab('calc')" id="nav-calc" class="nav-item flex flex-col items-center space-y-0.5 text-slate-400">
             <img src="Coin.png" alt="匯率" class="w-12 h-12 object-contain">
-            <span class="text-[10px] font-bold">匯率</span>
+            <span class="text-[10px] font-bold">消費</span>
         </button>
         <button onclick="showTab('translate')" id="nav-translate" class="nav-item flex flex-col items-center space-y-0.5 text-slate-400">
             <img src="Translate.png" alt="翻譯" class="w-12 h-12 object-contain">
@@ -2472,6 +2515,212 @@ const catCard = document.createElement('div');
             }
         }
 
+        // 切換記帳自訂分類輸入框
+        function toggleExpenseCustomGroupInput() {
+            var select = document.getElementById('expense-group-select');
+            var input = document.getElementById('expense-custom-group-input');
+            if (select && input) {
+                if (select.value === '__new_expense_cat__') {
+                    input.classList.remove('hidden');
+                    input.focus();
+                } else {
+                    input.classList.add('hidden');
+                }
+            }
+        }
+
+        // 動態生成記帳分類、彩色進度比例條與明細清單
+        function renderExpenses() {
+            // 預設常見分類
+            var defaultCats = ["餐飲 🍔", "藥妝 🛍️", "交通 🚗", "住宿 🏨", "娛樂 🎡", "其他 🪙"];
+            var allCats = defaultCats.slice();
+            
+            // 讀取帳本中是否有使用者自己新增的分類，防重複併入
+            expenseItems.forEach(function(item) {
+                if (allCats.indexOf(item.group) === -1) {
+                    allCats.push(item.group);
+                }
+            });
+
+            // 1. 動態更新快速記帳的分組下拉選單
+            var select = document.getElementById('expense-group-select');
+            if (select) {
+                var savedVal = select.value;
+                select.innerHTML = '';
+                allCats.forEach(function(cat) {
+                    var opt = document.createElement('option');
+                    opt.value = cat;
+                    opt.innerText = cat;
+                    select.appendChild(opt);
+                });
+                var optNew = document.createElement('option');
+                optNew.value = '__new_expense_cat__';
+                optNew.innerText = '[＋ 新增自訂分類]';
+                select.appendChild(optNew);
+                
+                if (savedVal && (allCats.indexOf(savedVal) !== -1 || savedVal === '__new_expense_cat__')) {
+                    select.value = savedVal;
+                } else {
+                    select.value = allCats[0];
+                }
+                toggleExpenseCustomGroupInput();
+            }
+
+            // 取得目前的台幣匯率，用作明細折算與加總
+            var exRateInput = document.getElementById('ex-rate');
+            var rate = exRateInput ? (parseFloat(exRateInput.value) || 0.215) : 0.215;
+
+            // 2. 統計並計算各個分類占比 (彩色進度比例條)
+            var propContainer = document.getElementById('expense-proportion-container');
+            if (propContainer) {
+                propContainer.innerHTML = '';
+                if (expenseItems.length === 0) {
+                    propContainer.innerHTML = '<p class="text-center text-xs text-gray-400 py-4">目前尚無消費紀錄，快在上方記一筆吧！</p>';
+                } else {
+                    var catTotals = {};
+                    var grandTotalJpy = 0;
+                    
+                    expenseItems.forEach(function(item) {
+                        catTotals[item.group] = (catTotals[item.group] || 0) + item.jpy;
+                        grandTotalJpy += item.jpy;
+                    });
+
+                    // 排序分類：金額高到低
+                    var sortedCats = Object.keys(catTotals).sort(function(a, b) {
+                        return catTotals[b] - catTotals[a];
+                    });
+
+                    // 彩色條配色表 (Tailwind 顏色系列，支援離線)
+                    var colors = ['bg-pink-400', 'bg-amber-400', 'bg-emerald-400', 'bg-sky-400', 'bg-indigo-400', 'bg-purple-400', 'bg-rose-400'];
+
+                    sortedCats.forEach(function(cat, index) {
+                        var jpySum = catTotals[cat];
+                        var twdSum = Math.round(jpySum * rate);
+                        var percent = grandTotalJpy > 0 ? Math.round((jpySum / grandTotalJpy) * 100) : 0;
+                        var colorClass = colors[index % colors.length];
+
+                        var barRow = document.createElement('div');
+                        barRow.className = 'space-y-1';
+                        barRow.innerHTML = 
+                            '<div class="flex justify-between text-xs font-bold text-slate-600">' +
+                                '<span>' + cat + '</span>' +
+                                '<span>¥ ' + jpySum.toLocaleString() + ' (約 NT$' + twdSum.toLocaleString() + ') · ' + percent + '%</span>' +
+                            '</div>' +
+                            '<div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">' +
+                                '<div class="' + colorClass + ' h-full transition-all duration-300" style="width: ' + percent + '%"></div>' +
+                            '</div>';
+                        propContainer.appendChild(barRow);
+                    });
+                }
+            }
+
+            // 3. 渲染旅費消費明細清單
+            var listContainer = document.getElementById('expense-list-container');
+            if (listContainer) {
+                listContainer.innerHTML = '';
+                if (expenseItems.length === 0) {
+                    listContainer.innerHTML = '<p class="text-center text-xs text-gray-400 py-6">目前消費明細空空如也 🪙</p>';
+                } else {
+                    // 最新記入的消費排在最上方
+                    var sortedExpenses = expenseItems.slice().sort(function(a, b) { return b.id - a.id; });
+
+                    sortedExpenses.forEach(function(item) {
+                        var twdVal = Math.round(item.jpy * rate);
+                        var row = document.createElement('div');
+                        row.className = 'flex items-center justify-between text-xs py-2 px-1 border-b border-dashed border-slate-100 last:border-0';
+                        
+                        row.innerHTML = 
+                            '<div class="flex items-start space-x-1.5 min-w-0 flex-grow pr-2">' +
+                                '<span class="bg-sky-50 text-sky-600 px-1.5 py-0.5 rounded font-extrabold text-[10px] shrink-0">' + item.group + '</span>' +
+                                '<span class="truncate font-bold text-slate-800">' + item.remark + '</span>' +
+                            '</div>' +
+                            '<div class="flex items-center space-x-2 shrink-0">' +
+                                '<span class="font-extrabold text-slate-800">¥ ' + item.jpy.toLocaleString() + '</span>' +
+                                '<span class="text-gray-400 text-[10px]">(NT$' + twdVal.toLocaleString() + ')</span>' +
+                                '<button onclick="deleteExpenseEntry(' + item.id + ')" class="text-red-400 hover:text-red-600 text-xs ml-1">🗑️</button>' +
+                            '</div>';
+                        listContainer.appendChild(row);
+                    });
+                }
+            }
+
+            // 4. 計算並渲染總計金額
+            var totalBox = document.getElementById('expense-total-box');
+            if (totalBox) {
+                totalBox.innerHTML = '';
+                if (expenseItems.length > 0) {
+                    var totalJpy = 0;
+                    expenseItems.forEach(function(item) { totalJpy += item.jpy; });
+                    var totalTwd = Math.round(totalJpy * rate);
+
+                    totalBox.innerHTML = 
+                        '<p class="text-xs text-slate-500 font-bold">消費累計金額：</p>' +
+                        '<p class="text-base font-black text-sky-600 mt-0.5">' +
+                            '¥ ' + totalJpy.toLocaleString() + ' 日圓' +
+                        '</p>' +
+                        '<p class="text-[10px] text-gray-400 font-bold mt-0.5">' +
+                            '折合新台幣約 NT$ ' + totalTwd.toLocaleString() + ' 元' +
+                        '</p>';
+                }
+            }
+        }
+
+        // 新增記帳條目 (結合動態新增分類)
+        function addExpenseEntry() {
+            var jpyInput = document.getElementById('expense-jpy-input');
+            var remarkInput = document.getElementById('expense-remark-input');
+            var groupSelect = document.getElementById('expense-group-select');
+            var customGroupInput = document.getElementById('expense-custom-group-input');
+
+            if (!jpyInput || !remarkInput || !groupSelect) return;
+
+            var jpyVal = Math.max(0, parseInt(jpyInput.value) || 0);
+            var remark = remarkInput.value.trim();
+
+            if (jpyVal <= 0) {
+                alert("請輸入有效的日幣金額！");
+                return;
+            }
+
+            var catName = groupSelect.value;
+            if (catName === '__new_expense_cat__') {
+                if (customGroupInput) {
+                    catName = customGroupInput.value.trim();
+                }
+                if (!catName) catName = "其他 🪙";
+            }
+
+            var newItem = {
+                id: Date.now(),
+                group: catName,
+                jpy: jpyVal,
+                remark: remark || "未分類消費"
+            };
+
+            expenseItems.push(newItem);
+            jpyInput.value = '';
+            remarkInput.value = '';
+            if (customGroupInput) {
+                customGroupInput.value = '';
+                customGroupInput.classList.add('hidden');
+            }
+            saveExpenses();
+        }
+
+        // 刪除單筆記帳
+        function deleteExpenseEntry(id) {
+            expenseItems = expenseItems.filter(function(item) { return item.id !== id; });
+            saveExpenses();
+        }
+
+        // 一鍵清空記帳明細
+        function resetExpenses() {
+            if (confirm("確定要清空所有的記帳消費明細嗎？此動作將無法復原。")) {
+                expenseItems = [];
+                saveExpenses();
+            }
+        }
+
         // --- TRANSLATOR ACTIONS ---
         function checkTranslateInput() {
             var sourceTextarea = document.getElementById('trans-source');
@@ -2665,6 +2914,22 @@ function speakResult() {
         // --- MEMO STORAGE & ACTIONS ---
         var memoEntries = [];
         var tempMemoImage = "";
+
+        // --- CONSUMPTION BOOKKEEPER DATA & ACTIONS (消費記帳資料初始化) ---
+        var expenseItems;
+        try {
+            var storedExpenses = localStorage.getItem('expenseItems');
+            expenseItems = storedExpenses ? JSON.parse(storedExpenses) : [];
+        } catch(e) {
+            expenseItems = [];
+        }
+
+        function saveExpenses() {
+            try {
+                localStorage.setItem('expenseItems', JSON.stringify(expenseItems));
+            } catch(e) {}
+            renderExpenses();
+        }
 
         function loadMemos() {
             var stored = getStoredItem('tripMemos', null);
@@ -2894,6 +3159,7 @@ function speakResult() {
             renderPrep();
             renderShop();
             loadMemos(); // Loaded updated array-based memo system
+            renderExpenses(); // 載入時自動更新消費明細與占比比例圖
             getNahaWeather(); // 自動取得那霸即時天氣
             
             // 【修改重點】：將 showTab('itinerary') 放入 setTimeout 中延遲 100 毫秒執行
