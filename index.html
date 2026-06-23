@@ -2167,7 +2167,7 @@ const catCard = document.createElement('div');
             });
 
             // 4. 開始渲染各個分組與底下商品
-            Object.keys(groups).forEach(function(groupName) {
+            uniqueGroups.forEach(function(groupName) {
                 const groupItems = groups[groupName];
                 const groupDiv = document.createElement('div');
                 groupDiv.className = 'border-b border-sky-50 pb-4 space-y-3';
