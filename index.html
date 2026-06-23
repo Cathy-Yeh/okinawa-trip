@@ -3151,10 +3151,12 @@ function speakResult() {
                         else if (code >= 80 && code <= 82) { emoji = '🌧️'; desc = '陣雨'; }
                         else if (code >= 95 && code <= 99) { emoji = '⛈️'; desc = '雷陣雨'; }
 
-                        var tempStr = temp + '°C';
+
+			var tempStr = temp + '°C';
                         var descStr = desc;
                         if (maxTemp !== null && minTemp !== null) {
-                            descStr += ' (今日氣溫介於 ' + minTemp + '°C ~ ' + maxTemp + '°C)';
+                            // 使用 <br> 進行強制換行到第三行，並微調字體大小與顏色，使排版更精緻
+                            descStr += '<br><span class="text-[10px] text-gray-400 font-medium">今日氣溫介於 ' + minTemp + '°C ~ ' + maxTemp + '°C</span>';
                         }
 
                         var emojiEl = document.getElementById('naha-weather-emoji');
@@ -3162,7 +3164,7 @@ function speakResult() {
                         var tempEl = document.getElementById('naha-weather-temp');
 
                         if (emojiEl) emojiEl.innerText = emoji;
-                        if (descEl) descEl.innerText = descStr;
+                        if (descEl) descEl.innerHTML = descStr; // 修正：改用 innerHTML 啟用換行與樣式效果
                         if (tempEl) tempEl.innerText = tempStr;
                     } else {
                         fallbackWeather();
