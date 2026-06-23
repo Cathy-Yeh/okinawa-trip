@@ -2099,6 +2099,20 @@ const catCard = document.createElement('div');
             }
         }
 
+	// 切換自訂分組輸入框的顯示與隱藏
+        function toggleCustomGroupInput() {
+            var select = document.getElementById('new-shop-group-select');
+            var input = document.getElementById('new-shop-custom-group-input');
+            if (select && input) {
+                if (select.value === '__new_group__') {
+                    input.classList.remove('hidden');
+                    input.focus();
+                } else {
+                    input.classList.add('hidden');
+                }
+            }
+        }
+
         // 動態生成購買清單分組與商品的渲染函式
         function renderShop() {
             const container = document.getElementById('shop-list-container');
@@ -2214,12 +2228,12 @@ const catCard = document.createElement('div');
                             '<div class="flex items-center space-x-1.5">' +
                                 orderButtonsHtml +
                                 groupSelectHtml +
-                            </div>' +
+                            '</div>' +
                             // 右側：照相與數量控制
                             '<div class="flex items-center space-x-2">' +
                                 '<input type="file" accept="image/*" id="shop-img-file-' + item.id + '" onchange="uploadShopImage(' + item.id + ', this)" class="hidden">' +
                                 '<button onclick="triggerShopImageUpload(' + item.id + ')" class="bg-sky-50 text-sky-600 hover:bg-sky-100 p-1 rounded-lg text-xs flex items-center justify-center">📷</button>' +
-                                '<span class="text-[10px] text-gray-500">數量:</span>' +
+                                '<span class="text-[10px] text-gray-400">數量:</span>' +
                                 '<button onclick="updateShopQty(' + item.id + ', -1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">-</button>' +
                                 '<input type="number" min="0" value="' + item.qty + '" onchange="setShopQty(' + item.id + ', this.value)" class="w-12 text-center border border-sky-100 rounded text-xs py-0.5 font-bold">' +
                                 '<button onclick="updateShopQty(' + item.id + ', 1)" class="bg-sky-100 text-sky-600 font-bold px-2 py-0.5 rounded text-xs">+</button>' +
@@ -2434,6 +2448,7 @@ const catCard = document.createElement('div');
             shopItems = shopItems.filter(function(item) { return item.id !== id; });
             saveShop();
         }
+
 
         // --- CURRENCY CONVERTER ---
         function convertCurrency(source) {
