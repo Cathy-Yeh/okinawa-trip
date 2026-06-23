@@ -610,13 +610,15 @@
 	<div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
                 <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-3">📞 緊急聯絡電話</h3>
                 <div class="space-y-3 text-sm">
-                    <p><span class="font-bold">日本警察求助：</span><a href="tel:110" class="text-sky-600 hover:underline">110</a></p>
-                    <p><span class="font-bold">消防、救護車：</span><a href="tel:119" class="text-sky-600 hover:underline">119</a></p>
-                    <p><span class="font-bold">台北駐日經濟文化代表處那霸分處：</span><br><a href="tel:+81988627008" class="text-sky-600 hover:underline">+81-98-862-7008</a></p>
+                    <!-- 110 與 119 加大為 text-xl、特粗體 font-black -->
+                    <p class="flex items-center"><span class="font-bold">日本警察求助：</span><a href="tel:110" class="text-xl font-black text-sky-600 hover:underline ml-1">110</a></p>
+                    <p class="flex items-center"><span class="font-bold">消防、救護車：</span><a href="tel:119" class="text-xl font-black text-sky-600 hover:underline ml-1">119</a></p>
+                    <!-- 長途電話加大為 text-lg、特粗體 font-black 避免小螢幕折行 -->
+                    <p><span class="font-bold">台北駐日經濟文化代表處那霸分處：</span><br><a href="tel:+81988627008" class="text-lg font-black text-sky-600 hover:underline mt-0.5 inline-block">+81-98-862-7008</a></p>
                     
                     <!-- 新增訪日外國人熱線 -->
                     <div class="border-t border-dashed border-sky-100 pt-2">
-                        <p class="mt-1"><span class="font-bold">訪日外國人醫療 & 急難熱線 (JNTO)：</span><br><a href="tel:05038162787" class="text-sky-600 font-extrabold hover:underline">050-3816-2787</a></p>
+                        <p class="mt-1"><span class="font-bold">訪日外國人醫療 & 急難熱線 (JNTO)：</span><br><a href="tel:05038162787" class="text-lg font-black text-sky-600 hover:underline mt-0.5 inline-block">050-3816-2787</a></p>
                         <p class="text-[10px] text-gray-400 mt-0.5 leading-relaxed">* 24小時對應 (英/中/韓)。生病受傷或發生事故時可撥打。</p>
                     </div>
                 </div>
