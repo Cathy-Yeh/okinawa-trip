@@ -2198,7 +2198,7 @@ const catCard = document.createElement('div');
                     ` : '';
 
                     // 動態生成跨組搬移 (📁) 的選項
-                    var groupSelectHtml = '<select onchange="moveShopItemToGroup(' + item.id + ', this.value)" class="bg-sky-50 border border-sky-100 rounded text-[10px] px-1 py-0.5 text-sky-600 focus:outline-none max-w-[125px] font-bold">';
+                    var groupSelectHtml = '<select onchange="moveShopItemToGroup(' + item.id + ', this.value)" class="bg-sky-50 border border-sky-100 rounded text-[10px] px-1 py-0.5 text-sky-600 focus:outline-none max-w-[110px] font-bold">';
                     uniqueGroups.forEach(function(g) {
                         var selected = (g === item.group) ? 'selected' : '';
                         groupSelectHtml += '<option value="' + g + '" ' + selected + '>📁 ' + g + '</option>';
