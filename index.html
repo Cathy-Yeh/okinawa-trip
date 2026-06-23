@@ -2131,6 +2131,7 @@ const catCard = document.createElement('div');
             if (uniqueGroups.length === 0) {
                 uniqueGroups.push("自訂額外購買項目");
             }
+            uniqueGroups.sort();
 
             // 2. 動態渲染「新增商品區」的分組下拉選單
             var groupSelect = document.getElementById('new-shop-group-select');
