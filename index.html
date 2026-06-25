@@ -2130,10 +2130,23 @@
             { id: 58, cat: 5, text: "酒精消毒噴霧", checked: false }
         ];
 
-        var prepItems;
+var prepItems;
         try {
             var storedPrep = getStoredItem('prepItems', null);
             prepItems = storedPrep ? JSON.parse(storedPrep) : defaultPrepItems;
+            
+            // 自動偵測快取：若使用者的瀏覽器快取中漏掉 VJW 項目 (ID 99)，則自動在最上方安全補入
+            var hasVJW = prepItems.some(function(item) { return item.id === 99; });
+            if (!hasVJW) {
+                prepItems.unshift({ 
+                    id: 99, 
+                    cat: 1, 
+                    text: '登記填寫 VJW <a href="https://vjw-lp.digital.go.jp/zh-hant/" target="_blank" class="text-sky-600 underline font-bold ml-1" onclick="event.stopPropagation()">[開啟官方 VJW 連結]</a>', 
+                    checked: false 
+                });
+                // 更新快取，使 VJW 永久儲存
+                setStoredItem('prepItems', JSON.stringify(prepItems));
+            }
         } catch(e) {
             prepItems = defaultPrepItems;
         }
