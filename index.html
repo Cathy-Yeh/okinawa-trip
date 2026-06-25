@@ -2305,7 +2305,7 @@ const catCard = document.createElement('div');
                 groupDiv.innerHTML = 
                     '<div class="flex items-center justify-between border-b border-sky-100 pb-2 mb-2">' +
                         '<h4 onclick="toggleGroupCollapse(\'' + groupName.replace(/'/g, "\\'") + '\')" class="font-bold text-base text-sky-600 flex items-center space-x-1 cursor-pointer select-none flex-grow">' +
-                            '<span>' + arrow + ' 🛍️ ' + groupName + '</span>'
+                            '<span>' + arrow + ' 🛍️ ' + groupName + '</span>' + 
                         '</h4>' +
                         '<button onclick="renameGroup(\'' + groupName.replace(/'/g, "\\'") + '\')" class="text-xs bg-slate-50 hover:bg-slate-100 text-slate-500 p-1.5 rounded-lg border border-slate-200 leading-none" title="重命名分類">✏️</button>' +
                     '</div>';
@@ -3207,7 +3207,8 @@ function speakResult() {
             }
         }
 
-	// 常用日語小卡全螢幕字卡控制        function openPhraseModal(zh, ja) {
+	// 常用日語小卡全螢幕字卡控制        
+	    function openPhraseModal(zh, ja) {
             var modal = document.getElementById('phrase-modal');
             var zhEl = document.getElementById('phrase-modal-zh');
             var jaEl = document.getElementById('phrase-modal-ja');
