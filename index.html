@@ -1833,21 +1833,39 @@
         <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
     </div>
 
-    <!-- 新增：文字放大燈箱 Modal (點擊卡片時顯示) -->
-    <div id="phrase-modal" onclick="closePhraseModal()" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
-        <div onclick="event.stopPropagation()" class="bg-white rounded-3xl p-6 max-w-sm w-full relative text-center shadow-2xl border-2 border-sky-100 flex flex-col justify-between min-h-[220px]">
-            <!-- 右上角關閉按鈕 -->
-            <button onclick="closePhraseModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 font-bold text-lg p-1.5 focus:outline-none">
-                ✕
-            </button>
-            <div class="my-auto py-4">
-                <!-- 繁體中文說明 -->
-                <p id="phrase-modal-zh" class="text-xs font-bold text-sky-600 mb-3 tracking-wide"></p>
-                <!-- 日語放大文字 -->
-                <p id="phrase-modal-ja" class="text-2xl font-black text-slate-800 leading-normal select-all px-2"></p>
-            </div>
-            <p class="text-[9px] text-slate-400 mt-2">* 可直接出示本畫面給店員或司機觀看</p>
+	<!-- 新增：全螢幕文字放大字卡 Modal (點擊卡片時顯示) -->
+    	<div id="phrase-modal" onclick="closePhraseModal()" class="fixed inset-0 bg-white z-50 hidden flex flex-col justify-between p-6 select-none cursor-pointer">
+        
+        <!-- 右上角圓形關閉按鈕 -->
+        <button onclick="closePhraseModal(); event.stopPropagation();" class="absolute top-6 right-6 bg-slate-100 hover:bg-slate-200 text-slate-500 rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold shadow-sm focus:outline-none transition-colors">
+            ✕
+        </button>
+
+        <!-- 頂部彈性間距 -->
+        <div class="h-12 shrink-0"></div>
+
+        <!-- 字卡核心內容區域 -->
+        <div class="w-full max-w-md mx-auto flex flex-col items-center my-auto px-4">
+            
+            <!-- TAP TO CLOSE 提示 -->
+            <p class="text-[10px] text-slate-300 tracking-[0.25em] font-bold mb-6">TAP TO CLOSE</p>
+            
+            <!-- 上方橫線 -->
+            <div class="w-full border-t-2 border-slate-900 mb-8"></div>
+            
+            <!-- 中間超巨大日語粗體 -->
+            <p id="phrase-modal-ja" class="text-4xl font-black text-slate-900 leading-normal text-center select-all tracking-wider px-2 break-words my-4"></p>
+            
+            <!-- 下方橫線 -->
+            <div class="w-full border-b-2 border-slate-900 mt-8 mb-6"></div>
+            
+            <!-- 下方繁體中文說明 -->
+            <p id="phrase-modal-zh" class="text-lg font-bold text-slate-400 text-center tracking-wide"></p>
+            
         </div>
+
+        <!-- 底部安全間距 -->
+        <div class="h-8 shrink-0"></div>
     </div>
 
     <!-- JS Logic -->
@@ -3189,8 +3207,7 @@ function speakResult() {
             }
         }
 
-        // 新增：常用日語小卡放大燈箱控制
-        function openPhraseModal(zh, ja) {
+	// 常用日語小卡全螢幕字卡控制        function openPhraseModal(zh, ja) {
             var modal = document.getElementById('phrase-modal');
             var zhEl = document.getElementById('phrase-modal-zh');
             var jaEl = document.getElementById('phrase-modal-ja');
