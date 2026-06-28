@@ -1931,7 +1931,7 @@
     </div>
 
 	<!-- 新增：全螢幕文字放大字卡 Modal (點擊卡片時顯示) -->
-    	<div id="phrase-modal" onclick="closePhraseModal()" class="fixed inset-0 bg-white z-50 hidden flex flex-col justify-between p-6 select-none cursor-pointer">
+        <div id="phrase-modal" onclick="closePhraseModal()" class="fixed inset-0 bg-white z-50 hidden flex flex-col justify-between p-6 select-none cursor-pointer">
         
         <!-- 右上角圓形關閉按鈕 -->
         <button onclick="closePhraseModal(); event.stopPropagation();" class="absolute top-6 right-6 bg-slate-100 hover:bg-slate-200 text-slate-500 rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold shadow-sm focus:outline-none transition-colors">
@@ -1952,6 +1952,11 @@
             
             <!-- 中間超巨大日語粗體 -->
             <p id="phrase-modal-ja" class="text-4xl font-black text-slate-900 leading-normal text-center select-all tracking-wider px-2 break-words my-4"></p>
+            
+            <!-- 新增：語音播放按鈕 (使用 stopPropagation 阻止關閉 Modal) -->
+            <button onclick="speakPhraseText(); event.stopPropagation();" class="mt-4 bg-sky-100 hover:bg-sky-200 text-sky-600 font-bold px-5 py-2.5 rounded-full shadow-sm flex items-center justify-center space-x-2 text-sm transition-all active:scale-95">
+                <span>🔊 播放日語語音</span>
+            </button>
             
             <!-- 下方橫線 -->
             <div class="w-full border-b-2 border-slate-900 mt-8 mb-6"></div>
