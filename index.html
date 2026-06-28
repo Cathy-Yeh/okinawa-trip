@@ -1994,7 +1994,15 @@
 	// 全域變數：追蹤當前選取的日程天數，預設為第一天 (D1)
         var activeDay = 1;
 
-        // Tab Navigation (已更新：切換功能頁時智慧重設 Banner 按鈕)
+	// 新增：追蹤各個分頁是否已進行首次渲染的標記 (Flags)，實現效能最大化的懶載入
+        var renderedTabs = {
+            prep: false,
+            shop: false,
+            calc: false,
+            memo: false
+        };
+
+        // Tab Navigation (已優化為「懶載入」與「置頂優化」版本)
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(function(el) {
                 el.classList.add('hidden');
@@ -2010,6 +2018,21 @@
             if (targetNav) {
                 targetNav.classList.remove('text-slate-400');
                 targetNav.classList.add('text-sky-500');
+            }
+
+            // 【智慧型懶載入】：只有在使用者第一次用手指點選該分頁時，才執行對應的重度渲染，其餘時間完全不佔用效能
+            if (tabName === 'prep' && !renderedTabs.prep) {
+                renderPrep();
+                renderedTabs.prep = true;
+            } else if (tabName === 'shop' && !renderedTabs.shop) {
+                renderShop();
+                renderedTabs.shop = true;
+            } else if (tabName === 'calc' && !renderedTabs.calc) {
+                renderExpenses();
+                renderedTabs.calc = true;
+            } else if (tabName === 'memo' && !renderedTabs.memo) {
+                loadMemos();
+                renderedTabs.memo = true;
             }
 
             // --- 智慧型切換重設機制：判斷是否在行程分頁 ---
@@ -2030,7 +2053,8 @@
                 });
             }
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // 移除原本極耗效能的 smooth 滾動，改用瞬間置頂，徹底消除切換分頁時的延遲感
+            window.scrollTo({ top: 0 });
         }
 
 	// Itinerary Day Selector (已微調白底透明度為 bg-white/75，使底圖透出更清晰自然)
@@ -3433,25 +3457,21 @@ function speakResult() {
             if (descEl) descEl.innerText = '暫時無法連線取得那霸即時氣象';
         }
 
-	    // Init App States on load (已優化為「非同步分流排隊載入」以徹底解決首頁卡頓)
+	// Init App States on load (極輕量快速載入版)
         window.onload = function() {
-            // 1. 優先渲染第一頁「行程」並設定日期，讓主畫面在開網頁時瞬間流暢呈現在眼前
+            // 1. 設定今天日期並立即切換至行程首頁，此時完全不載入其他分頁的重度數據
             setTodayDate();
             showTab('itinerary');
             
-            // 2. 其餘重度後台數據渲染進行非同步排隊分流，避免擠在同時間卡死主執行緒
-            setTimeout(renderPrep, 50);       // 50 毫秒後載入行前清單
-            setTimeout(renderShop, 150);      // 150 毫秒後載入購買清單
-            setTimeout(loadMemos, 250);       // 250 毫秒後載入備忘錄
-            setTimeout(renderExpenses, 350);  // 350 毫秒後載入消費記帳數據
-            setTimeout(getNahaWeather, 600);  // 600 毫秒後再發送網路請求取得那霸天氣
+            // 2. 僅將天氣 API 網路請求延遲 300 毫秒發送，避開首頁載入競爭
+            setTimeout(getNahaWeather, 300);
 
-            // 安全載入匯率設定（透過 Try-Catch 機制包裝防止沙盒內 crashes）
+            // 安全載入匯率設定
             var savedRate = getStoredItem('exRate', '0.215');
             var exRateEl = document.getElementById('ex-rate');
             if (exRateEl) exRateEl.value = savedRate;
 
-            // 3. 啟動背景輪詢監聽器 (頻率微調至 400 毫秒，大降背景運算消耗)
+            // 3. 啟動優化後的背景輪詢監聽器
             setInterval(checkTranslateInput, 400);
         };
 
