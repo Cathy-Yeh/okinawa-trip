@@ -1953,11 +1953,6 @@
             <!-- 中間超巨大日語粗體 -->
             <p id="phrase-modal-ja" class="text-4xl font-black text-slate-900 leading-normal text-center select-all tracking-wider px-2 break-words my-4"></p>
             
-            <!-- 新增：語音播放按鈕 (使用 stopPropagation 阻止關閉 Modal) -->
-            <button onclick="speakPhraseText(); event.stopPropagation();" class="mt-4 bg-sky-100 hover:bg-sky-200 text-sky-600 font-bold px-5 py-2.5 rounded-full shadow-sm flex items-center justify-center space-x-2 text-sm transition-all active:scale-95">
-                <span>🔊 播放日語語音</span>
-            </button>
-            
             <!-- 下方橫線 -->
             <div class="w-full border-b-2 border-slate-900 mt-8 mb-6"></div>
             
@@ -2943,26 +2938,34 @@ const catCard = document.createElement('div');
             }
         }
 
-        // --- TRANSLATOR ACTIONS ---
+	    // --- TRANSLATOR ACTIONS (已快取優化以消除背景 CPU 損耗) ---
+        var cachedTransSource = null;
+        var cachedTransResult = null;
+        var cachedBtnSpeak = null;
+
         function checkTranslateInput() {
-            var sourceTextarea = document.getElementById('trans-source');
-            var resultText = document.getElementById('trans-result-text');
-            var btnSpeak = document.getElementById('btn-speak');
+            // 若變數尚未快取，則進行唯一一次的 DOM 節點搜尋
+            if (!cachedTransSource) {
+                cachedTransSource = document.getElementById('trans-source');
+                cachedTransResult = document.getElementById('trans-result-text');
+                cachedBtnSpeak = document.getElementById('btn-speak');
+            }
 
-            if (!sourceTextarea) return;
+            if (!cachedTransSource) return;
 
-            var rawVal = sourceTextarea.value || '';
+            var rawVal = cachedTransSource.value || '';
             var cleanVal = rawVal.replace(/[\s\u200b-\u200d\uFEFF]/g, '');
 
             if (cleanVal === '') {
-                if (resultText && resultText.innerText !== '') {
-                    resultText.innerText = '';
+                if (cachedTransResult && cachedTransResult.innerText !== '') {
+                    cachedTransResult.innerText = '';
                 }
-                if (btnSpeak && !btnSpeak.classList.contains('hidden')) {
-                    btnSpeak.classList.add('hidden');
+                if (cachedBtnSpeak && !cachedBtnSpeak.classList.contains('hidden')) {
+                    cachedBtnSpeak.classList.add('hidden');
                 }
             }
         }
+
 	// 宣告防抖動計時器變數
         var transTimeout;
         function debouncedTranslate() {
@@ -3342,7 +3345,7 @@ function speakResult() {
             }
         }
 
-        // 放大日文卡片專用的語音播放功能
+        // 新增：放大日文卡片專用的語音播放功能 (調校為 0.85 慢速語音，方便店員聆聽)
         function speakPhraseText() {
             var jaEl = document.getElementById('phrase-modal-ja');
             var text = jaEl ? jaEl.innerText.trim() : '';
@@ -3425,28 +3428,26 @@ function speakResult() {
             if (descEl) descEl.innerText = '暫時無法連線取得那霸即時氣象';
         }
 
-	// Init App States on load
+	    // Init App States on load (已優化為「非同步分流排隊載入」以徹底解決首頁卡頓)
         window.onload = function() {
-            renderPrep();
-            renderShop();
-            loadMemos(); // Loaded updated array-based memo system
-            renderExpenses(); // 載入時自動更新消費明細與占比比例圖
-            setTodayDate();   // 當網頁打開時，自動在小日期框中填入今天日期
-            getNahaWeather(); // 自動取得那霸即時天氣
+            // 1. 優先渲染第一頁「行程」並設定日期，讓主畫面在開網頁時瞬間流暢呈現在眼前
+            setTodayDate();
+            showTab('itinerary');
             
-            // 【修改重點】：將 showTab('itinerary') 放入 setTimeout 中延遲 100 毫秒執行
-            // 避開瀏覽器初次渲染與 Tailwind CSS CDN 載入時的主線程衝突，確保半透明順利顯示
-            setTimeout(function() {
-                showTab('itinerary');
-            }, 100);
+            // 2. 其餘重度後台數據渲染進行非同步排隊分流，避免擠在同時間卡死主執行緒
+            setTimeout(renderPrep, 50);       // 50 毫秒後載入行前清單
+            setTimeout(renderShop, 150);      // 150 毫秒後載入購買清單
+            setTimeout(loadMemos, 250);       // 250 毫秒後載入備忘錄
+            setTimeout(renderExpenses, 350);  // 350 毫秒後載入消費記帳數據
+            setTimeout(getNahaWeather, 600);  // 600 毫秒後再發送網路請求取得那霸天氣
 
             // 安全載入匯率設定（透過 Try-Catch 機制包裝防止沙盒內 crashes）
             var savedRate = getStoredItem('exRate', '0.215');
             var exRateEl = document.getElementById('ex-rate');
             if (exRateEl) exRateEl.value = savedRate;
 
-            // 註冊背景每 300 毫秒一次的主動輪詢監聽計時器，完全解決所有行動裝置、鍵盤快速清空不發送事件造成的不同步相容性問題
-            setInterval(checkTranslateInput, 300);
+            // 3. 啟動背景輪詢監聽器 (頻率微調至 400 毫秒，大降背景運算消耗)
+            setInterval(checkTranslateInput, 400);
         };
 
     </script>
