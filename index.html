@@ -35,7 +35,7 @@
 <body class="flex flex-col min-h-screen text-slate-800 pb-20 select-none">
 
 <!-- Top App Header with Banner -->
-    <header class="relative w-full max-w-md mx-auto h-[250px] overflow-hidden shadow-md">
+        <header class="relative w-full max-w-md mx-auto h-[250px] overflow-hidden shadow-md">
 
 	<!-- Banner Image (確認已套用 Banner.png，並加入 onload 偵測解決不透明 Bug) -->
         <img src="Banner.png" alt="Banner" onload="bannerImageLoaded()" class="w-full h-full object-cover object-center">
@@ -48,32 +48,32 @@
                 <!-- D1 -->
                 <button onclick="bannerSwitchDay(1)" id="banner-btn-day1" class="banner-day-btn flex flex-col items-center justify-center py-1 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/50 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
                     <span class="text-[10px] font-bold leading-tight">D1</span>
-                    <span class="text-[8px] opacity-80 leading-tight">7/11</span>
+                    <span class="text-[8px] opacity-80 leading-tight">8/23</span>
                 </button>
                 <!-- D2 -->
                 <button onclick="bannerSwitchDay(2)" id="banner-btn-day2" class="banner-day-btn flex flex-col items-center justify-center py-1 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/50 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
                     <span class="text-[10px] font-bold leading-tight">D2</span>
-                    <span class="text-[8px] opacity-80 leading-tight">7/12</span>
+                    <span class="text-[8px] opacity-80 leading-tight">8/24</span>
                 </button>
                 <!-- D3 -->
                 <button onclick="bannerSwitchDay(3)" id="banner-btn-day3" class="banner-day-btn flex flex-col items-center justify-center py-1 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/50 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
                     <span class="text-[10px] font-bold leading-tight">D3</span>
-                    <span class="text-[8px] opacity-80 leading-tight">7/13</span>
+                    <span class="text-[8px] opacity-80 leading-tight">8/25</span>
                 </button>
                 <!-- D4 -->
                 <button onclick="bannerSwitchDay(4)" id="banner-btn-day4" class="banner-day-btn flex flex-col items-center justify-center py-1 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/50 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
                     <span class="text-[10px] font-bold leading-tight">D4</span>
-                    <span class="text-[8px] opacity-80 leading-tight">7/14</span>
+                    <span class="text-[8px] opacity-80 leading-tight">8/26</span>
                 </button>
                 <!-- D5 -->
                 <button onclick="bannerSwitchDay(5)" id="banner-btn-day5" class="banner-day-btn flex flex-col items-center justify-center py-1 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/50 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
                     <span class="text-[10px] font-bold leading-tight">D5</span>
-                    <span class="text-[8px] opacity-80 leading-tight">7/15</span>
+                    <span class="text-[8px] opacity-80 leading-tight">8/27</span>
                 </button>
                 <!-- D6 -->
                 <button onclick="bannerSwitchDay(6)" id="banner-btn-day6" class="banner-day-btn flex flex-col items-center justify-center py-1 rounded-xl transition-all bg-white/45 text-sky-900 border border-white/50 shadow-sm backdrop-blur-[1px] hover:bg-white/60">
                     <span class="text-[10px] font-bold leading-tight">D6</span>
-                    <span class="text-[8px] opacity-80 leading-tight">7/16</span>
+                    <span class="text-[8px] opacity-80 leading-tight">8/28</span>
                 </button>
             </div>
 
@@ -107,7 +107,7 @@
                 </div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
 		<h2 class="text-lg font-bold text-sky-600">DAY 1 來去沖繩</h2>
-                    <p class="text-sm text-amber-500 font-bold">📅 7/11 (六)</p>
+                    <p class="text-sm text-amber-500 font-bold">📅 8/23 (日)</p>
                 </div>
                 <div class="space-y-4 text-sm">
                     <div class="border-l-2 border-sky-400 pl-3">
@@ -196,9 +196,224 @@
                 <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
                     <img src="D2.png" alt="D2 Icon" class="w-12 h-12 object-contain">
                 </div>
+                <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
+                    <h2 class="text-lg font-bold text-sky-600">DAY 2 沖繩南部GO</h2>
+                    <p class="text-sm text-amber-500 font-bold">📅 8/24 (一)</p>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">07:30 ~ 08:30</span>
+                        <p class="font-bold">飯店早餐</p>
+                    </div>
+                    <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
+                        <span class="text-xs text-red-500 font-bold block">08:45 (09:00 出發)</span>
+                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩南部 Fun Pass (KKday APP 憑證)</span>
+                        <span class="inline-block bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎧 語音導覽兌換序號：875146795599</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">09:30 ~ 12:00</span>
+                        <p class="font-bold">【沖繩世界】</p>
+                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🎒 備註：順遊鐘乳石玉泉洞、王國村、毒蛇博物館三大區域</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=沖繩世界" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至沖繩世界</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">12:30 ~ 13:30</span>
+                        <p class="font-bold">【系滿漁市場】享用美味海鮮</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🦀 必吃美食：炭烤海鮮與海鮮丼飯</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=糸満漁業協同組合+お魚センター" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至系滿漁市場</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">13:40 ~ 15:40</span>
+                        <p class="font-bold">【Iias豐崎購物中心】 OR 【DMM水族館】</p>
+                        <div class="flex space-x-2 mt-1">
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=iias+Toyosaki" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 iias</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=DMM+Kariyushi+Aquarium" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 DMM 水族館</a>
+                        </div>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">16:30 ~ 18:00</span>
+                        <p class="font-bold">【瀨長島】吃幸福鬆餅賞海景</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🥞 必吃美食：幸福鬆餅與絕美海景</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=幸福鬆餅+瀨長島" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至幸福鬆餅</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:00</span>
+                        <p class="font-bold">抵達縣廳前解散</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:00 ~ 18:30</span>
+                        <p class="font-bold">回【縣廳前大和 Roynet 飯店】稍作休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:30</span>
+                        <p class="font-bold">晚餐：【鳥貴族（県庁前國際通り店）】</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍢 必吃美食：極致美味平價串燒</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=鳥貴族+県庁前國際通り店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至鳥貴族</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">20:30 ~ 21:00</span>
+                        <p class="font-bold">【美麗海直營店 Umichurara (うみちゅらら 國際通り店)】</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買伴手禮：鯨鯊包裝紅薯巧克力脆餅</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=うみちゅらら+那霸" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至直營店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">21:00 ~ 21:10</span>
+                        <p class="font-bold">散步回【縣廳前大和 Roynet 飯店】休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                </div>
+            </div>
+
+	<!-- DAY 3 CARD -->
+            <div id="day-card-3" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
+                <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
+                    <img src="D3.png" alt="D3 Icon" class="w-12 h-12 object-contain">
+                </div>
+                <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
+                    <h2 class="text-lg font-bold text-sky-600">DAY 3 沖繩中部GO</h2>
+                    <p class="text-sm text-amber-500 font-bold">📅 8/25 (二)</p>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">07:00 ~ 08:00</span>
+                        <p class="font-bold">飯店早餐</p>
+                    </div>
+                    <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
+                        <span class="text-xs text-red-500 font-bold block">08:10 (08:20 出發)</span>
+                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩中部 Easy Go (Klook APP 憑證)</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">09:05 ~ 09:35</span>
+                        <p class="font-bold">【道之驛嘉手納 (道の駅かでな)】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=道之驛嘉手納" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至嘉手納</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">09:50 ~ 11:00</span>
+                        <p class="font-bold">【東南植物樂園】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=東南植物樂園" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至東南植物園</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">11:35 ~ 12:55</span>
+                        <p class="font-bold">星野度假飯店【OLU Grill 海景餐廳】午餐</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍔 必吃美食：經典豬肉漢堡套餐與無敵海景</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Hoshino+Resorts+OLU+Grill" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 OLU Grill</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">13:10 ~ 13:40</span>
+                        <p class="font-bold">【殘波岬】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=殘波岬" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至殘波岬</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">14:20 ~ 16:50</span>
+                        <p class="font-bold">【AEON MALL 永旺夢樂城沖繩來客夢】精華購物</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買戰利品：On 昂跑、HOKA 日本限定球鞋、Panasonic 吹風機</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=AEON+MALL+Okinawa+Rycom" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至來客夢</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:00</span>
+                        <p class="font-bold">抵達縣廳前解散</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:00 ~ 18:30</span>
+                        <p class="font-bold">回【縣廳前大和 Roynet 飯店】稍作休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:00</span>
+                        <p class="font-bold">晚餐：【Captain's Inn Kokusai Street】</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍔 必吃美食：阿古豬里肌排套餐 + 鮮活海鮮花式鐵板燒表演饗宴</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Captains+Inn+Kokusai+Street" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Captain's Inn</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">20:00 ~ 21:00</span>
+                        <p class="font-bold">【札幌藥妝 沖繩國際通店】採買藥妝</p>
+                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：ALLIE 持采UV高效防曬水凝乳、各類人氣日本藥妝</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=札幌藥妝+沖繩國際通店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至札幌藥妝</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">21:00 ~ 21:10</span>
+                        <p class="font-bold">散步回【縣廳前大和 Roynet 飯店】休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                </div>
+            </div>
+
+	<!-- DAY 4 CARD -->
+            <div id="day-card-4" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
+                <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
+                    <img src="D4.png" alt="D4 Icon" class="w-12 h-12 object-contain">
+                </div>
+                <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
+                    <h2 class="text-lg font-bold text-sky-600">DAY 4 沖繩北部GO</h2>
+                    <p class="text-sm text-amber-500 font-bold">📅 8/26 (三)</p>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">07:00 ~ 08:00</span>
+                        <p class="font-bold">飯店早餐</p>
+                    </div>
+                    <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
+                        <span class="text-xs text-red-500 font-bold block">08:20 (08:30 出發)</span>
+                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩北部 Amphibians (KKday APP 憑證)</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">09:40 ~ 10:10</span>
+                        <p class="font-bold">【萬座毛】</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=萬座毛" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至萬座毛</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">11:15 ~ 12:05</span>
+                        <p class="font-bold">【古宇利島】(享用招牌蒜味蝦蝦飯）</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍤 必吃美食：享用手繪圖盒裝蒜味蝦蝦飯</span>
+                        <a href="https://maps.app.goo.gl/Q9ioA7GgaTWXrWr87" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至古宇利島</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">12:30 ~ 16:00</span>
+                        <p class="font-bold">【美麗海水族館】</p>
+                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🐋 備註：吹冷氣、賞「黑潮之海」巨型觀景窗與大鯨鯊</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=沖繩美麗海水族館" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至美麗海水族館</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:10</span>
+                        <p class="font-bold">抵達縣廳前解散</p>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:10 ~ 18:30</span>
+                        <p class="font-bold">回 【縣廳前大和 Roynet 飯店】稍作休息</p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:00</span>
+                        <p class="font-bold">晚餐：【Ryukyu Obanzai Tsukaya】</p>
+                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍱 必吃美食：精緻「十二宮格」琉球御膳</span>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Ryiqu+Obanzai+Tsukaya" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Tsukaya</a>
+                    </div>
+                    <div class="border-l-2 border-sky-400 pl-3">
+                        <span class="text-xs text-sky-500 font-bold block">20:00 ~ 20:15</span>
+                        <p class="font-bold">散步至【牧志站】搭乘電車回飯店</p>
+                        <div class="flex space-x-2 mt-1">
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=牧志站" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至牧志站</a>
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至大和Roynet飯店</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+	<!-- DAY 5 CARD -->
+            <div id="day-card-5" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
+                <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
+                    <img src="D5.png" alt="D5 Icon" class="w-12 h-12 object-contain">
+                </div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">                    
-		<h2 class="text-lg font-bold text-sky-600">DAY 2 牧志市場與國際通巡禮</h2>
-                    <p class="text-sm text-amber-500 font-bold">📅 7/12 (日)</p>
+		<h2 class="text-lg font-bold text-sky-600">DAY 5 牧志市場與國際通巡禮</h2>
+                    <p class="text-sm text-amber-500 font-bold">📅 8/27 (四)</p>
                 </div>
                 <div class="space-y-4 text-sm">
                     <div class="border-l-2 border-sky-400 pl-3">
@@ -269,221 +484,6 @@
                 </div>
             </div>
 
-	<!-- DAY 3 CARD -->
-            <div id="day-card-3" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
-                    <img src="D3.png" alt="D3 Icon" class="w-12 h-12 object-contain">
-                </div>
-                <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
-                    <h2 class="text-lg font-bold text-sky-600">DAY 3 沖繩南部GO</h2>
-                    <p class="text-sm text-amber-500 font-bold">📅 7/13 (一)</p>
-                </div>
-                <div class="space-y-4 text-sm">
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">07:30 ~ 08:30</span>
-                        <p class="font-bold">飯店早餐</p>
-                    </div>
-                    <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
-                        <span class="text-xs text-red-500 font-bold block">08:45 (09:00 出發)</span>
-                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩南部 Fun Pass (KKday APP 憑證)</span>
-                        <span class="inline-block bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎧 語音導覽兌換序號：875146795599</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:30 ~ 12:00</span>
-                        <p class="font-bold">【沖繩世界】</p>
-                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🎒 備註：順遊鐘乳石玉泉洞、王國村、毒蛇博物館三大區域</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=沖繩世界" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至沖繩世界</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">12:30 ~ 13:30</span>
-                        <p class="font-bold">【系滿漁市場】享用美味海鮮</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🦀 必吃美食：炭烤海鮮與海鮮丼飯</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=糸満漁業協同組合+お魚センター" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至系滿漁市場</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">13:40 ~ 15:40</span>
-                        <p class="font-bold">【Iias豐崎購物中心】 OR 【DMM水族館】</p>
-                        <div class="flex space-x-2 mt-1">
-                            <a href="https://www.google.com/maps/search/?api=1&amp;query=iias+Toyosaki" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 iias</a>
-                            <a href="https://www.google.com/maps/search/?api=1&amp;query=DMM+Kariyushi+Aquarium" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至 DMM 水族館</a>
-                        </div>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">16:30 ~ 18:00</span>
-                        <p class="font-bold">【瀨長島】吃幸福鬆餅賞海景</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🥞 必吃美食：幸福鬆餅與絕美海景</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=幸福鬆餅+瀨長島" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至幸福鬆餅</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:00</span>
-                        <p class="font-bold">抵達縣廳前解散</p>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:00 ~ 18:30</span>
-                        <p class="font-bold">回【縣廳前大和 Roynet 飯店】稍作休息</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:30</span>
-                        <p class="font-bold">晚餐：【鳥貴族（県庁前國際通り店）】</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍢 必吃美食：極致美味平價串燒</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=鳥貴族+県庁前國際通り店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至鳥貴族</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">20:30 ~ 21:00</span>
-                        <p class="font-bold">【美麗海直營店 Umichurara (うみちゅらら 國際通り店)】</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買伴手禮：鯨鯊包裝紅薯巧克力脆餅</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=うみちゅらら+那霸" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至直營店</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">21:00 ~ 21:10</span>
-                        <p class="font-bold">散步回【縣廳前大和 Roynet 飯店】休息</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
-                    </div>
-                </div>
-            </div>
-
-	<!-- DAY 4 CARD -->
-            <div id="day-card-4" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
-                    <img src="D4.png" alt="D4 Icon" class="w-12 h-12 object-contain">
-                </div>
-                <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
-                    <h2 class="text-lg font-bold text-sky-600">DAY 4 沖繩中部GO</h2>
-                    <p class="text-sm text-amber-500 font-bold">📅 7/14 (二)</p>
-                </div>
-                <div class="space-y-4 text-sm">
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">07:00 ~ 08:00</span>
-                        <p class="font-bold">飯店早餐</p>
-                    </div>
-                    <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
-                        <span class="text-xs text-red-500 font-bold block">08:10 (08:20 出發)</span>
-                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩中部 Easy Go (Klook APP 憑證)</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:05 ~ 09:35</span>
-                        <p class="font-bold">【道之驛嘉手納 (道の駅かでな)】</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=道之驛嘉手納" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至嘉手納</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:50 ~ 11:00</span>
-                        <p class="font-bold">【東南植物樂園】</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=東南植物樂園" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至東南植物園</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">11:35 ~ 12:55</span>
-                        <p class="font-bold">星野度假飯店【OLU Grill 海景餐廳】午餐</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍔 必吃美食：經典豬肉漢堡套餐與無敵海景</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Hoshino+Resorts+OLU+Grill" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 OLU Grill</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">13:10 ~ 13:40</span>
-                        <p class="font-bold">【殘波岬】</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=殘波岬" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至殘波岬</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">14:20 ~ 16:50</span>
-                        <p class="font-bold">【AEON MALL 永旺夢樂城沖繩來客夢】精華購物</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買戰利品：On 昂跑、HOKA 日本限定球鞋、Panasonic 吹風機</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=AEON+MALL+Okinawa+Rycom" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至來客夢</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:00</span>
-                        <p class="font-bold">抵達縣廳前解散</p>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:00 ~ 18:30</span>
-                        <p class="font-bold">回【縣廳前大和 Roynet 飯店】稍作休息</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:00</span>
-                        <p class="font-bold">晚餐：【Captain's Inn Kokusai Street】</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🥩 必吃美食：阿古豬里肌排套餐 + 鮮活海鮮花式鐵板燒表演饗宴</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Captains+Inn+Kokusai+Street" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Captain's Inn</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">20:00 ~ 21:00</span>
-                        <p class="font-bold">【札幌藥妝 沖繩國際通店】採買藥妝</p>
-                        <span class="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎁 必買：ALLIE 持采UV高效防曬水凝乳、各類人氣日本藥妝</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=札幌藥妝+沖繩國際通店" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至札幌藥妝</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">21:00 ~ 21:10</span>
-                        <p class="font-bold">散步回【縣廳前大和 Roynet 飯店】休息</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
-                    </div>
-                </div>
-            </div>
-
-	<!-- DAY 5 CARD -->
-            <div id="day-card-5" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
-                <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
-                    <img src="D5.png" alt="D5 Icon" class="w-12 h-12 object-contain">
-                </div>
-                <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
-                    <h2 class="text-lg font-bold text-sky-600">DAY 5 沖繩北部GO</h2>
-                    <p class="text-sm text-amber-500 font-bold">📅 7/15 (三)</p>
-                </div>
-                <div class="space-y-4 text-sm">
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">07:00 ~ 08:00</span>
-                        <p class="font-bold">飯店早餐</p>
-                    </div>
-                    <div class="border-l-2 border-red-400 pl-3 bg-red-50 p-2 rounded-r-xl">
-                        <span class="text-xs text-red-500 font-bold block">08:20 (08:30 出發)</span>
-                        <p class="font-bold text-red-600">🚨 交通工具集合點：【那霸縣廳前 RYUBO 百貨 BLUE SEAL】店鋪前</p>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🎫 憑證：沖繩北部 Amphibians (KKday APP 憑證)</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Palette+Kumoji+BLUE+SEAL" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 RYUBO 集合點</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">09:40 ~ 10:10</span>
-                        <p class="font-bold">【萬座毛】</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=萬座毛" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至萬座毛</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">11:15 ~ 12:05</span>
-                        <p class="font-bold">【古宇利島】(享用招牌蒜味蝦蝦飯）</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍤 必吃美食：享用手繪圖盒裝蒜味蝦蝦飯</span>
-                        <a href="https://maps.app.goo.gl/Q9ioA7GgaTWXrWr87" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至古宇利島</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">12:30 ~ 16:00</span>
-                        <p class="font-bold">【美麗海水族館】</p>
-                        <span class="inline-block bg-sky-100 text-sky-800 text-xs px-2 py-0.5 rounded-full mt-1">🐋 備註：吹冷氣、賞「黑潮之海」巨型觀景窗與大鯨鯊</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=沖繩美麗海水族館" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至美麗海水族館</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:10</span>
-                        <p class="font-bold">抵達縣廳前解散</p>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:10 ~ 18:30</span>
-                        <p class="font-bold">回 【縣廳前大和 Roynet 飯店】稍作休息</p>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至飯店</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">18:30 ~ 20:00</span>
-                        <p class="font-bold">晚餐：【Ryukyu Obanzai Tsukaya】</p>
-                        <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full mt-1 font-bold">🍱 必吃美食：精緻「十二宮格」琉球御膳</span>
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Ryiqu+Obanzai+Tsukaya" target="_blank" class="inline-flex items-center text-xs text-sky-600 mt-1 hover:underline">🗺️ 導航至 Tsukaya</a>
-                    </div>
-                    <div class="border-l-2 border-sky-400 pl-3">
-                        <span class="text-xs text-sky-500 font-bold block">20:00 ~ 20:15</span>
-                        <p class="font-bold">散步至【牧志站】搭乘電車回飯店</p>
-                        <div class="flex space-x-2 mt-1">
-                            <a href="https://www.google.com/maps/search/?api=1&amp;query=牧志站" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至牧志站</a>
-                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Daiwa+Roynet+Hotel+Okinawa-Kenchomae" target="_blank" class="text-xs text-sky-600 hover:underline">🗺️ 導航至大和Roynet飯店</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 <!-- DAY 6 CARD -->
             <div id="day-card-6" class="day-card bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100 relative overflow-hidden hidden">
                 <div class="absolute -top-5 -right-2 w-20 h-20 bg-amber-100 bg-opacity-40 rounded-full flex items-end justify-center pb-2">
@@ -491,7 +491,7 @@
                 </div>
                 <div class="border-b-2 border-dashed border-sky-100 pb-3 mb-4">
                     <h2 class="text-lg font-bold text-sky-600">DAY 6 達摩寺參拜與回台</h2>
-                    <p class="text-sm text-amber-500 font-bold">📅 7/16 (四)</p>
+                    <p class="text-sm text-amber-500 font-bold">📅 8/28 (五)</p>
                 </div>
                 <div class="space-y-4 text-sm">
                     <div class="border-l-2 border-sky-400 pl-3">
@@ -559,11 +559,11 @@
 
         <!-- SECTION 2: 資訊區塊 (Info) -->
         <section id="sec-info" class="tab-content hidden space-y-4">
-            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
+	<div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
                 <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-3">✈️ 航班資訊</h3>
                 <div class="space-y-2 text-sm">
-                    <p><span class="font-bold">去程：</span>11/July/2026 | 14:55 - 17:20 | 泰越捷 VZ568 (一航廈)</p>
-                    <p><span class="font-bold">回程：</span>16/July/2026 | 18:20 - 18:55 | 泰越捷 VZ569</p>
+                    <p><span class="font-bold">去程：</span>23/August/2026 | 14:55 - 17:20 | 泰越捷 VZ568 (一航廈)</p>
+                    <p><span class="font-bold">回程：</span>28/August/2026 | 18:20 - 18:55 | 泰越捷 VZ569</p>
                 </div>
             </div>
 
@@ -579,22 +579,22 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
+		<div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-sky-100">
                 <h3 class="font-bold text-lg text-sky-600 border-b border-sky-100 pb-2 mb-3">🎫 交通與票券預訂</h3>
                 <div class="space-y-4 text-sm">
                     <div class="border-l-2 border-teal-400 pl-3">
-                        <p class="font-bold text-teal-800">2026/7/13 沖繩南部 Fun Pass</p>
+                        <p class="font-bold text-teal-800">2026/8/24 沖繩南部 Fun Pass</p>
                         <p class="text-xs">憑證：KKday APP</p>
                         <p class="text-xs font-bold text-red-600">語音導覽 APP 兌換序號：875146795599</p>
                         <p class="text-xs text-gray-500">方案：南部路線 | 供應商 Email: okinawa.fontrip@gmail.com</p>
                     </div>
                     <div class="border-l-2 border-teal-400 pl-3">
-                        <p class="font-bold text-teal-800">2026/7/14 沖繩中部 Easy Go</p>
+                        <p class="font-bold text-teal-800">2026/8/25 沖繩中部 Easy Go</p>
                         <p class="text-xs font-bold">憑證：Klook APP</p>
                         <p class="text-xs text-gray-500">供應商電話：+81-5055263878 | Email: jphoka_sales@jph.co.jp</p>
                     </div>
 		    <div class="border-l-2 border-teal-400 pl-3">
-                        <p class="font-bold text-teal-800">2026/7/15 沖繩北部 Amphibians</p>
+                        <p class="font-bold text-teal-800">2026/8/26 沖繩北部 Amphibians</p>
                         <p class="text-xs font-bold">憑證：KKday APP</p>
                         <p class="text-xs text-gray-500">供應商 LINE ID：@092alhfa</p>
                     </div>
